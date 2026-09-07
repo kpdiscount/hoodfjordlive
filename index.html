@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tidewater — Live Music on Hood Canal</title>
+<meta name="description" content="Who's playing tonight around Union, Shelton and Belfair.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --abyss:#06151A; --deep:#0B2129; --surface:#102E37; --raise:#163B46;
+  --line:rgba(150,196,193,.15); --line-2:rgba(150,196,193,.3);
+  --mist:#9FBBBB; --shell:#EFE9DC; --glow:#61E2B6; --amber:#E9A94E;
+  --disp:'Bricolage Grotesque',system-ui,sans-serif;
+  --prose:'Newsreader',Georgia,serif;
+  --mono:'DM Mono',ui-monospace,monospace;
+  --tab:64px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  background:var(--abyss); color:var(--shell); font-family:var(--prose);
+  font-size:17px; line-height:1.5; overflow-x:hidden;
+  padding-bottom:calc(var(--tab) + env(safe-area-inset-bottom));
+  -webkit-font-smoothing:antialiased;
+}
+body::before{
+  content:'';position:fixed;inset:0 0 auto;height:60vh;z-index:0;pointer-events:none;
+  background:radial-gradient(120% 70% at 50% 0%,rgba(97,226,182,.12),transparent 65%);
+}
+.wrap{position:relative;z-index:1;max-width:620px;margin:0 auto;padding:0 18px}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--glow);outline-offset:3px;border-radius:4px}
+
+/* ---------- masthead ---------- */
+.mast{padding:22px 0 6px;display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.brand{font-family:var(--disp);font-weight:800;font-size:20px;letter-spacing:-.02em;
+  display:flex;align-items:center;gap:9px}
+.brand .mark{width:22px;height:12px;flex:none;overflow:visible}
+.today{font-family:var(--mono);font-size:11.5px;color:var(--mist);text-transform:uppercase;
+  letter-spacing:.1em;text-align:right;line-height:1.35}
+
+/* ---------- hero ---------- */
+.hero{padding:14px 0 8px}
+.eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--glow);display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.eyebrow::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--line-2),transparent)}
+.eyebrow.amber{color:var(--amber)}
+.eyebrow.plain{color:var(--mist)}
+.hero h1{font-family:var(--disp);font-weight:800;letter-spacing:-.035em;line-height:.95;
+  font-size:clamp(42px,13vw,68px);text-wrap:balance}
+.hero h1 .n{color:var(--glow);font-variant-numeric:tabular-nums}
+.hero p{color:var(--mist);font-size:16px;margin-top:10px;max-width:34ch}
+
+/* ---------- tide rail (signature) ---------- */
+.rail{position:relative;margin:22px 0 8px;padding-left:66px}
+.rail::before{content:'';position:absolute;left:53px;top:8px;bottom:26px;width:1px;
+  background:linear-gradient(180deg,var(--glow),rgba(97,226,182,.15))}
+.stop{position:relative;margin-bottom:12px}
+.stop .t{position:absolute;left:-66px;top:15px;width:48px;text-align:right;
+  font-family:var(--mono);font-size:12px;color:var(--mist);font-variant-numeric:tabular-nums}
+.stop .t b{display:block;color:var(--shell);font-weight:500;font-size:13.5px}
+.stop::before{content:'';position:absolute;left:-15px;top:20px;width:9px;height:9px;border-radius:50%;
+  background:var(--glow);box-shadow:0 0 0 3px var(--abyss),0 0 12px rgba(97,226,182,.75)}
+.stop.past::before{background:var(--line-2);box-shadow:0 0 0 3px var(--abyss)}
+.stop.past .card{opacity:.55}
+
+/* ---------- cards ---------- */
+.card{background:var(--surface);border:1px solid var(--line);border-radius:13px;
+  padding:13px 15px;text-align:left;width:100%;display:block;transition:border-color .18s,transform .18s}
+.card:hover,.card:focus-visible{border-color:var(--line-2);transform:translateY(-1px)}
+.card .act{font-family:var(--disp);font-weight:700;font-size:19px;letter-spacing:-.02em;
+  line-height:1.15;text-wrap:balance}
+.card .meta{color:var(--mist);font-size:14.5px;margin-top:4px}
+.card .meta .dot{opacity:.45;margin:0 6px}
+.card .tag{display:inline-block;font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--mist);border:1px solid var(--line);
+  border-radius:99px;padding:2px 8px;margin-top:9px}
+.card .tag.soon{color:var(--glow);border-color:rgba(97,226,182,.4)}
+.card .tag.tba{color:var(--amber);border-color:rgba(233,169,78,.4)}
+
+/* row style used in weekend / upcoming / day lists */
+.row{display:flex;gap:14px;align-items:flex-start;width:100%;text-align:left;
+  padding:13px 4px;border-bottom:1px solid var(--line);transition:background .15s}
+.row:hover,.row:focus-visible{background:rgba(150,196,193,.05)}
+.row .when{flex:none;width:52px;font-family:var(--mono);font-size:11px;color:var(--mist);
+  text-transform:uppercase;letter-spacing:.08em;padding-top:2px}
+.row .when b{display:block;font-family:var(--disp);font-size:22px;font-weight:700;
+  color:var(--shell);letter-spacing:-.03em;line-height:1.05;margin-top:1px}
+.row .body{flex:1;min-width:0}
+.row .act{font-family:var(--disp);font-weight:700;font-size:17px;letter-spacing:-.015em;line-height:1.2}
+.row .meta{color:var(--mist);font-size:14px;margin-top:3px}
+.row .time{flex:none;font-family:var(--mono);font-size:12px;color:var(--mist);padding-top:4px;
+  text-align:right;font-variant-numeric:tabular-nums}
+.daygroup{margin-top:6px}
+.dayhead{font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--mist);padding:16px 4px 5px;border-bottom:1px solid var(--line-2);
+  display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+/* Friday to Sunday reads differently at a glance without breaking the date order. */
+.dayhead.wknd{color:var(--amber);border-bottom-color:rgba(233,169,78,.45)}
+.dayhead .wtag{font-size:9.5px;letter-spacing:.18em;color:var(--amber);
+  border:1px solid rgba(233,169,78,.45);border-radius:99px;padding:2px 7px;flex:none}
+.daygroup.wknd{background:linear-gradient(180deg,rgba(233,169,78,.055),transparent 62%);
+  border-radius:10px;padding:0 6px;margin-left:-6px;margin-right:-6px}
+
+section{margin-top:34px}
+.secnote{color:var(--mist);font-size:14px;margin:-4px 0 2px}
+.linkbtn{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:12px;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--glow);margin-top:16px}
+
+/* ---------- empty ---------- */
+.empty{border:1px dashed var(--line-2);border-radius:13px;padding:20px;color:var(--mist);font-size:15.5px}
+.empty b{color:var(--shell);font-family:var(--disp);font-weight:700}
+
+/* ---------- tabs ---------- */
+.tabs{position:fixed;left:0;right:0;bottom:0;z-index:40;display:flex;
+  background:rgba(6,21,26,.93);backdrop-filter:blur(14px);border-top:1px solid var(--line);
+  padding-bottom:env(safe-area-inset-bottom)}
+.tabs button{flex:1;height:var(--tab);display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:4px;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--mist)}
+.tabs button[aria-selected="true"]{color:var(--glow)}
+.tabs svg{width:21px;height:21px;stroke:currentColor;fill:none;stroke-width:1.6}
+
+/* ---------- calendar ---------- */
+.segwrap{display:flex;gap:6px;background:var(--deep);border:1px solid var(--line);
+  border-radius:11px;padding:4px;margin:14px 0 4px}
+.segwrap button{flex:1;padding:9px;border-radius:8px;font-family:var(--mono);font-size:11.5px;
+  letter-spacing:.11em;text-transform:uppercase;color:var(--mist)}
+.segwrap button[aria-selected="true"]{background:var(--raise);color:var(--shell)}
+.filters{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.filters .wide{grid-column:1/-1}
+.filters select{width:100%;appearance:none;background:var(--deep);color:var(--shell);
+  border:1px solid var(--line);border-radius:10px;padding:11px 30px 11px 12px;
+  font-family:var(--mono);font-size:12.5px;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' stroke='%239FBBBB' stroke-width='1.5' fill='none'/></svg>");
+  background-repeat:no-repeat;background-position:right 11px center;background-size:11px}
+.fnote{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--mist);margin-top:11px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.clear{color:var(--glow);font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+
+.mhead{display:flex;align-items:center;justify-content:space-between;margin:20px 0 12px}
+.mhead h2{font-family:var(--disp);font-weight:700;font-size:22px;letter-spacing:-.02em}
+.mnav{display:flex;gap:6px}
+.mnav button{width:38px;height:38px;border:1px solid var(--line);border-radius:10px;
+  display:grid;place-items:center;color:var(--mist)}
+.mnav button:disabled{opacity:.3;cursor:default}
+.dow{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:5px}
+.dow span{text-align:center;font-family:var(--mono);font-size:10px;letter-spacing:.08em;
+  color:var(--mist);text-transform:uppercase}
+.grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.cell{aspect-ratio:1;border:1px solid transparent;border-radius:10px;display:flex;
+  flex-direction:column;align-items:center;justify-content:center;gap:4px;
+  font-family:var(--mono);font-size:13px;color:var(--mist);position:relative}
+.cell.has{background:var(--surface);border-color:var(--line);color:var(--shell);cursor:pointer}
+.cell.has:hover{border-color:var(--line-2)}
+.cell.today{border-color:var(--glow)}
+.cell.sel{background:var(--glow);color:#06151A;border-color:var(--glow)}
+.cell.out{opacity:.22}
+.pips{display:flex;gap:2.5px;height:5px}
+.pip{width:4.5px;height:4.5px;border-radius:50%;background:var(--glow)}
+.cell.sel .pip{background:#06151A}
+.cell.more{font-size:9px}
+
+/* ---------- sheet ---------- */
+.scrim{position:fixed;inset:0;z-index:50;background:rgba(3,11,14,.72);
+  backdrop-filter:blur(3px);opacity:0;pointer-events:none;transition:opacity .25s}
+.scrim.on{opacity:1;pointer-events:auto}
+.sheet{position:fixed;left:0;right:0;bottom:0;z-index:51;max-height:92vh;overflow-y:auto;
+  background:var(--deep);border-top:1px solid var(--line-2);
+  border-radius:20px 20px 0 0;transform:translateY(101%);transition:transform .3s cubic-bezier(.32,.72,0,1);
+  overscroll-behavior:contain;padding-bottom:calc(28px + env(safe-area-inset-bottom))}
+.sheet.on{transform:translateY(0)}
+.sheet-in{max-width:620px;margin:0 auto;padding:0 18px}
+.grab{width:38px;height:4px;border-radius:99px;background:var(--line-2);margin:10px auto 4px}
+.sheet .close{position:absolute;top:14px;right:16px;width:34px;height:34px;border-radius:50%;
+  background:var(--surface);display:grid;place-items:center;color:var(--mist);font-size:17px}
+.kind{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--glow);margin:14px 0 7px}
+.sheet h2{font-family:var(--disp);font-weight:800;font-size:31px;letter-spacing:-.03em;
+  line-height:1.05;text-wrap:balance;padding-right:38px}
+.sub{color:var(--mist);font-family:var(--mono);font-size:12px;letter-spacing:.05em;margin-top:9px}
+.desc{margin-top:15px;font-size:16.5px;line-height:1.55;color:#DDE6E2}
+.links{display:flex;flex-wrap:wrap;gap:7px;margin-top:17px}
+.links a{display:inline-flex;align-items:center;gap:7px;background:var(--surface);
+  border:1px solid var(--line);border-radius:99px;padding:8px 14px;font-family:var(--mono);
+  font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;text-decoration:none;
+  transition:border-color .18s}
+.links a:hover{border-color:var(--glow);color:var(--glow)}
+.links a.key{background:var(--glow);color:#06151A;border-color:var(--glow);font-weight:500}
+.subhead{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--mist);margin:26px 0 2px;padding-bottom:7px;border-bottom:1px solid var(--line-2)}
+.gap{border:1px solid var(--line);border-left:2px solid var(--amber);border-radius:0 11px 11px 0;
+  padding:13px 15px;margin-top:15px;color:var(--mist);font-size:14.5px;line-height:1.5}
+.gap b{color:var(--shell);font-family:var(--disp)}
+
+.foot{margin:44px 0 10px;padding-top:20px;border-top:1px solid var(--line);
+  color:var(--mist);font-size:13.5px;line-height:1.6}
+.foot b{color:var(--shell);font-family:var(--disp);font-weight:700}
+.hide{display:none!important}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+@media (min-width:560px){ .filters{grid-template-columns:repeat(3,1fr)} .filters .wide{grid-column:auto} }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="mast">
+    <div class="brand">
+      <svg class="mark" viewBox="0 0 40 20" aria-hidden="true">
+        <path d="M0 13 Q6 5 12 13 T24 13 T36 13" fill="none" stroke="#61E2B6" stroke-width="2.4" stroke-linecap="round"/>
+      </svg>
+      Tidewater
+    </div>
+    <div class="today" id="todayStamp"></div>
+  </header>
+
+  <main id="home">
+    <section class="hero" style="margin-top:0">
+      <div class="eyebrow">Live music tonight</div>
+      <h1 id="tonightHead"></h1>
+      <p id="tonightSub"></p>
+      <div id="tonightBody"></div>
+    </section>
+
+    <section>
+      <div class="eyebrow plain">Upcoming live music</div>
+      <p class="secnote" id="upcomingNote"></p>
+      <div id="upcomingBody"></div>
+      <button class="linkbtn" onclick="go('cal')">Open the full calendar &rarr;</button>
+    </section>
+
+    <div class="foot" id="foot"></div>
+  </main>
+
+  <main id="cal" class="hide">
+    <div class="segwrap" role="tablist">
+      <button role="tab" id="segMonth" aria-selected="true" onclick="setMode('month')">Month</button>
+      <button role="tab" id="segList" aria-selected="false" onclick="setMode('list')">List</button>
+    </div>
+
+    <div class="filters">
+      <div class="wide"><select id="fArtist" aria-label="Filter by artist"></select></div>
+      <select id="fVenue" aria-label="Filter by venue"></select>
+      <select id="fCity" aria-label="Filter by town"></select>
+    </div>
+    <div class="fnote">
+      <span id="fCount"></span>
+      <button class="clear hide" id="fClear" onclick="clearFilters()">Clear filters</button>
+    </div>
+
+    <div id="monthView">
+      <div class="mhead">
+        <h2 id="monthLabel"></h2>
+        <div class="mnav">
+          <button id="prevM" onclick="shiftMonth(-1)" aria-label="Previous month">&#8249;</button>
+          <button id="nextM" onclick="shiftMonth(1)" aria-label="Next month">&#8250;</button>
+        </div>
+      </div>
+      <div class="dow"><span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span></div>
+      <div class="grid" id="grid"></div>
+      <div id="dayDetail"></div>
+    </div>
+
+    <div id="listView" class="hide"></div>
+    <div class="foot" id="foot2"></div>
+  </main>
+</div>
+
+<nav class="tabs" role="tablist">
+  <button role="tab" id="tabHome" aria-selected="true" onclick="go('home')">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 15c3-4 5-4 8 0s5 4 8 0M3 9c3-4 5-4 8 0s5 4 8 0" stroke-linecap="round"/></svg>
+    Tonight
+  </button>
+  <button role="tab" id="tabCal" aria-selected="false" onclick="go('cal')">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2.5"/><path d="M3 10h18M8 3v4M16 3v4" stroke-linecap="round"/></svg>
+    Calendar
+  </button>
+</nav>
+
+<div class="scrim" id="scrim" onclick="closeSheet()"></div>
+<aside class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheetTitle">
+  <div class="grab"></div>
+  <button class="close" onclick="closeSheet()" aria-label="Close">&times;</button>
+  <div class="sheet-in" id="sheetBody"></div>
+</aside>
+
+<script>
+// Baked-in snapshot. The page renders instantly from this with zero network
+// dependency, so "who is playing tonight" is never answered by a spinner on a bad
+// connection. Live data from the feed quietly replaces it when it arrives.
+let DB = {"generated": "2026-09-07 20:18", "source": "2026_Music.xls master (August + September tabs)", "events": [{"id": "evt_151bee2e6c9a", "date": "2026-08-12", "start": "18:00", "end": "21:00", "aid": "open-mic", "artist": "Open Mic", "vid": "taylor-station-restaurant-and-lounge", "venue": "Taylor Station Restaurant & Lounge", "city": "Shelton", "notes": ""}, {"id": "evt_23335a20f23e", "date": "2026-08-12", "start": "19:00", "end": "21:00", "aid": "open-mic", "artist": "Open Mic", "vid": "hood-canale", "venue": "Hood Canal\u00e9", "city": "Union", "notes": ""}, {"id": "evt_3bf96f3a8937", "date": "2026-08-13", "start": "14:00", "end": "16:00", "aid": "delphi", "artist": "Delphi", "vid": "hook-and-fork", "venue": "Hook & Fork", "city": "Union", "notes": ""}, {"id": "evt_ba64c13340b9", "date": "2026-08-13", "start": "18:00", "end": "21:00", "aid": "the-shoemaker-brothers", "artist": "The Shoemaker Brothers", "vid": "", "venue": "Venue not listed", "city": "", "notes": "Part of Hoodstock; Listed as Sold Out; Venue not specified in source"}, {"id": "evt_9ac666941534", "date": "2026-08-13", "start": "18:00", "end": "21:00", "aid": "allison-hanlon", "artist": "Allison Hanlon", "vid": "taylor-station-restaurant-and-lounge", "venue": "Taylor Station Restaurant & Lounge", "city": "Shelton", "notes": ""}, {"id": "evt_f7b782c7698a", "date": "2026-08-13", "start": "19:00", "end": "20:30", "aid": "suped-up-fjord", "artist": "Suped Up Fjord", "vid": "kneeland-park", "venue": "Kneeland Park", "city": "Shelton", "notes": ""}, {"id": "evt_fd0944d0b9e9", "date": "2026-08-14", "start": "18:00", "end": "21:00", "aid": "kitty-mae", "artist": "Kitty Mae", "vid": "lake-nahwatzel-resort-and-restaurant", "venue": "Lake Nahwatzel Resort and Restaurant", "city": "Shelton", "notes": ""}, {"id": "evt_4b773436cc2d", "date": "2026-08-14", "start": "18:00", "end": "20:00", "aid": "oma", "artist": "Oma", "vid": "mosquito-fleet-winery", "venue": "Mosquito Fleet Winery", "city": "Belfair", "notes": ""}, {"id": "evt_09a18d52a9bd", "date": "2026-08-14", "start": "19:00", "end": "21:00", "aid": "josh-meeks", "artist": "Josh Meeks", "vid": "hood-canale", "venue": "Hood Canal\u00e9", "city": "Union", "notes": ""}, {"id": "evt_b379d1f85182", "date": "2026-08-14", "start": "20:00", "end": "22:00", "aid": "hoodstock-kickoff", "artist": "Hoodstock Kickoff", "vid": "robin-hood-village-resort", "venue": "Robin Hood Village Resort", "city": "Union", "notes": "Event listing, not a named performer"}, {"id": "evt_36ebb146d032", "date": "2026-08-15", "start": "12:00", "end": "17:00", "aid": "hoodstock-land-and-sea", "artist": "Hoodstock Land and Sea", "vid": "robin-hood-village-resort", "venue": "Robin Hood Village Resort", "city": "Union", "notes": "Event listing, not a named performer"}, {"id": "evt_a648da333bf0", "date": "2026-08-15", "start": "15:00", "end": "17:00", "aid": "angelina-adams", "artist": "Angelina Adams", "vid": "mosquito-fleet-winery", "venue": "Mosquito Fleet Winery", "city": "Belfair", "notes": ""}, {"id": "evt_f0a759ab2c27", "date": "2026-08-15", "start": "18:00", "end": "20:00", "aid": "lugs", "artist": "Lugs", "vid": "hood-canale", "venue": "Hood Canal\u00e9", "city": "Union", "notes": ""}, {"id": "evt_9fe363af65e1", "date": "2026-08-15", "start": "18:00", "end": "22:00", "aid": "hoodstock-finale", "artist": "Hoodstock Finale", "vid": "robin-hood-village-resort", "venue": "Robin Hood Village Resort", "city": "Union", "notes": "Event listing, not a named performer"}, {"id": "evt_a669e6402700", "date": "2026-08-15", "start": "19:00", "end": "22:00", "aid": "the-lady-drinks-whiskey", "artist": "The Lady Drinks Whiskey", "vid": "lake-nahwatzel-resort-and-restaurant", "venue": "Lake Nahwatzel Resort and Restaurant", "city": "Shelton", "notes": ""}, {"id": "evt_dde1562a1ec8", "date": "2026-08-15", "start": "19:00", "end": "21:00", "aid": "sean-curkendall", "artist": "Sean Curkendall", "vid": "mike-s-beach-resort", "venue": "Mike's Beach Resort", "city": "Lilliwaup", "notes": ""}, {"id": "evt_0f07d0a3107a", "date": "2026-08-15", "start": "20:00", "end": "23:00", "aid": "maid-marion", "artist": "Maid Marion", "vid": "taylor-station-restaurant-and-lounge", "venue": "Taylor Station Restaurant & Lounge", "city": "Shelton", "notes": ""}, {"id": "evt_02b0e266a276", "date": "2026-08-16", "start": "17:00", "end": "19:30", "aid": "fire-marshall-ventura-band", "artist": "Fire Marshall Ventura Band", "vid": "hood-canale", "venue": "Hood Canal\u00e9", "city": "Union", "notes": "Trivia night"}, {"id": "evt_bfd8d18a0256", "date": "2026-08-16", "start": "18:00", "end": "20:00", "aid": "beckaroos-and-mearakat", "artist": "Beckaroos & Mearakat", "vid": "shelton-presbyterian-church", "venue": "Shelton Presbyterian Church", "city": "Shelton", "notes": ""}, {"id": "evt_ba13e5aff875", "date": "2026-08-17", "start": "18:00", "end": "22:00", "aid": "open-mic", "artist": "Open Mic", "vid": "2-margaritas-restaurant-union", "venue": "2 Margaritas Restaurant (Union)", "city": "Union", "notes": ""}, {"id": "evt_568087a40814", "date": "2026-08-19", "start": "18:00", "end": "21:00", "aid": "open-mic", "artist": "Open Mic", "vid": "taylor-station-restaurant-and-lounge", "venue": "Taylor Station Restaurant & Lounge", "city": "Shelton", "notes": ""}, {"id": "evt_9e5de08faffe", "date": "2026-08-20", "start": "14:00", "end": "16:00", "aid": "humor-and-heart-trio", "artist": "Humor and Heart Trio", "vid": "hook-and-fork", "venue": "Hook & Fork", "city": "Union", "notes": ""}, {"id": "evt_5729b73ccfd7", "date": "2026-08-20", "start": "18:00", "end": "21:00", "aid": "open-mic", "artist": "Open Mic", "vid": "hood-canale", "venue": "Hood Canal\u00e9", "city": "Union", "notes": ""}, {"id": "evt_d8bf228193eb", "date": "2026-08-20", "start": "18:00", "end": "21:00", "aid": "kyle-bain", "artist": "Kyle Bain", "vid": "taylor-station-restaurant-and-lounge", "venue": "Taylor Station Restaurant & Lounge", "city": "Shelton", "notes": ""}, {"id": "evt_e1c7a85646dd", "date": "2026-08-21", "start": "18:00", "end": "20:00", "aid": "lugs", "artist": "Lugs", "vid": "union-square-deli", "venue": "Union Square Deli", "city": "Union", "notes": "Farewell show"}, {"id": "evt_7b2ddadb308f", "date": "2026-08-21", "start": "18:00", "end": "20:00", "aid": "seth-unger", "artist": "Seth Unger", "vid": "mosquito-fleet-winery", "venue": "Mosquito Fleet Winery", "city": "Belfair", "notes": ""}, {"id": "evt_5f4e49f0d1fe", "date": "2026-08-21", "start": "19:00", "end": "21:00", "aid": "casey-freedom", "artist": "Casey Freedom", "vid": "hood-canale", "venue": "Hood Canal\u00e9", "city": "Union", "notes": ""}, {"id": "evt_4c92e66fc7ad", "date": "2026-08-21", "start": "20:00", "end": "23:00", "aid": "forest-ray", "artist": "Forest Ray", "vid": "taylor-station-restaurant-and-lounge", "venue": "Taylor Station Restaurant & Lounge", "city": "Shelton", "notes": ""}, {"id": "evt_629cfee69437", "date": "2026-08-22", "start": "14:00", "end": "15:00", "aid": "mick-and-laura-mccartney", "artist": "Mick & Laura McCartney", "vid": "mcreavy-house-museum", "venue": "McReavy House Museum", "city": "Union", "notes": ""}, {"id": "evt_a56ae2c895b1", "date": "2026-08-22", "start": "15:00", "end": "17:00", "aid": "scott-lesman-duo", "artist": "Scott Lesman Duo", "vid": "mosquito-fleet-winery", "venue": "Mosquito Fleet Winery", "city": "Belfair", "notes": ""}, {"id": "evt_9d963d9d3e95", "date": "2026-08-22", "start": "19:00", "end": "21:00", "aid": "oma", "artist": "Oma", "vid": "mike-s-beach-resort", "venue": "Mike's Beach Resort", "city": "Lilliwaup", "notes": ""}, {"id": "evt_49dc4a3bffc5", "date": "2026-08-22", "start": "19:00", "end": "21:00", "aid": "danica-roxanica", "artist": "Danica Roxanica", "vid": "hood-canale", "venue": "Hood Canal\u00e9", "city": "Union", "notes": ""}, {"id": "evt_c6ee8485f24b", "date": "2026-08-22", "start": "20:00", "end": "23:00", "aid": "the-mistaken", "artist": "The Mistaken", "vid": "taylor-station-restaurant-and-lounge", "venue": "Taylor Station Restaurant & Lounge", "city": "Shelton", "notes": ""}, {"id": "evt_8a26c0bc72e9", "date": "2026-08-23", "start": "19:00", "end": "21:00", "aid": "curtis-roy-moore", "artist": "Curtis Roy Moore", "vid": "hood-canale", "venue": "Hood Canal\u00e9", "city": "Union", "notes": "Trivia night"}, {"id": "evt_0c952dc70c2c", "date": "2026-08-24", "start": "18:00", "end": "22:00", "aid": "open-mic", "artist": "Open Mic", "vid": "2-margaritas-restaurant-union", "venue": "2 Margaritas Restaurant (Union)", "city": "Union", "notes": ""}, {"id": "evt_7c88c0634da5", "date": "2026-08-26", "start": "18:00", "end": "21:00", "aid": "open-mic", "artist": "Open Mic", "vid": "taylor-station-restaurant-and-lounge", "venue": "Taylor Station Restaurant & Lounge", "city": "Shelton", "notes": ""}, {"id": "evt_4ada3fe342b4", "date": "2026-08-27", "start": "14:00", "end": "16:00", "aid": "josh-meeks", "artist": "Josh Meeks", "vid": "hook-and-fork", "venue": "Hook & Fork", "city": "Union", "notes": ""}, {"id": "evt_f45df3824a91", "date": "2026-08-27", "start": "18:00", "end": "21:00", "aid": "open-mic", "artist": "Open Mic", "vid": "hood-canale", "venue": "Hood Canal\u00e9", "city": "Union", "notes": ""}, {"id": "evt_a106a6e45a81", "date": "2026-08-27", "start": "18:00", "end": "21:00", "aid": "katie-wade", "artist": "Katie Wade", "vid": "taylor-station-restaurant-and-lounge", "venue": "Taylor Station Restaurant & Lounge", "city": "Shelton", "notes": ""}, {"id": "evt_7dd09f2b408c", "date": "2026-08-28", "start": "18:00", "end": "20:00", "aid": "zak-hyneman", "artist": "Zak Hyneman", "vid": "mosquito-fleet-winery", "venue": "Mosquito Fleet Winery", "city": "Belfair", "notes": ""}, {"id": "evt_69d27a009051", "date": "2026-08-28", "start": "18:00", "end": "21:00", "aid": "chris-eakes", "artist": "Chris Eakes", "vid": "lake-nahwatzel-resort-and-restaurant", "venue": "Lake Nahwatzel Resort and Restaurant", "city": "Shelton", "notes": ""}, {"id": "evt_be12485a92a7", "date": "2026-08-28", "start": "18:00", "end": "20:00", "aid": "union-city-council", "artist": "Union City Council", "vid": "union-square-deli", "venue": "Union Square Deli", "city": "Union", "notes": ""}, {"id": "evt_ea0c601c4ca3", "date": "2026-08-28", "start": "18:00", "end": "20:00", "aid": "chris-eakes", "artist": "Chris Eakes", "vid": "alderbrook-golf-and-yacht-club", "venue": "Alderbrook Golf & Yacht Club", "city": "Union", "notes": ""}, {"id": "evt_2cb3d9554706", "date": "2026-08-28", "start": "19:00", "end": "21:00", "aid": "the-lady-drinks-whiskey", "artist": "The Lady Drinks Whiskey", "vid": "hood-canale", "venue": "Hood Canal\u00e9", "city": "Union", "notes": ""}, {"id": "evt_3974d6dc1aac", "date": "2026-08-28", "start": "20:00", "end": "23:00", "aid": "forest-ray", "artist": "Forest Ray", "vid": "taylor-station-restaurant-and-lounge", "venue": "Taylor Station Restaurant & Lounge", "city": "Shelton", "notes": ""}, {"id": "evt_2bf07f535e9b", "date": "2026-08-29", "start": "11:00", "end": "15:00", "aid": "the-lady-drinks-whiskey", "artist": "The Lady Drinks Whiskey", "vid": "the-pointe-at-alderbrook-golf-and-yacht-club", "venue": "The Pointe at Alderbrook Golf & Yacht Club", "city": "Union", "notes": ""}, {"id": "evt_82356788221b", "date": "2026-08-29", "start": "15:00", "end": "17:00", "aid": "seth-unger", "artist": "Seth Unger", "vid": "mosquito-fleet-winery", "venue": "Mosquito Fleet Winery", "city": "Belfair", "notes": ""}, {"id": "evt_403cfe2f2779", "date": "2026-08-29", "start": "18:00", "end": "20:00", "aid": "chris-eakes", "artist": "Chris Eakes", "vid": "alderbrook-golf-and-yacht-club", "venue": "Alderbrook Golf & Yacht Club", "city": "Union", "notes": ""}, {"id": "evt_2fb0fedaed6a", "date": "2026-08-29", "start": "18:00", "end": "21:00", "aid": "allison-hanlon", "artist": "Allison Hanlon", "vid": "lake-nahwatzel-resort-and-restaurant", "venue": "Lake Nahwatzel Resort and Restaurant", "city": "Shelton", "notes": ""}, {"id": "evt_680b08a83654", "date": "2026-08-29", "start": "19:00", "end": "21:00", "aid": "isaac-lornitzo", "artist": "Isaac Lornitzo", "vid": "hood-canale", "venue": "Hood Canal\u00e9", "city": "Union", "notes": ""}, {"id": "evt_76c3b0d4a0c6", "date": "2026-08-29", "start": "19:00", "end": "21:00", "aid": "daniel-walker", "artist": "Daniel Walker", "vid": "mike-s-beach-resort", "venue": "Mike's Beach Resort", "city": "Lilliwaup", "notes": ""}, {"id": "evt_d819a9ab3ee5", "date": "2026-08-29", "start": "19:00", "end": "22:00", "aid": "dan-whyms", "artist": "Dan Whyms", "vid": "taylor-station-restaurant-and-lounge", "venue": "Taylor Station Restaurant & Lounge", "city": "Shelton", "notes": ""}, {"id": "evt_b47f0597842d", "date": "2026-08-30", "start": "12:00", "end": "15:00", "aid": "folk-on-the-estuary", "artist": "Folk on the Estuary", "vid": "the-salmon-center-hood-canal-salmon-enhancement-group", "venue": "The Salmon Center (Hood Canal Salmon Enhancement Group)", "city": "Belfair", "notes": ""}, {"id": "evt_1c95a56ef5c2", "date": "2026-08-30", "start": "15:00", "end": "18:00", "aid": "randy-linder", "artist": "Randy Linder", "vid": "lake-nahwatzel-resort-and-restaurant", "venue": "Lake Nahwatzel Resort and Restaurant", "city": "Shelton", "notes": ""}, {"id": "evt_781d81f4a489", "date": "2026-08-30", "start": "16:30", "end": "18:00", "aid": "josh-meeks", "artist": "Josh Meeks", "vid": "hood-canale", "venue": "Hood Canal\u00e9", "city": "Union", "notes": "Trivia night"}, {"id": "evt_825f55d322c0", "date": "2026-08-31", "start": "18:00", "end": "22:00", "aid": "open-mic", "artist": "Open Mic", "vid": "2-margaritas-restaurant-union", "venue": "2 Margaritas Restaurant (Union)", "city": "Union", "notes": ""}, {"id": "evt_29f195ba0151", "date": "2026-09-01", "start": "18:00", "end": "21:00", "aid": "open-mic", "artist": "Open Mic", "vid": "el-sarape-shelton", "venue": "El Sarape (Shelton)", "city": "Shelton", "notes": ""}, {"id": "evt_c8cadd4659cf", "date": "2026-09-02", "start": "18:00", "end": "21:00", "aid": "open-mic", "artist": "Open Mic", "vid": "taylor-station-restaurant-and-lounge", "venue": "Taylor Station Restaurant & Lounge", "city": "Shelton", "notes": ""}, {"id": "evt_7f78624ce4c9", "date": "2026-09-02", "start": "18:00", "end": "21:00", "aid": "open-mic", "artist": "Open Mic", "vid": "the-bistro-at-lakeland-village", "venue": "The Bistro at Lakeland Village", "city": "Allyn", "notes": ""}, {"id": "evt_528a271f7ee8", "date": "2026-09-02", "start": "18:00", "end": "20:00", "aid": "fort-vine", "artist": "Fort Vine", "vid": "hood-canale", "venue": "Hood Canal\u00e9", "city": "Union", "notes": ""}, {"id": "evt_4b9b679a1cfb", "date": "2026-09-03", "start": "14:00", "end": "16:00", "aid": "cailey-robinson-and-friends", "artist": "Cailey Robinson & Friends", "vid": "hook-and-fork", "venue": "Hook & Fork", "city": "Union", "notes": ""}, {"id": "evt_73cf41d21205", "date": "2026-09-03", "start": "18:00", "end": "21:00", "aid": "open-mic", "artist": "Open Mic", "vid": "hood-canale", "venue": "Hood Canal\u00e9", "city": "Union", "notes": ""}, {"id": "evt_8133e421b187", "date": "2026-09-03", "start": "18:00", "end": "21:00", "aid": "kyle-thompson", "artist": "Kyle Thompson", "vid": "taylor-station-restaurant-and-lounge", "venue": "Taylor Station Restaurant & Lounge", "city": "Shelton", "notes": ""}, {"id": "evt_cc3793f4cff3", "date": "2026-09-04", "start": "18:00", "end": "21:00", "aid": "anna-robinson", "artist": "Anna Robinson", "vid": "taylor-station-restaurant-and-lounge", "venue": "Taylor Station Restaurant & Lounge", "city": "Shelton", "notes": ""}, {"id": "evt_6666c61bba8b", "date": "2026-09-04", "start": "18:00", "end": "21:00", "aid": "jim-basnight", "artist": "Jim Basnight", "vid": "hood-canale", "venue": "Hood Canal\u00e9", "city": "Union", "notes": ""}, {"id": "evt_e0ea17d62170", "date": "2026-09-04", "start": "18:00", "end": "20:00", "aid": "aaron-mcfaddon", "artist": "Aaron McFaddon", "vid": "mosquito-fleet-winery", "venue": "Mosquito Fleet Winery", "city": "Belfair", "notes": ""}, {"id": "evt_fbed29c7ddb4", "date": "2026-09-04", "start": "18:00", "end": "21:00", "aid": "owen-evans", "artist": "Owen Evans", "vid": "el-sarape-shelton", "venue": "El Sarape (Shelton)", "city": "Shelton", "notes": ""}, {"id": "evt_4c0c4df02c6a", "date": "2026-09-05", "start": "10:00", "end": "15:00", "aid": "aurashine", "artist": "AuraShine", "vid": "sacred-waters-center-for-restoration-and-retreat", "venue": "Sacred Waters Center for Restoration and Retreat", "city": "Union", "notes": ""}, {"id": "evt_de482a26d72e", "date": "2026-09-05", "start": "14:00", "end": "16:00", "aid": "josh-meeks", "artist": "Josh Meeks", "vid": "mosquito-fleet-winery", "venue": "Mosquito Fleet Winery", "city": "Belfair", "notes": ""}, {"id": "evt_2b5acf1a4361", "date": "2026-09-05", "start": "17:00", "end": "19:00", "aid": "maid-marion", "artist": "Maid Marion", "vid": "alderbrook-golf-and-yacht-club", "venue": "Alderbrook Golf & Yacht Club", "city": "Union", "notes": ""}, {"id": "evt_5f5fbe85bc35", "date": "2026-09-05", "start": "18:00", "end": "20:00", "aid": "kevin-keller-and-friends", "artist": "Kevin Keller & Friends", "vid": "hood-canale", "venue": "Hood Canal\u00e9", "city": "Union", "notes": ""}, {"id": "evt_16efe836f0f9", "date": "2026-09-06", "start": "10:00", "end": "15:00", "aid": "chris-eakes-and-the-rehearsals", "artist": "Chris Eakes & The Rehearsals", "vid": "sacred-waters-center-for-restoration-and-retreat", "venue": "Sacred Waters Center for Restoration and Retreat", "city": "Union", "notes": ""}, {"id": "evt_958887b7cc51", "date": "2026-09-06", "start": "14:00", "end": "17:00", "aid": "open-mic", "artist": "Open Mic", "vid": "union-square-deli", "venue": "Union Square Deli", "city": "Union", "notes": ""}, {"id": "evt_4909cc04abdc", "date": "2026-09-06", "start": "16:30", "end": "18:30", "aid": "rob-hill-and-stephanie-layton", "artist": "Rob Hill & Stephanie Layton", "vid": "hood-canale", "venue": "Hood Canal\u00e9", "city": "Union", "notes": "Trivia night"}, {"id": "evt_61608d9364f5", "date": "2026-09-06", "start": "17:00", "end": "20:00", "aid": "olson-bros-band", "artist": "Olson Bros Band", "vid": "lake-nahwatzel-resort-and-restaurant", "venue": "Lake Nahwatzel Resort and Restaurant", "city": "Shelton", "notes": ""}, {"id": "evt_46e817dcff8c", "date": "2026-09-07", "start": "18:00", "end": "22:00", "aid": "open-mic", "artist": "Open Mic", "vid": "2-margaritas-restaurant-union", "venue": "2 Margaritas Restaurant (Union)", "city": "Union", "notes": ""}, {"id": "evt_6776f0ea990d", "date": "2026-09-09", "start": "18:00", "end": "20:00", "aid": "dean-backholm", "artist": "Dean Backholm", "vid": "hood-canale", "venue": "Hood Canal\u00e9", "city": "Union", "notes": ""}, {"id": "evt_73c2aceaed36", "date": "2026-09-09", "start": "18:00", "end": "21:00", "aid": "open-mic", "artist": "Open Mic", "vid": "taylor-station-restaurant-and-lounge", "venue": "Taylor Station Restaurant & Lounge", "city": "Shelton", "notes": ""}, {"id": "evt_d361eb3b9ac6", "date": "2026-09-10", "start": "17:00", "end": "19:00", "aid": "rob-hill", "artist": "Rob Hill", "vid": "1889-prime-steakhouse", "venue": "1889 Prime Steakhouse", "city": "Olympia", "notes": ""}, {"id": "evt_3c382b0cda25", "date": "2026-09-10", "start": "18:00", "end": "21:00", "aid": "sammy-steele", "artist": "Sammy Steele", "vid": "taylor-station-restaurant-and-lounge", "venue": "Taylor Station Restaurant & Lounge", "city": "Shelton", "notes": ""}, {"id": "evt_123de33c7e7b", "date": "2026-09-10", "start": "18:00", "end": "21:00", "aid": "open-mic", "artist": "Open Mic", "vid": "hood-canale", "venue": "Hood Canal\u00e9", "city": "Union", "notes": ""}, {"id": "evt_1159da85fdfe", "date": "2026-09-11", "start": "18:00", "end": "20:00", "aid": "norman-baker", "artist": "Norman Baker", "vid": "hood-canale", "venue": "Hood Canal\u00e9", "city": "Union", "notes": ""}, {"id": "evt_83dea4b4d8f1", "date": "2026-09-11", "start": "18:00", "end": "20:00", "aid": "pat-timmons", "artist": "Pat Timmons", "vid": "mosquito-fleet-winery", "venue": "Mosquito Fleet Winery", "city": "Belfair", "notes": ""}, {"id": "evt_7a4fd6027e16", "date": "2026-09-11", "start": "18:00", "end": "21:00", "aid": "sammy-steele", "artist": "Sammy Steele", "vid": "el-sarape-shelton", "venue": "El Sarape (Shelton)", "city": "Shelton", "notes": ""}, {"id": "evt_8102fa46a089", "date": "2026-09-12", "start": "15:00", "end": "17:00", "aid": "scott-lesman-duo", "artist": "Scott Lesman Duo", "vid": "mosquito-fleet-winery", "venue": "Mosquito Fleet Winery", "city": "Belfair", "notes": "last Saturday of music"}, {"id": "evt_11229c0ddde4", "date": "2026-09-12", "start": "18:00", "end": "20:00", "aid": "the-lady-drinks-whiskey", "artist": "The Lady Drinks Whiskey", "vid": "alderbrook-golf-and-yacht-club", "venue": "Alderbrook Golf & Yacht Club", "city": "Union", "notes": ""}, {"id": "evt_0668a37b9efe", "date": "2026-09-12", "start": "18:00", "end": "20:00", "aid": "scott-lesman-duo", "artist": "Scott Lesman Duo", "vid": "hood-canale", "venue": "Hood Canal\u00e9", "city": "Union", "notes": ""}, {"id": "evt_a02d21bad7c3", "date": "2026-09-12", "start": "19:00", "end": "21:00", "aid": "richard-saunders", "artist": "Richard Saunders", "vid": "patches-hoodsport", "venue": "Patches", "city": "Hoodsport", "notes": "Ticketed"}, {"id": "evt_d24ada39e5bc", "date": "2026-09-13", "start": "16:30", "end": "18:30", "aid": "oma-wilcox-and-greg-linder", "artist": "Oma Wilcox & Greg Linder", "vid": "hood-canale", "venue": "Hood Canal\u00e9", "city": "Union", "notes": "Trivia night"}, {"id": "evt_c16a5b5b4944", "date": "2026-09-14", "start": "18:00", "end": "22:00", "aid": "open-mic", "artist": "Open Mic", "vid": "2-margaritas-restaurant-union", "venue": "2 Margaritas Restaurant (Union)", "city": "Union", "notes": ""}, {"id": "evt_cf517ce7b021", "date": "2026-09-16", "start": "18:00", "end": "20:00", "aid": "gregory-rawlins", "artist": "Gregory Rawlins", "vid": "hood-canale", "venue": "Hood Canal\u00e9", "city": "Union", "notes": ""}, {"id": "evt_34a6f65dc957", "date": "2026-09-16", "start": "18:00", "end": "21:00", "aid": "open-mic", "artist": "Open Mic", "vid": "taylor-station-restaurant-and-lounge", "venue": "Taylor Station Restaurant & Lounge", "city": "Shelton", "notes": ""}, {"id": "evt_fd276d447e76", "date": "2026-09-17", "start": "18:00", "end": "21:00", "aid": "kitty-mae", "artist": "Kitty Mae", "vid": "taylor-station-restaurant-and-lounge", "venue": "Taylor Station Restaurant & Lounge", "city": "Shelton", "notes": ""}, {"id": "evt_25871b080e39", "date": "2026-09-17", "start": "18:00", "end": "21:00", "aid": "open-mic", "artist": "Open Mic", "vid": "hood-canale", "venue": "Hood Canal\u00e9", "city": "Union", "notes": ""}, {"id": "evt_7f6b269b19f7", "date": "2026-09-18", "start": "17:00", "end": "19:00", "aid": "mega-rays", "artist": "Mega Rays", "vid": "alderbrook-golf-and-yacht-club", "venue": "Alderbrook Golf & Yacht Club", "city": "Union", "notes": ""}, {"id": "evt_7090d744aa49", "date": "2026-09-18", "start": "18:00", "end": "20:00", "aid": "chris-eakes", "artist": "Chris Eakes", "vid": "hood-canale", "venue": "Hood Canal\u00e9", "city": "Union", "notes": ""}, {"id": "evt_b70e27fb92e8", "date": "2026-09-18", "start": "18:00", "end": "21:00", "aid": "kyle-thompson-and-pacnwband", "artist": "Kyle Thompson & PacNWBand", "vid": "el-sarape-shelton", "venue": "El Sarape (Shelton)", "city": "Shelton", "notes": ""}, {"id": "evt_f7251db20b89", "date": "2026-09-19", "start": "16:00", "end": "19:00", "aid": "dumpster-joe", "artist": "Dumpster Joe", "vid": "hood-canale", "venue": "Hood Canal\u00e9", "city": "Union", "notes": "Part of Oktoberfest"}, {"id": "evt_5bca4545dd37", "date": "2026-09-20", "start": "14:00", "end": "17:00", "aid": "open-mic", "artist": "Open Mic", "vid": "union-square-deli", "venue": "Union Square Deli", "city": "Union", "notes": ""}, {"id": "evt_4649611a4ace", "date": "2026-09-20", "start": "17:00", "end": "19:00", "aid": "monty-banks", "artist": "Monty Banks", "vid": "hood-canale", "venue": "Hood Canal\u00e9", "city": "Union", "notes": "Trivia night"}, {"id": "evt_cf0d21810135", "date": "2026-09-21", "start": "18:00", "end": "22:00", "aid": "open-mic", "artist": "Open Mic", "vid": "2-margaritas-restaurant-union", "venue": "2 Margaritas Restaurant (Union)", "city": "Union", "notes": ""}, {"id": "evt_1f647adc7043", "date": "2026-09-22", "start": "18:00", "end": "21:00", "aid": "open-mic", "artist": "Open Mic", "vid": "el-sarape-shelton", "venue": "El Sarape (Shelton)", "city": "Shelton", "notes": ""}, {"id": "evt_fca6ac715a53", "date": "2026-09-23", "start": "18:00", "end": "21:00", "aid": "open-mic", "artist": "Open Mic", "vid": "taylor-station-restaurant-and-lounge", "venue": "Taylor Station Restaurant & Lounge", "city": "Shelton", "notes": ""}, {"id": "evt_6d757ae6b9fa", "date": "2026-09-24", "start": "18:00", "end": "21:00", "aid": "amber-pizl", "artist": "Amber Pizl", "vid": "taylor-station-restaurant-and-lounge", "venue": "Taylor Station Restaurant & Lounge", "city": "Shelton", "notes": ""}, {"id": "evt_063cf4a6e01a", "date": "2026-09-24", "start": "18:00", "end": "21:00", "aid": "open-mic", "artist": "Open Mic", "vid": "hood-canale", "venue": "Hood Canal\u00e9", "city": "Union", "notes": ""}, {"id": "evt_40e1c110a908", "date": "2026-09-25", "start": "17:00", "end": "19:00", "aid": "scott-lesman", "artist": "Scott Lesman", "vid": "alderbrook-golf-and-yacht-club", "venue": "Alderbrook Golf & Yacht Club", "city": "Union", "notes": ""}, {"id": "evt_f41b1a8e19d9", "date": "2026-09-25", "start": "18:00", "end": "20:00", "aid": "beckaroos", "artist": "Beckaroos", "vid": "union-square-deli", "venue": "Union Square Deli", "city": "Union", "notes": ""}, {"id": "evt_62a8df567ced", "date": "2026-09-25", "start": "18:00", "end": "21:00", "aid": "kitty-mae", "artist": "Kitty Mae", "vid": "el-sarape-shelton", "venue": "El Sarape (Shelton)", "city": "Shelton", "notes": ""}, {"id": "evt_8333c80f79f2", "date": "2026-09-25", "start": "20:00", "end": "23:00", "aid": "katie-wade", "artist": "Katie Wade", "vid": "taylor-station-restaurant-and-lounge", "venue": "Taylor Station Restaurant & Lounge", "city": "Shelton", "notes": "Time confirmed with the venue"}, {"id": "evt_ad84c5d010aa", "date": "2026-09-26", "start": "", "end": "", "aid": "finferfolk", "artist": "Finferfolk", "vid": "hood-canale", "venue": "Hood Canal\u00e9", "city": "Union", "notes": "Part of Wine Crush; All Day"}, {"id": "evt_bf8f515e84c0", "date": "2026-09-27", "start": "", "end": "", "aid": "finferfolk", "artist": "Finferfolk", "vid": "hood-canale", "venue": "Hood Canal\u00e9", "city": "Union", "notes": "Part of Wine Crush; All Day"}, {"id": "evt_92108efb953b", "date": "2026-09-28", "start": "18:00", "end": "22:00", "aid": "open-mic", "artist": "Open Mic", "vid": "2-margaritas-restaurant-union", "venue": "2 Margaritas Restaurant (Union)", "city": "Union", "notes": ""}, {"id": "evt_1f8603a1dbfe", "date": "2026-09-30", "start": "17:00", "end": "20:00", "aid": "chris-eakes-and-friends", "artist": "Chris Eakes & Friends", "vid": "hood-canale", "venue": "Hood Canal\u00e9", "city": "Union", "notes": ""}, {"id": "evt_71c1d181d31c", "date": "2026-09-30", "start": "18:00", "end": "21:00", "aid": "open-mic", "artist": "Open Mic", "vid": "taylor-station-restaurant-and-lounge", "venue": "Taylor Station Restaurant & Lounge", "city": "Shelton", "notes": ""}, {"id": "evt_bf6604eb6a3a", "date": "2026-10-01", "start": "18:00", "end": "21:00", "aid": "nikko-and-the-night-shift", "artist": "Nikko and The Night Shift", "vid": "taylor-station-restaurant-and-lounge", "venue": "Taylor Station Restaurant & Lounge", "city": "Shelton", "notes": "Solo performance"}], "artists": [{"id": "aaron-mcfaddon", "name": "Aaron McFaddon", "genre": "", "home": "", "desc": "", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "UNRESEARCHED", "isEvent": false}, {"id": "allison-hanlon", "name": "Allison Hanlon", "genre": "", "home": "", "desc": "", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "UNRESEARCHED", "isEvent": false}, {"id": "amber-pizl", "name": "Amber Pizl", "genre": "", "home": "", "desc": "", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "UNRESEARCHED", "isEvent": false}, {"id": "angelina-adams", "name": "Angelina Adams", "genre": "", "home": "", "desc": "", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "UNRESEARCHED", "isEvent": false}, {"id": "anna-robinson", "name": "Anna Robinson", "genre": "", "home": "", "desc": "", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "UNRESEARCHED", "isEvent": false}, {"id": "aurashine", "name": "AuraShine", "genre": "", "home": "", "desc": "Act billed at a community art fair on the Union waterfront in early September. No further verified detail.", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "Low", "isEvent": false}, {"id": "beckaroos", "name": "Beckaroos", "genre": "", "home": "", "desc": "", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "UNRESEARCHED", "isEvent": false}, {"id": "beckaroos-and-mearakat", "name": "Beckaroos & Mearakat", "genre": "", "home": "", "desc": "", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "Low", "isEvent": false}, {"id": "cailey-robinson-and-friends", "name": "Cailey Robinson & Friends", "genre": "", "home": "", "desc": "", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "UNRESEARCHED", "isEvent": false}, {"id": "casey-freedom", "name": "Casey Freedom", "genre": "", "home": "", "desc": "", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "UNRESEARCHED", "isEvent": false}, {"id": "chris-eakes", "name": "Chris Eakes", "genre": "", "home": "Mason County / South Puget Sound, WA area", "desc": "Regional performer active in the Mason County music scene; has appeared on local festival bills alongside other area acts. Genre and biography not established in this pass.", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "Medium", "isEvent": false}, {"id": "chris-eakes-and-friends", "name": "Chris Eakes & Friends", "genre": "", "home": "", "desc": "", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "UNRESEARCHED", "isEvent": false}, {"id": "chris-eakes-and-the-rehearsals", "name": "Chris Eakes & The Rehearsals", "genre": "", "home": "", "desc": "", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "UNRESEARCHED", "isEvent": false}, {"id": "curtis-roy-moore", "name": "Curtis Roy Moore", "genre": "", "home": "", "desc": "", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "UNRESEARCHED", "isEvent": false}, {"id": "dan-whyms", "name": "Dan Whyms", "genre": "", "home": "", "desc": "", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "UNRESEARCHED", "isEvent": false}, {"id": "danica-roxanica", "name": "Danica Roxanica", "genre": "Singer-songwriter (unconfirmed)", "home": "", "desc": "", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "Low", "isEvent": false}, {"id": "daniel-walker", "name": "Daniel Walker", "genre": "", "home": "", "desc": "", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "UNRESEARCHED", "isEvent": false}, {"id": "dean-backholm", "name": "Dean Backholm", "genre": "", "home": "", "desc": "", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "UNRESEARCHED", "isEvent": false}, {"id": "delphi", "name": "Delphi", "genre": "", "home": "", "desc": "", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "UNRESEARCHED", "isEvent": false}, {"id": "dumpster-joe", "name": "Dumpster Joe", "genre": "", "home": "", "desc": "", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "UNRESEARCHED", "isEvent": false}, {"id": "finferfolk", "name": "Finferfolk", "genre": "", "home": "", "desc": "", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "UNRESEARCHED", "isEvent": false}, {"id": "fire-marshall-ventura-band", "name": "Fire Marshall Ventura Band", "genre": "", "home": "", "desc": "", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "UNRESEARCHED", "isEvent": false}, {"id": "folk-on-the-estuary", "name": "Folk on the Estuary", "genre": "", "home": "", "desc": "Event/series name at The Salmon Center, not a performer.", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "N/A \u2014 event listing", "isEvent": true}, {"id": "forest-ray", "name": "Forest Ray", "genre": "Psychedelic folk / garage rock / indie", "home": "Seattle, WA (formed San Luis Obispo, CA)", "desc": "Seattle psych-folk band led by singer-songwriter Peter Sumic, recording since 2015 with a rotating lineup. Their guitar-driven psychedelic rock mixes in garage rock, folk rock and organ-led pop, recorded to analogue tape. They tour the Northwest steadily, which is consistent with a Shelton club date.", "website": "https://forestray.bandcamp.com/", "facebook": "https://www.facebook.com/forestraymusic/", "instagram": "forestrayrecords (listed on the band's Facebook page \u2014 verify handle)", "tiktok": "", "youtube": "https://www.youtube.com/channel/UCNQuOl_9aKK-bMzpb4RVCuQ", "spotify": "https://open.spotify.com/artist/6aHS1ijoQqNunPy8K2zzAp", "other": "https://www.bandsintown.com/a/13233161-forest-ray", "conf": "High", "isEvent": false}, {"id": "fort-vine", "name": "Fort Vine", "genre": "", "home": "", "desc": "", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "UNRESEARCHED", "isEvent": false}, {"id": "gregory-rawlins", "name": "Gregory Rawlins", "genre": "", "home": "", "desc": "", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "UNRESEARCHED", "isEvent": false}, {"id": "hoodstock-finale", "name": "Hoodstock Finale", "genre": "", "home": "", "desc": "Hoodstock festival session. Part of Hoodstock, a Union, WA music and arts festival founded in 2018 and held largely at Robin Hood Village Resort, including a stage viewed from boats on Hood Canal. It is a nonprofit benefit supporting youth music and environmental education. Official site: https://www.hoodstock.org/", "website": "https://www.hoodstock.org/", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "N/A \u2014 event listing", "isEvent": true}, {"id": "hoodstock-kickoff", "name": "Hoodstock Kickoff", "genre": "", "home": "", "desc": "Hoodstock festival session. Part of Hoodstock, a Union, WA music and arts festival founded in 2018 and held largely at Robin Hood Village Resort, including a stage viewed from boats on Hood Canal. It is a nonprofit benefit supporting youth music and environmental education. Official site: https://www.hoodstock.org/", "website": "https://www.hoodstock.org/", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "N/A \u2014 event listing", "isEvent": true}, {"id": "hoodstock-land-and-sea", "name": "Hoodstock Land and Sea", "genre": "", "home": "", "desc": "Hoodstock festival session. Part of Hoodstock, a Union, WA music and arts festival founded in 2018 and held largely at Robin Hood Village Resort, including a stage viewed from boats on Hood Canal. It is a nonprofit benefit supporting youth music and environmental education. Official site: https://www.hoodstock.org/", "website": "https://www.hoodstock.org/", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "N/A \u2014 event listing", "isEvent": true}, {"id": "humor-and-heart-trio", "name": "Humor and Heart Trio", "genre": "", "home": "", "desc": "", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "UNRESEARCHED", "isEvent": false}, {"id": "isaac-lornitzo", "name": "Isaac Lornitzo", "genre": "", "home": "", "desc": "", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "UNRESEARCHED", "isEvent": false}, {"id": "jim-basnight", "name": "Jim Basnight", "genre": "", "home": "", "desc": "", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "UNRESEARCHED", "isEvent": false}, {"id": "josh-meeks", "name": "Josh Meeks", "genre": "", "home": "", "desc": "Mason County performer who appears solo under his own name and also fronts the band Maid Marion.", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "Low", "isEvent": false}, {"id": "katie-wade", "name": "Katie Wade", "genre": "", "home": "", "desc": "", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "UNRESEARCHED", "isEvent": false}, {"id": "kevin-keller-and-friends", "name": "Kevin Keller & Friends", "genre": "", "home": "", "desc": "", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "UNRESEARCHED", "isEvent": false}, {"id": "kitty-mae", "name": "Kitty Mae", "genre": "", "home": "", "desc": "", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "UNRESEARCHED", "isEvent": false}, {"id": "kyle-bain", "name": "Kyle Bain", "genre": "", "home": "", "desc": "", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "UNRESEARCHED", "isEvent": false}, {"id": "kyle-thompson", "name": "Kyle Thompson", "genre": "", "home": "", "desc": "", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "UNRESEARCHED", "isEvent": false}, {"id": "kyle-thompson-and-pacnwband", "name": "Kyle Thompson & PacNWBand", "genre": "", "home": "", "desc": "", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "UNRESEARCHED", "isEvent": false}, {"id": "lugs", "name": "Lugs", "genre": "", "home": "", "desc": "", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "UNRESEARCHED", "isEvent": false}, {"id": "maid-marion", "name": "Maid Marion", "genre": "", "home": "", "desc": "Maid Marion is Josh Meeks performing with other musicians backing him. He also plays solo under his own name around Mason County.", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "Confirmed by site owner", "isEvent": false}, {"id": "mega-rays", "name": "Mega Rays", "genre": "", "home": "", "desc": "", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "UNRESEARCHED", "isEvent": false}, {"id": "mick-and-laura-mccartney", "name": "Mick & Laura McCartney", "genre": "", "home": "", "desc": "", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "UNRESEARCHED", "isEvent": false}, {"id": "monty-banks", "name": "Monty Banks", "genre": "", "home": "", "desc": "", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "UNRESEARCHED", "isEvent": false}, {"id": "nikko-and-the-night-shift", "name": "Nikko and The Night Shift", "genre": "", "home": "", "desc": "", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "UNRESEARCHED", "isEvent": false}, {"id": "norman-baker", "name": "Norman Baker", "genre": "", "home": "", "desc": "", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "UNRESEARCHED", "isEvent": false}, {"id": "olson-bros-band", "name": "Olson Bros Band", "genre": "", "home": "", "desc": "", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "UNRESEARCHED", "isEvent": false}, {"id": "oma", "name": "Oma", "genre": "", "home": "", "desc": "", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "UNRESEARCHED", "isEvent": false}, {"id": "oma-wilcox-and-greg-linder", "name": "Oma Wilcox & Greg Linder", "genre": "", "home": "", "desc": "", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "UNRESEARCHED", "isEvent": false}, {"id": "open-mic", "name": "Open Mic", "genre": "", "home": "", "desc": "Recurring open-mic night, not a performer. Weekly patterns in the data: Taylor Station on Wednesdays, 2 Margaritas on Mondays, Hood Canal\u00e9 on Thursdays.", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "N/A \u2014 event listing", "isEvent": true}, {"id": "owen-evans", "name": "Owen Evans", "genre": "", "home": "", "desc": "", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "UNRESEARCHED", "isEvent": false}, {"id": "pat-timmons", "name": "Pat Timmons", "genre": "", "home": "", "desc": "", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "UNRESEARCHED", "isEvent": false}, {"id": "randy-linder", "name": "Randy Linder", "genre": "", "home": "", "desc": "", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "UNRESEARCHED", "isEvent": false}, {"id": "richard-saunders", "name": "Richard Saunders", "genre": "", "home": "", "desc": "", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "UNRESEARCHED", "isEvent": false}, {"id": "rob-hill", "name": "Rob Hill", "genre": "", "home": "", "desc": "", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "UNRESEARCHED", "isEvent": false}, {"id": "rob-hill-and-stephanie-layton", "name": "Rob Hill & Stephanie Layton", "genre": "", "home": "", "desc": "", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "UNRESEARCHED", "isEvent": false}, {"id": "sammy-steele", "name": "Sammy Steele", "genre": "", "home": "", "desc": "", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "UNRESEARCHED", "isEvent": false}, {"id": "scott-lesman", "name": "Scott Lesman", "genre": "", "home": "", "desc": "", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "UNRESEARCHED", "isEvent": false}, {"id": "scott-lesman-duo", "name": "Scott Lesman Duo", "genre": "", "home": "", "desc": "", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "UNRESEARCHED", "isEvent": false}, {"id": "sean-curkendall", "name": "Sean Curkendall", "genre": "", "home": "", "desc": "", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "UNRESEARCHED", "isEvent": false}, {"id": "seth-unger", "name": "Seth Unger", "genre": "", "home": "", "desc": "", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "UNRESEARCHED", "isEvent": false}, {"id": "suped-up-fjord", "name": "Suped Up Fjord", "genre": "Rock & roll covers", "home": "Union, WA", "desc": "Cover band based in Union that describes itself as playing \"both kinds of music, rock and roll.\" They perform as a duo, trio or full band depending on the venue, and play regularly around Mason County including local festivals. The trio configuration is billed as the \"Fjord Piece Trio.\"", "website": "https://www.supedupfjord.com/", "facebook": "https://www.facebook.com/supedupfjord/", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "High", "isEvent": false}, {"id": "the-lady-drinks-whiskey", "name": "The Lady Drinks Whiskey", "genre": "Classic rock & blues covers", "home": "Shelton / Olympia, WA", "desc": "Local cover band playing classic rock and blues, made up of Pam Wiley on vocals, Scott Taylor on guitar and vocals, and Mike Burdorff on guitar, mandolin, harmonica and vocals. Their repertoire spans the Beatles and Beach Boys through Janis Joplin, Elvis and Willie Nelson. They play small venues and private parties across the Puget Sound region and appear regularly at Hood Canal venues.", "website": "https://www.whiskeygigs.com/", "facebook": "https://www.facebook.com/theladydrinkswhiskey/", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "https://www.reverbnation.com/theladydrinkswhiskey", "conf": "High", "isEvent": false}, {"id": "the-mistaken", "name": "The Mistaken", "genre": "", "home": "", "desc": "", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "UNRESEARCHED", "isEvent": false}, {"id": "the-shoemaker-brothers", "name": "The Shoemaker Brothers", "genre": "Americana / folk-rock / rockabilly", "home": "Originally Shelton & Mason County, WA; later based in Los Angeles, CA", "desc": "A band of four brothers \u2014 Samuel, Nathanael, Daniel and Gabriel Shoemaker \u2014 who grew up in Mason County and were classically trained on strings before forming the band in the mid-2000s. They play original folk and rockabilly-tinged rock, swapping instruments mid-song, and have toured nationally after relocating to Los Angeles. A Mason County homecoming appearance explains the sold-out Hoodstock billing.", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "https://www.allmusic.com/artist/shoemaker-brothers-mn0001580445", "conf": "High", "isEvent": false}, {"id": "union-city-council", "name": "Union City Council", "genre": "", "home": "", "desc": "", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "UNRESEARCHED", "isEvent": false}, {"id": "zak-hyneman", "name": "Zak Hyneman", "genre": "", "home": "", "desc": "", "website": "", "facebook": "", "instagram": "", "tiktok": "", "youtube": "", "spotify": "", "other": "", "conf": "UNRESEARCHED", "isEvent": false}], "venues": [{"id": "1889-prime-steakhouse", "name": "1889 Prime Steakhouse", "address": "406 5th Ave SW", "city": "Olympia", "state": "WA", "zip": "98501", "phone": "(360) 628-8653", "website": "", "facebook": "", "instagram": "", "type": "Steakhouse", "lat": "47.043895", "lng": "-122.9056458", "about": "Upscale steakhouse in downtown Olympia.", "conf": "Medium"}, {"id": "2-margaritas-restaurant-union", "name": "2 Margaritas Restaurant (Union)", "address": "5121 WA-106", "city": "Union", "state": "WA", "zip": "98592", "phone": "(360) 898-2462", "website": "", "facebook": "", "instagram": "", "type": "Mexican restaurant & bar", "lat": "47.357155", "lng": "-123.0997216", "about": "Waterfront Mexican restaurant on Hood Canal. Monday open mic in the source data.", "conf": "Medium"}, {"id": "alderbrook-golf-and-yacht-club", "name": "Alderbrook Golf & Yacht Club", "address": "330 E Country Club Dr E", "city": "Union", "state": "WA", "zip": "98592", "phone": "(360) 898-2560", "website": "https://alderbrookgolfclub.com/", "facebook": "", "instagram": "", "type": "Private golf & yacht club (member/public dining)", "lat": "47.3378897", "lng": "-123.069976", "about": "Golf course and community club. On-site food & beverage venues include The Clubhouse Restaurant and The Pointe. NOT the same business as Alderbrook Resort & Spa (10 E Alderbrook Dr), which is a separate hotel down the hill.", "conf": "High"}, {"id": "el-sarape-shelton", "name": "El Sarape (Shelton)", "address": "318 W Railroad Ave", "city": "Shelton", "state": "WA", "zip": "98584", "phone": "(360) 426-4294", "website": "", "facebook": "", "instagram": "", "type": "Mexican restaurant & cantina", "lat": "47.2136492", "lng": "-123.1030222", "about": "Shelton restaurant with a large bar and game room; reviews mention live bands on Friday nights.", "conf": "Medium"}, {"id": "hood-canale", "name": "Hood Canal\u00e9", "address": "6871 WA-106, Ste B", "city": "Union", "state": "WA", "zip": "98592", "phone": "(360) 898-0300", "website": "https://www.hoodcanale.com/", "facebook": "", "instagram": "", "type": "Wine bar & wood-fired pizza restaurant with live music", "lat": "47.3478733", "lng": "-123.0732934", "about": "Waterfront wine bar and pizzeria in Union. Regional tourism listing describes open mic on Thursdays and bands on weekends \u2014 consistent with the Thursday open-mic pattern in the spreadsheet, and a reason to re-check the 8/12 Wednesday entry.", "conf": "High"}, {"id": "hook-and-fork", "name": "Hook & Fork", "address": "5101 WA-106", "city": "Union", "state": "WA", "zip": "98592", "phone": "(360) 898-3500", "website": "https://www.alderbrookresort.com/culinary/hook-fork", "facebook": "", "instagram": "", "type": "Waterfront seafood restaurant", "lat": "47.3576107", "lng": "-123.1002671", "about": "Wood-grill seafood restaurant at the Union waterfront.", "conf": "High"}, {"id": "kneeland-park", "name": "Kneeland Park", "address": "100 Turner Ave", "city": "Shelton", "state": "WA", "zip": "98584", "phone": "(360) 432-5194", "website": "https://www.sheltonwa.gov/government/departments/parks_and_recreation/city_parks_and_trails.php", "facebook": "", "instagram": "", "type": "Public city park with gazebo and small stage", "lat": "47.208638", "lng": "-123.101785", "about": "City of Shelton park. Reviews describe a covered area with picnic tables and a small stage \u2014 the likely setting for an outdoor summer concert.", "conf": "High"}, {"id": "lake-nahwatzel-resort-and-restaurant", "name": "Lake Nahwatzel Resort and Restaurant", "address": "12900 W Shelton Matlock Rd", "city": "Shelton", "state": "WA", "zip": "98584", "phone": "(360) 427-0100", "website": "https://lakenahwatzelresort.com/", "facebook": "", "instagram": "", "type": "Lakeside resort & restaurant", "lat": "47.2398248", "lng": "-123.3281252", "about": "Lakefront resort with restaurant and cabins; regular live music.", "conf": "High"}, {"id": "mcreavy-house-museum", "name": "McReavy House Museum", "address": "10 E 2nd St", "city": "Union", "state": "WA", "zip": "98592", "phone": "(360) 898-7714", "website": "http://mcreavyhouseofhoodcanal.weebly.com/", "facebook": "", "instagram": "", "type": "Historic house museum", "lat": "47.356697", "lng": "-123.1000853", "about": "Historic house museum in Union associated with the McReavy family, early settlers of Union City. A 2-3pm afternoon slot fits a museum program rather than a bar gig.", "conf": "High"}, {"id": "mike-s-beach-resort", "name": "Mike's Beach Resort", "address": "38470 US-101", "city": "Lilliwaup", "state": "WA", "zip": "98555", "phone": "(360) 490-4760", "website": "http://www.mikesbeachresort.com/", "facebook": "", "instagram": "", "type": "Waterfront resort with cabins & event space", "lat": "47.5705159", "lng": "-123.013396", "about": "Hood Canal resort; a guest review describes Saturday night \"chill and grill\" with live music, matching the 7-9pm Friday/Saturday slots in the data.", "conf": "High"}, {"id": "mosquito-fleet-winery", "name": "Mosquito Fleet Winery", "address": "21 NE Old Belfair Hwy", "city": "Belfair", "state": "WA", "zip": "98528", "phone": "(360) 710-8788", "website": "https://www.mosquitofleet.net/", "facebook": "", "instagram": "", "type": "Winery & tasting room", "lat": "47.4545081", "lng": "-122.827595", "about": "Small-batch winery and tasting room in Belfair with regular live music, typically evenings Thursday-Friday and afternoons on weekends \u2014 consistent with the 6-8pm and 3-5pm slots in the source data.", "conf": "High"}, {"id": "patches-hoodsport", "name": "Patches", "address": "24180 US-101, Ste C", "city": "Hoodsport", "state": "WA", "zip": "98548", "phone": "", "website": "", "facebook": "", "instagram": "", "type": "Coffee shop & art gallery", "lat": "47.4049012", "lng": "-123.1410607", "about": "Coffee shop and art gallery in Hoodsport showing Washington artists. Reviews note music events are planned.", "conf": "Medium"}, {"id": "robin-hood-village-resort", "name": "Robin Hood Village Resort", "address": "6790 E State Route 106", "city": "Union", "state": "WA", "zip": "98592", "phone": "(360) 898-2163", "website": "https://robinhoodvillageresort.com/", "facebook": "https://www.facebook.com/robinhoodvillageresort/", "instagram": "", "type": "Historic resort, restaurant & pub, event/festival venue", "lat": "", "lng": "", "about": "Resort built in 1934 by a Hollywood set designer for MGM's \"The Adventures of Robin Hood\". On-site Robin Hood Restaurant & Pub has hosted live music for decades. Hosts the Hoodstock festival.", "conf": "High"}, {"id": "sacred-waters-center-for-restoration-and-retreat", "name": "Sacred Waters Center for Restoration and Retreat", "address": "7362 WA-106", "city": "Union", "state": "WA", "zip": "98592", "phone": "(360) 898-2362", "website": "https://www.thesacredwaterscenter.org/", "facebook": "", "instagram": "", "type": "Retreat & wellness center", "lat": "47.3482115", "lng": "-123.0625718", "about": "Retreat and wellness center on the Union waterfront.", "conf": "Medium"}, {"id": "shelton-presbyterian-church", "name": "Shelton Presbyterian Church", "address": "1430 E Shelton Springs Rd", "city": "Shelton", "state": "WA", "zip": "98584", "phone": "(360) 432-8696", "website": "http://www.sheltonpres.org/", "facebook": "", "instagram": "", "type": "Church", "lat": "47.2454664", "lng": "-123.1347333", "about": "Congregation in Shelton; the sanctuary and meeting rooms host community events.", "conf": "High"}, {"id": "taylor-station-restaurant-and-lounge", "name": "Taylor Station Restaurant & Lounge", "address": "62 SE Lynch Rd", "city": "Shelton", "state": "WA", "zip": "98584", "phone": "(360) 426-8501", "website": "https://taylorstation.net/", "facebook": "", "instagram": "", "type": "American restaurant, lounge & bar with live music", "lat": "47.1422157", "lng": "-123.0940094", "about": "Restaurant and lounge off US-101 near Taylor Shellfish. Reviews cite extended weekend hours, live music and a covered outdoor patio \u2014 matching the Wednesday open mic and 8-11pm weekend band slots in the data.", "conf": "High"}, {"id": "the-bistro-at-lakeland-village", "name": "The Bistro at Lakeland Village", "address": "470 E Country Club Dr", "city": "Allyn", "state": "WA", "zip": "98524", "phone": "(360) 277-4137", "website": "", "facebook": "", "instagram": "", "type": "Bistro & restaurant at a golf community", "lat": "47.3842877", "lng": "-122.8435562", "about": "Restaurant at Lakeland Village in Allyn, with a pond-side patio.", "conf": "Medium"}, {"id": "the-pointe-at-alderbrook-golf-and-yacht-club", "name": "The Pointe at Alderbrook Golf & Yacht Club", "address": "330 E Country Club Dr E", "city": "Union", "state": "WA", "zip": "98592", "phone": "(360) 898-2560", "website": "https://alderbrookgolfclub.com/web/pages/views-from-the-pointe", "facebook": "", "instagram": "", "type": "Event/dining space within a golf & yacht club", "lat": "47.3378897", "lng": "-123.069976", "about": "Club website lists The Pointe as an on-site amenity alongside The Annex and the Wickiup.", "conf": "High"}, {"id": "the-salmon-center-hood-canal-salmon-enhancement-group", "name": "The Salmon Center (Hood Canal Salmon Enhancement Group)", "address": "600 NE Roessel Rd", "city": "Belfair", "state": "WA", "zip": "98528", "phone": "(360) 275-3575", "website": "https://www.pnwsalmoncenter.org/", "facebook": "", "instagram": "", "type": "Nonprofit environmental education center, farm & event barn", "lat": "47.44515", "lng": "-122.8371687", "about": "Home of the Hood Canal Salmon Enhancement Group. Trails, community garden, farm animals, dog park, and a barn available for public and private events.", "conf": "High"}, {"id": "union-square-deli", "name": "Union Square Deli", "address": "310 E Dalby Rd, Ste 100", "city": "Union", "state": "WA", "zip": "98592", "phone": "(360) 898-3354", "website": "http://www.unionsquaredeli.com/", "facebook": "", "instagram": "", "type": "Deli, cafe & pizzeria with small bar", "lat": "47.346332", "lng": "-123.0778976", "about": "Deli and pizza cafe with a dog-friendly outdoor patio. A review notes open mic and musical guests on select nights.", "conf": "High"}], "cities": ["Allyn", "Belfair", "Hoodsport", "Lilliwaup", "Olympia", "Shelton", "Union"]};
+const FEED_URL = '/events.json';
+let EV, AR, VE, aById, vById, sorted;
+
+const DOW  = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+const DOWL = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+const MON  = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+const MONS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+const d = iso => { const [y,m,dd]=iso.split('-').map(Number); return new Date(y,m-1,dd); };
+const key = dt => `${dt.getFullYear()}-${String(dt.getMonth()+1).padStart(2,'0')}-${String(dt.getDate()).padStart(2,'0')}`;
+const addDays = (dt,n) => { const x=new Date(dt); x.setDate(x.getDate()+n); return x; };
+const TODAY = (()=>{ const n=new Date(); return new Date(n.getFullYear(),n.getMonth(),n.getDate()); })();
+const TKEY = key(TODAY);
+
+function t12(hhmm){
+  if(!hhmm) return '';
+  let [h,m] = hhmm.split(':').map(Number);
+  const ap = h>=12 ? 'PM' : 'AM';
+  h = h%12 || 12;
+  return m ? `${h}:${String(m).padStart(2,'0')} ${ap}` : `${h} ${ap}`;
+}
+function span(e){
+  if(!e.start) return 'Time not listed';
+  const a=t12(e.start), b=t12(e.end);
+  if(!b) return a;
+  const sameHalf = (Number(e.start.split(':')[0])>=12) === (Number(e.end.split(':')[0])>=12);
+  return sameHalf ? `${a.replace(/ [AP]M$/,'')} – ${b}` : `${a} – ${b}`;
+}
+const byTime = (a,b)=> a.date===b.date ? (a.start||'').localeCompare(b.start||'') : a.date.localeCompare(b.date);
+const esc = s => String(s??'').replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+/* ---------------- home ---------------- */
+function renderHome(){
+  document.getElementById('todayStamp').innerHTML =
+    `${DOWL[TODAY.getDay()]}<br>${MONS[TODAY.getMonth()]} ${TODAY.getDate()}, ${TODAY.getFullYear()}`;
+
+  const tonight = sorted.filter(e=>e.date===TKEY);
+  const head = document.getElementById('tonightHead');
+  const sub  = document.getElementById('tonightSub');
+  const body = document.getElementById('tonightBody');
+
+  if(tonight.length){
+    const towns = [...new Set(tonight.map(e=>e.city).filter(Boolean))];
+    head.innerHTML = `<span class="n">${tonight.length}</span> show${tonight.length>1?'s':''}<br>on the canal`;
+    const list = towns.length>1
+      ? towns.slice(0,-1).join(', ') + ' and ' + towns[towns.length-1]
+      : towns[0];
+    sub.textContent = towns.length ? `Playing tonight in ${list}.`
+                                   : 'Playing tonight around Mason County.';
+    const nowMin = new Date().getHours()*60 + new Date().getMinutes();
+    body.innerHTML = '<div class="rail">' + tonight.map(e=>{
+      const endMin = e.end ? Number(e.end.split(':')[0])*60 + Number(e.end.split(':')[1]) : 1440;
+      const startMin = e.start ? Number(e.start.split(':')[0])*60 + Number(e.start.split(':')[1]) : 0;
+      const over = endMin < nowMin;
+      const live = !over && startMin <= nowMin;
+      const soon = !over && !live && startMin - nowMin <= 120;
+      const tag = live ? '<span class="tag soon">On now</span>'
+                : soon ? '<span class="tag soon">Starts soon</span>'
+                : (!e.vid ? '<span class="tag tba">Venue not listed</span>' : '');
+      return `<div class="stop${over?' past':''}">
+        <div class="t"><b>${esc(t12(e.start).replace(/ [AP]M$/,''))}</b>${esc((t12(e.start).match(/[AP]M$/)||[''])[0].toLowerCase())}</div>
+        ${eventCard(e, tag)}
+      </div>`;
+    }).join('') + '</div>';
+  } else {
+    head.innerHTML = 'No shows<br>listed tonight';
+    const next = sorted.find(e=>e.date>TKEY);
+    sub.textContent = 'Nothing in the calendar for tonight.';
+    body.innerHTML = next
+      ? `<div class="empty">Next up is <b>${esc(next.artist)}</b> on ${DOWL[d(next.date).getDay()]}, ${MONS[d(next.date).getMonth()]} ${d(next.date).getDate()} at ${esc(next.venue)}.</div>`
+      : `<div class="empty">The calendar has run out. <b>New listings are added from the venue schedules.</b></div>`;
+  }
+
+  // Everything after today, in plain date order. Weekend days are marked rather than
+  // pulled out of sequence — a Friday three days away should not appear above tomorrow.
+  const rest = sorted.filter(e=>e.date > TKEY);
+  const nextDays = [...new Set(rest.map(e=>e.date))].slice(0,7);
+  const after = rest.filter(e=>nextDays.includes(e.date));
+  const moreCount = rest.length - after.length;
+
+  const wkndDays = nextDays.filter(dt=>isWeekend(d(dt)));
+  document.getElementById('upcomingNote').textContent = wkndDays.length
+    ? 'In date order. Friday to Sunday is marked.'
+    : '';
+  document.getElementById('upcomingBody').innerHTML = after.length
+    ? groupByDay(after)
+    : `<div class="empty">No further dates listed yet.</div>`;
+  document.querySelector('.linkbtn').textContent = moreCount > 0
+    ? `${moreCount} more event${moreCount===1?'':'s'} in the calendar \u2192`
+    : 'Open the full calendar \u2192';
+
+  const foot = `<b>${EV.length} events</b> from the August 2026 Mason County music list, covering
+    ${VE.length} venues in Union, Shelton, Belfair and Lilliwaup. This calendar only shows events
+    from that list &mdash; nothing is pulled in automatically. Times are as published by the venue;
+    call ahead before you drive. <span id="freshness"></span>`;
+  document.getElementById('foot').innerHTML = foot;
+  document.getElementById('foot2').innerHTML = foot;
+}
+
+function eventCard(e, tag){
+  return `<button class="card" onclick="openArtist('${e.aid}')">
+    <div class="act">${esc(e.artist)}</div>
+    <div class="meta">${esc(span(e))}<span class="dot">&middot;</span>${esc(e.venue)}${e.city?`, ${esc(e.city)}`:''}</div>
+    ${tag||''}
+  </button>`;
+}
+
+const isWeekend = dt => [5,6,0].includes(dt.getDay());
+
+function groupByDay(list){
+  const days = [...new Set(list.map(e=>e.date))];
+  const tomorrow = key(addDays(TODAY,1));
+  return days.map(dt=>{
+    const dd = d(dt);
+    const wk = isWeekend(dd);
+    let lead = '';
+    if(dt===TKEY) lead = 'Tonight &middot; ';
+    else if(dt===tomorrow) lead = 'Tomorrow &middot; ';
+    return `<div class="daygroup${wk?' wknd':''}">
+      <div class="dayhead${wk?' wknd':''}">
+        <span>${lead}${DOWL[dd.getDay()]}, ${MON[dd.getMonth()]} ${dd.getDate()}</span>
+        ${wk?'<span class="wtag">Weekend</span>':''}
+      </div>
+      ${list.filter(e=>e.date===dt).map(rowHTML).join('')}
+    </div>`;
+  }).join('');
+}
+
+function rowHTML(e){
+  const dd = d(e.date);
+  return `<div class="row">
+    <div class="when">${DOW[dd.getDay()]}<b>${dd.getDate()}</b></div>
+    <div class="body">
+      <button class="act" style="text-align:left" onclick="openArtist('${e.aid}')">${esc(e.artist)}</button>
+      <div class="meta">
+        <button onclick="openVenue('${e.vid}')" style="text-decoration:underline;text-underline-offset:2px;text-align:left">${esc(e.venue)}</button>${e.city?`, ${esc(e.city)}`:''}
+      </div>
+    </div>
+    <div class="time">${esc(span(e))}</div>
+  </div>`;
+}
+
+/* ---------------- calendar ---------------- */
+let mode='month', cursor=null, selDay=null;
+const F = {artist:'',venue:'',city:''};
+
+function filtered(){
+  return sorted.filter(e =>
+    (!F.artist || e.aid===F.artist) &&
+    (!F.venue  || e.vid===F.venue) &&
+    (!F.city   || e.city===F.city));
+}
+function buildFilters(){
+  const used = id => EV.some(e=>e.aid===id||e.vid===id);
+  document.getElementById('fArtist').innerHTML = '<option value="">All artists</option>' +
+    AR.filter(a=>used(a.id)).map(a=>`<option value="${a.id}">${esc(a.name)}</option>`).join('');
+  document.getElementById('fVenue').innerHTML = '<option value="">All venues</option>' +
+    VE.filter(v=>used(v.id)).map(v=>`<option value="${v.id}">${esc(v.name)}</option>`).join('');
+  document.getElementById('fCity').innerHTML = '<option value="">All towns</option>' +
+    DB.cities.map(c=>`<option value="${esc(c)}">${esc(c)}</option>`).join('');
+  ['fArtist','fVenue','fCity'].forEach((id,i)=>{
+    document.getElementById(id).onchange = ev=>{
+      F[['artist','venue','city'][i]] = ev.target.value; selDay=null; renderCal();
+    };
+  });
+}
+function clearFilters(){
+  F.artist=F.venue=F.city='';
+  fArtist.value=fVenue.value=fCity.value=''; selDay=null; renderCal();
+}
+function setMode(m){
+  mode=m;
+  segMonth.setAttribute('aria-selected', m==='month');
+  segList.setAttribute('aria-selected', m==='list');
+  monthView.classList.toggle('hide', m!=='month');
+  listView.classList.toggle('hide', m!=='list');
+  renderCal();
+}
+function shiftMonth(n){ cursor=new Date(cursor.getFullYear(),cursor.getMonth()+n,1); selDay=null; renderCal(); }
+
+function renderCal(){
+  const list = filtered();
+  const on = F.artist||F.venue||F.city;
+  fCount.textContent = `${list.length} event${list.length===1?'':'s'}${on?' match':''}`;
+  fClear.classList.toggle('hide', !on);
+
+  if(mode==='list'){
+    const up = list.filter(e=>e.date>=TKEY);
+    listView.innerHTML = up.length ? groupByDay(up)
+      : (list.length ? `<div class="empty" style="margin-top:18px">Every matching date has already passed. <b>Switch to Month view</b> to look back.</div>`
+                     : `<div class="empty" style="margin-top:18px">No events match those filters. <b>Clear them</b> to see everything.</div>`);
+    return;
+  }
+
+  const y=cursor.getFullYear(), m=cursor.getMonth();
+  monthLabel.textContent = `${MON[m]} ${y}`;
+  const counts = {};
+  list.forEach(e=>counts[e.date]=(counts[e.date]||0)+1);
+  const first = new Date(y,m,1), start = addDays(first,-first.getDay());
+  const all = EV.map(e=>e.date).sort();
+  prevM.disabled = key(new Date(y,m,1)) <= all[0].slice(0,8)+'01';
+  nextM.disabled = `${y}-${String(m+1).padStart(2,'0')}` >= all[all.length-1].slice(0,7);
+
+  let html='';
+  for(let i=0;i<42;i++){
+    const dt=addDays(start,i), k=key(dt), n=counts[k]||0;
+    if(i>=35 && dt.getMonth()!==m) break;
+    const cls=['cell'];
+    if(dt.getMonth()!==m) cls.push('out');
+    if(n) cls.push('has');
+    if(k===TKEY) cls.push('today');
+    if(k===selDay) cls.push('sel');
+    const pips = n ? `<div class="pips">${'<i class="pip"></i>'.repeat(Math.min(n,3))}</div>` : '<div class="pips"></div>';
+    html += n
+      ? `<button class="${cls.join(' ')}" onclick="pickDay('${k}')" aria-label="${n} events on ${MON[dt.getMonth()]} ${dt.getDate()}">${dt.getDate()}${pips}</button>`
+      : `<div class="${cls.join(' ')}">${dt.getDate()}<div class="pips"></div></div>`;
+  }
+  grid.innerHTML = html;
+
+  const dayList = selDay ? list.filter(e=>e.date===selDay) : [];
+  dayDetail.innerHTML = selDay
+    ? (dayList.length ? groupByDay(dayList) : '')
+    : `<div class="empty" style="margin-top:20px">Tap a highlighted date to see what's playing.</div>`;
+}
+function pickDay(k){ selDay = (selDay===k? null : k); renderCal();
+  if(selDay) setTimeout(()=>dayDetail.scrollIntoView?.({behavior:"smooth",block:"nearest"}),60); }
+
+/* ---------------- sheets ---------------- */
+let lastFocus=null;
+function openSheet(html){
+  lastFocus=document.activeElement;
+  sheetBody.innerHTML=html; scrim.classList.add('on'); sheet.classList.add('on');
+  sheet.scrollTop=0; document.body.style.overflow='hidden';
+  sheet.querySelector('.close')?.focus?.();
+}
+function closeSheet(){
+  scrim.classList.remove('on'); sheet.classList.remove('on');
+  document.body.style.overflow=''; lastFocus?.focus?.();
+}
+document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeSheet(); });
+
+function linkRow(links){
+  const out = links.filter(l=>l.url && /^https?:\/\//.test(l.url))
+    .map(l=>`<a href="${esc(l.url)}" target="_blank" rel="noopener"${l.key?' class="key"':''}>${esc(l.label)}</a>`);
+  return out.length ? `<div class="links">${out.join('')}</div>` : '';
+}
+function showsFor(pred, emptyMsg){
+  const up = sorted.filter(e=>pred(e) && e.date>=TKEY);
+  if(!up.length) return `<div class="empty" style="margin-top:14px">${emptyMsg}</div>`;
+  return groupByDay(up);
+}
+
+function openArtist(id){
+  const a = aById[id]; if(!a) return;
+  const mine = e=>e.aid===id;
+  const isEv = a.isEvent;
+  let head = `<div class="kind">${isEv?'Event listing':'Artist'}</div><h2 id="sheetTitle">${esc(a.name)}</h2>`;
+  const bits = [a.genre, a.home].filter(Boolean);
+  if(bits.length) head += `<div class="sub">${esc(bits.join('  ·  '))}</div>`;
+  let body = a.desc ? `<div class="desc">${esc(a.desc)}</div>` : '';
+  body += linkRow([
+    {label:'Website',url:a.website,key:true},{label:'Facebook',url:a.facebook},
+    {label:'Instagram',url:a.instagram},{label:'TikTok',url:a.tiktok},
+    {label:'YouTube',url:a.youtube},{label:'Spotify',url:a.spotify},{label:'More',url:a.other}]);
+  if(!isEv && !a.desc){
+    body += `<div class="gap"><b>We're still gathering details on this act.</b> No verified genre,
+      description or links yet &mdash; we only publish links once we're confident they belong to the
+      right performer. Know them? Tell the venue and we'll add it.</div>`;
+  }
+  if(!isEv && a.instagram && !/^https?:/.test(a.instagram)){
+    body += `<div class="gap">Instagram handle listed as <b>${esc(a.instagram)}</b>, pending confirmation.</div>`;
+  }
+  body += `<div class="subhead">Upcoming performances</div>` +
+    showsFor(mine, `No further dates listed. <b>${esc(a.name)}</b> appears
+      ${EV.filter(mine).length} time${EV.filter(mine).length===1?'':'s'} in this calendar.`);
+  openSheet(head+body);
+}
+
+function openVenue(id){
+  const v = vById[id];
+  if(!v){
+    openSheet(`<div class="kind">Venue</div><h2 id="sheetTitle">Venue not listed</h2>
+      <div class="gap"><b>The source schedule didn't name a venue for this show.</b>
+      It was published as sold out. We haven't guessed a location.</div>`);
+    return;
+  }
+  const addr = [v.address, `${v.city}, ${v.state} ${v.zip}`.trim()].filter(Boolean).join(', ');
+  const q = encodeURIComponent(`${v.name}, ${addr}`);
+  let head = `<div class="kind">Venue</div><h2 id="sheetTitle">${esc(v.name)}</h2>`;
+  if(v.type) head += `<div class="sub">${esc(v.type)}</div>`;
+  let body = `<div class="desc">${esc(addr)}</div>`;
+  if(v.about) body += `<div class="desc" style="font-size:15.5px;color:var(--mist)">${esc(v.about)}</div>`;
+  body += linkRow([
+    {label:'Directions',url:`https://www.google.com/maps/search/?api=1&query=${q}`,key:true},
+    {label:'Website',url:v.website},{label:'Facebook',url:v.facebook},
+    {label:'Instagram',url:v.instagram},
+    {label:'Call',url:v.phone?`tel:${v.phone.replace(/[^0-9+]/g,'')}`:''}]);
+  if(v.phone) body += `<div class="sub" style="margin-top:12px">${esc(v.phone)}</div>`;
+  body += `<div class="subhead">Upcoming performances</div>` +
+    showsFor(e=>e.vid===id, `No further dates listed at ${esc(v.name)}.`);
+  openSheet(head+body);
+}
+
+/* ---------------- nav ---------------- */
+function go(v){
+  const h = v==='home';
+  document.getElementById('home').classList.toggle('hide',!h);
+  document.getElementById('cal').classList.toggle('hide',h);
+  tabHome.setAttribute('aria-selected',h); tabCal.setAttribute('aria-selected',!h);
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function hydrate(){
+  EV = DB.events; AR = DB.artists; VE = DB.venues;
+  aById = Object.fromEntries(AR.map(a=>[a.id,a]));
+  vById = Object.fromEntries(VE.map(v=>[v.id,v]));
+  sorted = [...EV].sort(byTime);
+  const anchor = sorted.find(e=>e.date>=TKEY) || sorted[0];
+  if(anchor) cursor = new Date(d(anchor.date).getFullYear(), d(anchor.date).getMonth(), 1);
+  renderHome(); buildFilters(); renderCal();
+}
+hydrate();
+
+// Background refresh from the published feed.
+// Failure is silent by design: the snapshot is already on screen, so a dead network,
+// a bad deploy or a slow connection means slightly stale data rather than a broken
+// page. This is the reason the snapshot is still inlined at all.
+(function refresh(){
+  if(!FEED_URL || FEED_URL.slice(0,2) === '__') return;
+  // Old or restricted browsers may lack either API. The snapshot is already rendered,
+  // so the correct behaviour is simply to stop, never to throw.
+  if(typeof fetch !== 'function') return;
+  let ctrl = null, bail = null;
+  try{ ctrl = new AbortController(); bail = setTimeout(()=>ctrl.abort(), 6000); }catch(e){ ctrl = null; }
+  const opts = {cache:'no-store'};
+  if(ctrl) opts.signal = ctrl.signal;
+  fetch(FEED_URL + (FEED_URL.indexOf('?')<0?'?':'&') + 't=' + Date.now(), opts)
+    .then(r => r.ok ? r.json() : Promise.reject(r.status))
+    .then(fresh => {
+      if(bail) clearTimeout(bail);
+      if(!fresh || !Array.isArray(fresh.events) || !fresh.events.length) return;
+      // Compare the fields that actually render, not just ids. An event id is derived
+      // from date + artist + venue, so a corrected TIME keeps the same id — comparing
+      // ids alone would leave the old time on screen forever.
+      const sig = list => list.map(e=>[e.id,e.start,e.end,e.artist,e.venue,e.notes].join('~')).join('|');
+      const same = sig(fresh.events) === sig(DB.events);
+      if(same){ stamp(fresh); return; }
+      const onCal = !document.getElementById('cal').classList.contains('hide');
+      const keepMode = mode, keepDay = selDay, keepF = {artist:F.artist,venue:F.venue,city:F.city};
+      DB = fresh;
+      hydrate();
+      F.artist=keepF.artist; F.venue=keepF.venue; F.city=keepF.city;
+      fArtist.value=F.artist; fVenue.value=F.venue; fCity.value=F.city;
+      selDay = keepDay;
+      setMode(keepMode);
+      if(onCal) go('cal');
+      stamp(fresh);
+    })
+    .catch(()=>{ if(bail) clearTimeout(bail); });
+
+  function stamp(fresh){
+    const el = document.getElementById('freshness');
+    if(el && fresh.generated) el.textContent = 'Listings updated ' + String(fresh.generated).slice(0,10) + '.';
+  }
+})();
+</script>
+</body>
+</html>

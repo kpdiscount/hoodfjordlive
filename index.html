@@ -563,8 +563,12 @@ function closeSheet(){
 document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeSheet(); });
 
 function linkRow(links){
-  const out = links.filter(l=>l.url && /^https?:\/\//.test(l.url))
-    .map(l=>`<a href="${esc(l.url)}" target="_blank" rel="noopener"${l.key?' class="key"':''}>${esc(l.label)}</a>`);
+  const out = links.filter(l=>l.url && /^(https?:\/\/|\/|tel:|mailto:)/.test(l.url))
+    .map(l=>{
+      const external = /^https?:\/\//.test(l.url);
+      const tgt = external ? ' target="_blank" rel="noopener"' : '';
+      return `<a href="${esc(l.url)}"${tgt}${l.key?' class="key"':''}>${esc(l.label)}</a>`;
+    });
   return out.length ? `<div class="links">${out.join('')}</div>` : '';
 }
 function showsFor(pred, emptyMsg){
@@ -613,8 +617,11 @@ function openVenue(id){
   if(v.type) head += `<div class="sub">${esc(v.type)}</div>`;
   let body = `<div class="desc">${esc(addr)}</div>`;
   if(v.about) body += `<div class="desc" style="font-size:15.5px;color:var(--mist)">${esc(v.about)}</div>`;
+  // The sheet stays — it answers "where is this" without leaving the calendar. The
+  // venue page is the shareable, indexable version, so it gets its own way in.
   body += linkRow([
     {label:'Directions',url:`https://www.google.com/maps/search/?api=1&query=${q}`,key:true},
+    {label:'Venue page',url:`/venue/${id}/`},
     {label:'Website',url:v.website},{label:'Facebook',url:v.facebook},
     {label:'Instagram',url:v.instagram},
     {label:'Call',url:v.phone?`tel:${v.phone.replace(/[^0-9+]/g,'')}`:''}]);

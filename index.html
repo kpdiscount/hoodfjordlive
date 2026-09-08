@@ -197,6 +197,7 @@ section{margin-top:34px}
 .gap b{color:var(--shell);font-family:var(--disp)}
 
 .foot{margin:44px 0 10px;padding-top:20px;border-top:1px solid var(--line);
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;
   color:var(--mist);font-size:13.5px;line-height:1.6}
 .foot b{color:var(--shell);font-family:var(--disp);font-weight:700}
 .hide{display:none!important}
@@ -378,12 +379,7 @@ function renderHome(){
     ? `${moreCount} more event${moreCount===1?'':'s'} in the calendar \u2192`
     : 'Open the full calendar \u2192';
 
-  const foot = `<b>${EV.length} events</b> from the August 2026 Mason County music list, covering
-    ${VE.length} venues in Union, Shelton, Belfair and Lilliwaup. This calendar only shows events
-    from that list &mdash; nothing is pulled in automatically. Times are as published by the venue;
-    call ahead before you drive. <span id="freshness"></span>`;
-  document.getElementById('foot').innerHTML = foot;
-  document.getElementById('foot2').innerHTML = foot;
+  stampFooter(DB.generated);
 }
 
 function eventCard(e, tag){
@@ -395,6 +391,28 @@ function eventCard(e, tag){
 }
 
 const isWeekend = dt => [5,6,0].includes(dt.getDay());
+
+/** "2026-09-07 14:59" -> "Sep 7, 2026 at 2:59 PM". Falls back to the raw string. */
+function prettyStamp(raw){
+  const m = String(raw||'').match(/^(\d{4})-(\d{2})-(\d{2})(?:[ T](\d{2}):(\d{2}))?/);
+  if(!m) return String(raw||'');
+  const dt = new Date(+m[1], +m[2]-1, +m[3]);
+  let out = `${MONS[dt.getMonth()]} ${dt.getDate()}, ${dt.getFullYear()}`;
+  if(m[4] !== undefined){
+    let h = +m[4]; const ap = h>=12 ? 'PM' : 'AM';
+    h = h%12 || 12;
+    out += ` at ${h}:${m[5]} ${ap}`;
+  }
+  return out;
+}
+
+function stampFooter(raw){
+  const text = raw ? `Updated ${prettyStamp(raw)}` : '';
+  ['foot','foot2'].forEach(id=>{
+    const el = document.getElementById(id);
+    if(el) el.textContent = text;
+  });
+}
 
 function groupByDay(list){
   const days = [...new Set(list.map(e=>e.date))];
@@ -648,8 +666,7 @@ hydrate();
     .catch(()=>{ if(bail) clearTimeout(bail); });
 
   function stamp(fresh){
-    const el = document.getElementById('freshness');
-    if(el && fresh.generated) el.textContent = 'Listings updated ' + String(fresh.generated).slice(0,10) + '.';
+    if(fresh && fresh.generated) stampFooter(fresh.generated);
   }
 })();
 </script>

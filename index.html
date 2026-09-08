@@ -107,7 +107,6 @@ a{color:inherit}
   border-radius:10px;padding:0 6px;margin-left:-6px;margin-right:-6px}
 
 section{margin-top:34px}
-.secnote{color:var(--mist);font-size:14px;margin:-4px 0 2px}
 .linkbtn{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:12px;
   letter-spacing:.1em;text-transform:uppercase;color:var(--glow);margin-top:16px}
 
@@ -228,7 +227,6 @@ section{margin-top:34px}
 
     <section>
       <div class="eyebrow plain">Upcoming live music</div>
-      <p class="secnote" id="upcomingNote"></p>
       <div id="upcomingBody"></div>
       <button class="linkbtn" onclick="go('cal')">Open the full calendar &rarr;</button>
     </section>
@@ -373,10 +371,6 @@ function renderHome(){
   const after = rest.filter(e=>nextDays.includes(e.date));
   const moreCount = rest.length - after.length;
 
-  const wkndDays = nextDays.filter(dt=>isWeekend(d(dt)));
-  document.getElementById('upcomingNote').textContent = wkndDays.length
-    ? 'In date order. Friday to Sunday is marked.'
-    : '';
   document.getElementById('upcomingBody').innerHTML = after.length
     ? groupByDay(after)
     : `<div class="empty">No further dates listed yet.</div>`;

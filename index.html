@@ -200,6 +200,11 @@ section{margin-top:34px}
   font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;
   color:var(--mist);font-size:13.5px;line-height:1.6}
 .foot b{color:var(--shell);font-family:var(--disp);font-weight:700}
+/* Contact sits above the timestamp: the link is the useful bit, the stamp is a footnote. */
+.foot{display:flex;flex-direction:column;gap:7px;align-items:flex-start}
+.foot .contact{color:var(--glow);text-decoration:none;border-bottom:1px solid rgba(97,226,182,.35);
+  padding-bottom:1px;letter-spacing:.1em}
+.foot .contact:hover{border-bottom-color:var(--glow)}
 .hide{display:none!important}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 @media (min-width:560px){ .filters{grid-template-columns:repeat(3,1fr)} .filters .wide{grid-column:auto} }
@@ -232,7 +237,10 @@ section{margin-top:34px}
       <button class="linkbtn" onclick="go('cal')">Open the full calendar &rarr;</button>
     </section>
 
-    <div class="foot" id="foot"></div>
+    <div class="foot">
+      <a class="contact" href="mailto:admin@hoodfjordlive.com?subject=Hood%20Fjord%20Live">Questions or comments</a>
+      <span id="foot"></span>
+    </div>
   </main>
 
   <main id="cal" class="hide">
@@ -265,7 +273,10 @@ section{margin-top:34px}
     </div>
 
     <div id="listView" class="hide"></div>
-    <div class="foot" id="foot2"></div>
+    <div class="foot">
+      <a class="contact" href="mailto:admin@hoodfjordlive.com?subject=Hood%20Fjord%20Live">Questions or comments</a>
+      <span id="foot2"></span>
+    </div>
   </main>
 </div>
 

@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-07 16:10",
+ "generated": "2026-09-07 17:21",
  "source": "Tidewater master sheet",
  "events": [
   {
@@ -1381,6 +1381,30 @@
    "venue": "Taylor Station Restaurant & Lounge",
    "city": "Shelton",
    "notes": "Solo performance"
+  },
+  {
+   "id": "evt_5be9a3954402",
+   "date": "2026-10-03",
+   "start": "17:00",
+   "end": "23:00",
+   "aid": "kitty-mae",
+   "artist": "Kitty Mae",
+   "vid": "hood-canale",
+   "venue": "Hood Canalé",
+   "city": "Union",
+   "notes": ""
+  },
+  {
+   "id": "evt_40cbaec3751c",
+   "date": "2026-10-03",
+   "start": "18:00",
+   "end": "20:00",
+   "aid": "gregory-rawlins",
+   "artist": "Gregory Rawlins",
+   "vid": "hood-canale",
+   "venue": "Hood Canalé",
+   "city": "Union",
+   "notes": ""
   }
  ],
  "artists": [

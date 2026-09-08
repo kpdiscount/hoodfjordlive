@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-07 17:32",
+ "generated": "2026-09-07 19:36",
  "source": "Tidewater master sheet",
  "events": [
   {
@@ -1947,17 +1947,17 @@
   {
    "id": "kitty-mae",
    "name": "Kitty Mae",
-   "genre": "",
-   "home": "",
-   "desc": "",
-   "website": "",
-   "facebook": "",
-   "instagram": "",
+   "genre": "Country",
+   "home": "Washington State (Pacific Northwest)",
+   "desc": "Country singer-songwriter and guitarist who bills herself as the Cascade Cowgirl. Born and raised in Washington, she started out singing the national anthem at fairs and rodeos and busking at Pike Place Market, and now plays across western Washington. Her sound blends classic country storytelling with modern country rock, drawing on Dolly Parton, Miranda Lambert, Gretchen Wilson and The Chicks. A two-time Northwest CMA award winner, including Favorite Local Act of 2024.",
+   "website": "https://www.kittymaeow.com/",
+   "facebook": "https://www.facebook.com/kittyymae/",
+   "instagram": "https://www.instagram.com/kittymaeow/",
    "tiktok": "",
    "youtube": "",
    "spotify": "",
    "other": "",
-   "conf": "UNRESEARCHED",
+   "conf": "High",
    "isEvent": false
   },
   {
@@ -2283,17 +2283,17 @@
   {
    "id": "sammy-steele",
    "name": "Sammy Steele",
-   "genre": "",
-   "home": "",
-   "desc": "",
-   "website": "",
-   "facebook": "",
+   "genre": "Outlaw country / country-alternative / Americana",
+   "home": "North Dakota-born, Pacific Northwest-raised; now splits time between the Northwest and Wyoming",
+   "desc": "Singer-songwriter with a gravelly baritone working in the outlaw country tradition of Merle Haggard, Waylon Jennings and Johnny Cash, mixed with the 90s country he grew up on and a streak of southern and alternative rock. He began performing at open mics after moving to Las Vegas in 2005, then returned to the Northwest and built a following across Washington, Oregon, Idaho and Montana. He plays Shelton regularly, including full-band shows at Little Creek Casino.",
+   "website": "https://www.sammysteele.com/",
+   "facebook": "https://www.facebook.com/SammySteeleMusic/",
    "instagram": "",
    "tiktok": "",
    "youtube": "",
-   "spotify": "",
-   "other": "",
-   "conf": "UNRESEARCHED",
+   "spotify": "https://open.spotify.com/artist/5CH9WIBWyBcOwtQ1yIk5g2",
+   "other": "https://www.bandsintown.com/a/7574633-sammy-steele",
+   "conf": "High",
    "isEvent": false
   },
   {
@@ -2315,9 +2315,9 @@
   {
    "id": "scott-lesman-duo",
    "name": "Scott Lesman Duo",
-   "genre": "",
-   "home": "",
-   "desc": "",
+   "genre": "Motown, classic rock and originals",
+   "home": "Union, WA",
+   "desc": "Two-piece act led by Union-based musician Scott Lesman, described by Hood Canalé as two musicians playing anything from Motown to classic rock along with a good deal of their own original material. Scott Lesman is listed as a musician member of the North Mason Chamber of Commerce in Union, and the duo plays regularly around Hood Canal and the Kitsap Peninsula.",
    "website": "",
    "facebook": "",
    "instagram": "",
@@ -2325,7 +2325,7 @@
    "youtube": "",
    "spotify": "",
    "other": "",
-   "conf": "UNRESEARCHED",
+   "conf": "Medium",
    "isEvent": false
   },
   {

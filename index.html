@@ -662,11 +662,12 @@ hydrate();
     .then(fresh => {
       if(bail) clearTimeout(bail);
       if(!fresh || !Array.isArray(fresh.events) || !fresh.events.length) return;
-      // Compare the fields that actually render, not just ids. An event id is derived
-      // from date + artist + venue, so a corrected TIME keeps the same id — comparing
-      // ids alone would leave the old time on screen forever.
-      const sig = list => list.map(e=>[e.id,e.start,e.end,e.artist,e.venue,e.notes].join('~')).join('|');
-      const same = sig(fresh.events) === sig(DB.events);
+      // Compare EVERYTHING that renders, not just the events.
+      // An event id is derived from date + artist + venue, so a corrected time keeps the
+      // same id; and artist bios, genres and links live in a separate array entirely, so
+      // comparing events alone would leave an updated artist page invisible forever.
+      const sig = obj => JSON.stringify([obj.events, obj.artists, obj.venues]);
+      const same = sig(fresh) === sig(DB);
       if(same){ stamp(fresh); return; }
       const onCal = !document.getElementById('cal').classList.contains('hide');
       const keepMode = mode, keepDay = selDay, keepF = {artist:F.artist,venue:F.venue,city:F.city};

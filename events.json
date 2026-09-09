@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-09 14:36",
+ "generated": "2026-09-09 15:22",
  "source": "Tidewater master sheet",
  "events": [
   {
@@ -1189,6 +1189,18 @@
    "venue": "El Sarape (Shelton)",
    "city": "Shelton",
    "notes": ""
+  },
+  {
+   "id": "evt_d92e7ef91664",
+   "date": "2026-09-19",
+   "start": "14:00",
+   "end": "23:00",
+   "aid": "union-city-council",
+   "artist": "Union City Council",
+   "vid": "quilcene-lantern",
+   "venue": "Quilcene Lantern",
+   "city": "Quilcene",
+   "notes": "Part of Olympickin'"
   },
   {
    "id": "evt_f7251db20b89",
@@ -2849,6 +2861,23 @@
    "lng": "-123.0778976",
    "about": "Deli and pizza cafe with a dog-friendly outdoor patio. A review notes open mic and musical guests on select nights.",
    "conf": "High"
+  },
+  {
+   "id": "quilcene-lantern",
+   "name": "Quilcene Lantern",
+   "address": "7360 Center Rd",
+   "city": "Quilcene",
+   "state": "WA",
+   "zip": "98376",
+   "phone": "(206) 719-3726",
+   "website": "",
+   "facebook": "",
+   "instagram": "",
+   "type": "Farm event venue, concert space and cabins",
+   "lat": "47.9207928",
+   "lng": "-122.8234857",
+   "about": "Family-run farm venue in Quilcene with a barn concert space, cabins and camping. Reviews describe concert events and a barn concession. In Jefferson County, north of the Mason County line.",
+   "conf": "Medium"
   }
  ],
  "cities": [
@@ -2857,6 +2886,7 @@
   "Hoodsport",
   "Lilliwaup",
   "Olympia",
+  "Quilcene",
   "Shelton",
   "Union"
  ]

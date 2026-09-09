@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-08 17:23",
+ "generated": "2026-09-08 18:26",
  "source": "Tidewater master sheet",
  "events": [
   {
@@ -1393,6 +1393,30 @@
    "venue": "Taylor Station Restaurant & Lounge",
    "city": "Shelton",
    "notes": "Solo performance"
+  },
+  {
+   "id": "evt_e2144ef5bb61",
+   "date": "2026-10-03",
+   "start": "22:00",
+   "end": "23:00",
+   "aid": "kevin-pugh",
+   "artist": "Kevin Pugh",
+   "vid": "",
+   "venue": "Venue not listed",
+   "city": "",
+   "notes": "Union; Test Event"
+  },
+  {
+   "id": "evt_dd768fb7d29e",
+   "date": "2027-10-03",
+   "start": "22:00",
+   "end": "23:00",
+   "aid": "kevin-pugh",
+   "artist": "Kevin Pugh",
+   "vid": "",
+   "venue": "Venue not listed",
+   "city": "",
+   "notes": "Union; Test New Artist"
   }
  ],
  "artists": [
@@ -2466,6 +2490,22 @@
    "spotify": "",
    "other": "",
    "conf": "UNRESEARCHED",
+   "isEvent": false
+  },
+  {
+   "id": "kevin-pugh",
+   "name": "Kevin Pugh",
+   "genre": "",
+   "home": "",
+   "desc": "",
+   "website": "",
+   "facebook": "",
+   "instagram": "",
+   "tiktok": "",
+   "youtube": "",
+   "spotify": "",
+   "other": "",
+   "conf": "Added by admin",
    "isEvent": false
   }
  ],

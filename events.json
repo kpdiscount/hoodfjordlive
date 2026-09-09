@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-08 18:33",
+ "generated": "2026-09-09 14:09",
  "source": "Tidewater master sheet",
  "events": [
   {
@@ -1008,6 +1008,18 @@
    "vid": "el-sarape-shelton",
    "venue": "El Sarape (Shelton)",
    "city": "Shelton",
+   "notes": ""
+  },
+  {
+   "id": "evt_9115bfecc595",
+   "date": "2026-09-11",
+   "start": "18:00",
+   "end": "20:00",
+   "aid": "oma-wilcox-and-greg-linder",
+   "artist": "Oma Wilcox & Greg Linder",
+   "vid": "union-square-deli",
+   "venue": "Union Square Deli",
+   "city": "Union",
    "notes": ""
   },
   {

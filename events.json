@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-07 21:22",
+ "generated": "2026-09-08 17:23",
  "source": "Tidewater master sheet",
  "events": [
   {
@@ -1044,6 +1044,18 @@
    "vid": "hood-canale",
    "venue": "Hood Canalé",
    "city": "Union",
+   "notes": ""
+  },
+  {
+   "id": "evt_f752ec8e4fbd",
+   "date": "2026-09-12",
+   "start": "18:00",
+   "end": "21:00",
+   "aid": "aurashine",
+   "artist": "AuraShine",
+   "vid": "taylor-station-restaurant-and-lounge",
+   "venue": "Taylor Station Restaurant & Lounge",
+   "city": "Shelton",
    "notes": ""
   },
   {

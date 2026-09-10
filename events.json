@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-09 22:36",
+ "generated": "2026-09-09 22:38",
  "source": "Tidewater master sheet",
  "events": [
   {
@@ -1417,18 +1417,6 @@
    "venue": "Taylor Station Restaurant & Lounge",
    "city": "Shelton",
    "notes": "Solo performance"
-  },
-  {
-   "id": "evt_c1d251b754e2",
-   "date": "2026-10-02",
-   "start": "15:00",
-   "end": "17:00",
-   "aid": "chris-eakes",
-   "artist": "Chris Eakes",
-   "vid": "alderbrook-golf-and-yacht-club",
-   "venue": "Alderbrook Golf & Yacht Club",
-   "city": "Union",
-   "notes": "Test #2"
   },
   {
    "id": "evt_dd768fb7d29e",

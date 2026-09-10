@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-09 15:35",
+ "generated": "2026-09-09 20:31",
  "source": "Tidewater master sheet",
  "events": [
   {
@@ -1417,6 +1417,18 @@
    "venue": "Taylor Station Restaurant & Lounge",
    "city": "Shelton",
    "notes": "Solo performance"
+  },
+  {
+   "id": "evt_5be9a3954402",
+   "date": "2026-10-03",
+   "start": "19:00",
+   "end": "22:00",
+   "aid": "kitty-mae",
+   "artist": "Kitty Mae",
+   "vid": "hood-canale",
+   "venue": "Hood Canalé",
+   "city": "Union",
+   "notes": "Test"
   },
   {
    "id": "evt_dd768fb7d29e",

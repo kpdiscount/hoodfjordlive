@@ -738,6 +738,12 @@ html,body{background:#071713!important}
 }
 
 
+/* The wordmark is a link now; it should not look like body copy that happens to be
+   underlined, and it needs a visible focus ring for keyboard users. */
+.brand{text-decoration:none;color:inherit;cursor:pointer;display:block}
+.brand:hover::after{filter:brightness(1.12)}
+.brand:focus-visible{outline:3px solid var(--orange);outline-offset:4px;border-radius:2px}
+
 /* ===== V5: the first show has to be reachable without scrolling =====
    The hero was locked at 595px. On a 844px phone, with the masthead and town bar
    above it, that left nothing — the opening screen was entirely branding, and the
@@ -782,7 +788,7 @@ html,body{background:#071713!important}
 <div class="wrap">
   <header class="mast">
     <div class="brand-wrap">
-      <div class="brand">Hood Fjord</div>
+      <a class="brand" href="/" onclick="goHome(event)" aria-label="Hood Fjord Live — home">Hood Fjord</a>
       <div class="brand-tag">Community Music Guide<br>Mason County, WA</div>
     </div>
     <nav class="desktop-nav" aria-label="Primary">
@@ -994,6 +1000,18 @@ function buildTownStrip(){
     `<button aria-pressed="${TOWN===''}" onclick="setTown('')">All areas</button>` +
     towns.map(t=>`<button aria-pressed="${TOWN===t}" onclick="setTown('${esc(t)}')">${esc(t)}</button>`).join('');
 }
+/* Tapping the wordmark returns to the top of the home view. Reloading would throw away
+   the loaded feed and any town filter for no benefit, so the click is handled in page
+   and the href is left intact for middle-click and for crawlers. */
+function goHome(ev){
+  if(ev && (ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.button === 1)) return; // let the browser open a tab
+  if(ev) ev.preventDefault();
+  if(typeof closeMobileMenu === 'function') closeMobileMenu();
+  if(typeof closeSheet === 'function') closeSheet();
+  go('home');
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
 function setTown(t){
   TOWN = (TOWN===t) ? '' : t;
   buildTownStrip();

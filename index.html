@@ -781,6 +781,20 @@ html,body{background:#071713!important}
   border-bottom:3px solid transparent}
 .locationbar button[aria-pressed="true"]{opacity:1;border-bottom-color:var(--orange)}
 .locationbar button:hover{opacity:1}
+
+/* ===== time column sizing =====
+   At >=900px the third column was a fixed 82px while the time is nowrap at 17px.
+   "2 - 4 PM" fits; "10 AM - 3 PM" does not, so it spilled outside the row. A fixed
+   width cannot hold text of unknown length: max-content sizes to whatever the longest
+   time actually is, and the middle column (minmax(0,1fr)) gives up the space. */
+@media(min-width:900px){
+  .row{grid-template-columns:64px minmax(0,1fr) max-content!important}
+  .row .time{padding-left:14px}
+}
+/* Same reasoning for the base layout, which already used auto but could still be
+   crowded by the longest string. */
+.row .body{min-width:0}
+.row .time{overflow-wrap:normal}
 </style>
 </head>
 <body>

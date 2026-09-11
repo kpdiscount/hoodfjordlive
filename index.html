@@ -795,6 +795,24 @@ html,body{background:#071713!important}
    crowded by the longest string. */
 .row .body{min-width:0}
 .row .time{overflow-wrap:normal}
+
+/* ===== CTA arrow placement =====
+   The arrow was a ::after with float:right. A float lands at the right edge of its
+   line box, so where it ends up depends on how the text before it wrapped — which is
+   why "Tonight" put it at the edge and "This Weekend" left it stranded mid-button.
+   Laying the button out as a flex row and pushing the arrow with margin-left:auto
+   puts it at the right edge regardless of how long the label is. */
+.quick-actions button{
+  display:flex!important; align-items:center; gap:11px;
+  text-align:left!important;
+}
+.quick-actions button::after{
+  float:none!important;
+  margin-left:auto;
+  padding-left:10px;
+  flex:none;
+}
+.quick-actions .cta-icon{flex:none}
 </style>
 </head>
 <body>

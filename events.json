@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-11 17:40",
+ "generated": "2026-09-11 17:43",
  "source": "Tidewater master sheet",
  "events": [
   {
@@ -2262,7 +2262,7 @@
    "spotify": "",
    "other": "",
    "conf": "UNRESEARCHED",
-   "photo": "",
+   "photo": "/img/artist/oma-wilcox-and-greg-linder.jpg",
    "isEvent": false
   },
   {
@@ -2313,7 +2313,7 @@
    "spotify": "",
    "other": "",
    "conf": "UNRESEARCHED",
-   "photo": "",
+   "photo": "/img/artist/pat-timmons.jpg",
    "isEvent": false
   },
   {
@@ -2398,7 +2398,7 @@
    "spotify": "https://open.spotify.com/artist/5CH9WIBWyBcOwtQ1yIk5g2",
    "other": "https://www.bandsintown.com/a/7574633-sammy-steele",
    "conf": "High",
-   "photo": "",
+   "photo": "/img/artist/sammy-steele.jpg",
    "isEvent": false
   },
   {

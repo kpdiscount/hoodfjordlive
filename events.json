@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-11 17:43",
+ "generated": "2026-09-11 18:21",
  "source": "Tidewater master sheet",
  "events": [
   {
@@ -1531,7 +1531,7 @@
    "spotify": "",
    "other": "",
    "conf": "Low",
-   "photo": "",
+   "photo": "/img/artist/aurashine.jpg",
    "isEvent": false
   },
   {
@@ -2347,7 +2347,7 @@
    "spotify": "",
    "other": "",
    "conf": "UNRESEARCHED",
-   "photo": "",
+   "photo": "/img/artist/richard-saunders.jpg",
    "isEvent": false
   },
   {
@@ -2415,7 +2415,7 @@
    "spotify": "",
    "other": "",
    "conf": "UNRESEARCHED",
-   "photo": "",
+   "photo": "/img/artist/scott-lesman.jpg",
    "isEvent": false
   },
   {
@@ -2432,7 +2432,7 @@
    "spotify": "",
    "other": "",
    "conf": "Medium",
-   "photo": "",
+   "photo": "/img/artist/scott-lesman-duo.jpg",
    "isEvent": false
   },
   {
@@ -2500,7 +2500,7 @@
    "spotify": "",
    "other": "https://www.reverbnation.com/theladydrinkswhiskey",
    "conf": "High",
-   "photo": "",
+   "photo": "/img/artist/the-lady-drinks-whiskey.jpg",
    "isEvent": false
   },
   {

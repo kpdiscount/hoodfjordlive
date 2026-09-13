@@ -1008,13 +1008,20 @@ function artistVisual(aid,name){
     ? `<span class="artist-thumb"><img src="${esc(photo)}" alt="" loading="lazy" onerror="this.parentNode.textContent='${esc(initials(name))}'"></span>`
     : `<span class="artist-thumb" aria-hidden="true">${esc(initials(name))}</span>`;
 }
+/* The Fri/Sat/Sun of THIS weekend.
+   The old version collected the next three weekend days starting today, so on a
+   Saturday it returned Sat, Sun and next Friday - pulling a show eight days out into
+   "This Weekend". Anchoring on the current weekend keeps the section meaning what it
+   says, and it shrinks correctly as the weekend passes. */
 function nextWeekendDates(){
-  const dates=[];
-  for(let i=0;i<14 && dates.length<3;i++){
-    const x=addDays(TODAY,i), dow=x.getDay();
-    if([5,6,0].includes(dow)) dates.push(key(x));
+  const dow = TODAY.getDay();               // 0 Sun ... 6 Sat
+  const start = (dow === 0 || dow >= 5) ? 0 : 5 - dow;   // in it already, or days to Friday
+  const out = [];
+  for(let i = start; i < start + 3; i++){
+    const x = addDays(TODAY, i);
+    if([5,6,0].includes(x.getDay())) out.push(key(x));
   }
-  return dates;
+  return out;
 }
 /* The town bar used to be four fixed labels. Deriving it from the data means it stays
    right as venues are added, and it now actually filters — Allyn, Hoodsport, Lilliwaup
@@ -1086,11 +1093,30 @@ function renderHome(){
       : `<div class="empty">The calendar has run out. <b>New listings are added from venue schedules.</b></div>`;
   }
 
+  /* Today's shows are already the first thing on the page, so repeating them under
+     "This Weekend" just pads the homepage. The full weekend, today included, is still
+     on the calendar. */
   const wkDates = nextWeekendDates();
-  const wk = sorted.filter(e=>wkDates.includes(e.date) && inTown(e));
-  document.getElementById('weekendBody').innerHTML = wk.length
-    ? weekendByDay(wk)
-    : `<div class="empty">${TOWN?`No weekend shows listed in <b>${esc(TOWN)}</b>. Tap <b>All areas</b> above.`:'No weekend shows are listed yet.'}</div>`;
+  const wkAhead = wkDates.filter(dt => dt > TKEY);
+  const wk = sorted.filter(e => wkAhead.includes(e.date) && inTown(e));
+
+  const wkSection = document.getElementById('weekendSection');
+  if(!wkAhead.length){
+    /* Sunday, or a Saturday with nothing left after today: nothing of the weekend is
+       still to come, so the heading would describe an empty idea. Hide it rather than
+       print "no shows", which reads as though the weekend were quiet. */
+    if(wkSection) wkSection.style.display = 'none';
+  } else {
+    if(wkSection) wkSection.style.display = '';
+    const h2 = wkSection && wkSection.querySelector('h2');
+    /* If today is part of the weekend, say so - otherwise leaving today out looks like
+       shows are missing. */
+    if(h2) h2.textContent = [5,6,0].includes(TODAY.getDay()) ? 'Rest of the weekend'
+                                                            : 'This Weekend';
+    document.getElementById('weekendBody').innerHTML = wk.length
+      ? weekendByDay(wk)
+      : `<div class="empty">${TOWN?`No weekend shows listed in <b>${esc(TOWN)}</b>. Tap <b>All areas</b> above.`:'No weekend shows are listed yet.'}</div>`;
+  }
 
   const afterWeekend = sorted.filter(e=>e.date>TKEY && !wkDates.includes(e.date) && inTown(e));
   const nextDays = [...new Set(afterWeekend.map(e=>e.date))].slice(0,5);

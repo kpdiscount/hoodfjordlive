@@ -813,6 +813,30 @@ html,body{background:#071713!important}
   flex:none;
 }
 .quick-actions .cta-icon{flex:none}
+
+/* ===== mailing list signup ===== */
+.signup{margin:48px 0 8px;border-top:1px solid var(--line);padding-top:34px}
+.signup-in{max-width:520px}
+.signup h2{font-family:var(--serif);font-weight:400;font-size:clamp(26px,7vw,34px);
+  line-height:1.12;letter-spacing:-.02em;margin:0 0 10px;border:0;padding:0;
+  text-transform:none;color:var(--ink)}
+.signup p{color:var(--muted);font-size:17px;margin:0 0 20px}
+.signup-row{display:flex;gap:10px;flex-wrap:wrap}
+.signup-row input{flex:1 1 220px;min-width:0;min-height:54px;padding:14px 16px;
+  font:400 17px var(--sans);color:var(--ink);background:var(--surface);
+  border:1px solid var(--line);border-radius:6px}
+.signup-row input:focus{outline:3px solid var(--orange);outline-offset:-1px}
+.signup-row button{flex:0 0 auto;min-height:54px;padding:14px 22px;border:0;
+  border-radius:6px;background:var(--orange);color:#fff;cursor:pointer;
+  font:700 14px var(--sans);letter-spacing:.06em;text-transform:uppercase}
+.signup-row button:hover{filter:brightness(1.08)}
+.signup-row button:disabled{opacity:.6;cursor:default}
+/* Off-screen rather than display:none — some bots skip hidden fields but fill
+   positioned ones. aria-hidden keeps screen readers away from it. */
+.signup-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.signup-msg{margin:14px 0 0;font-size:15.5px;min-height:1.4em}
+.signup-msg.ok{color:var(--forest)}
+.signup-msg.bad{color:var(--orange)}
 </style>
 </head>
 <body>
@@ -883,6 +907,28 @@ html,body{background:#071713!important}
         <p>Upcoming listings in date order. Use the full calendar to filter by artist, venue or town.</p>
       </div>
       <div id="upcomingBody"></div>
+    </section>
+
+    <section class="signup" id="signup">
+      <div class="signup-in">
+        <div class="kicker">Every Thursday</div>
+        <h2>The weekend lineup, by email</h2>
+        <p>One email a week with who is playing around the canal. Nothing else, and you
+           can stop any time.</p>
+        <form id="subForm" onsubmit="return submitSignup(event)" novalidate>
+          <div class="signup-row">
+            <input id="subEmail" type="email" inputmode="email" autocomplete="email"
+                   placeholder="you@example.com" aria-label="Your email address" required>
+            <button type="submit" id="subBtn">Sign me up</button>
+          </div>
+          <!-- Hidden from people, irresistible to bots. -->
+          <div class="signup-hp" aria-hidden="true">
+            <label for="subWebsite">Website</label>
+            <input id="subWebsite" type="text" tabindex="-1" autocomplete="off">
+          </div>
+          <p class="signup-msg" id="subMsg" role="status" aria-live="polite"></p>
+        </form>
+      </div>
     </section>
 
     <div class="foot">
@@ -1049,6 +1095,52 @@ function goHome(ev){
   if(typeof closeSheet === 'function') closeSheet();
   go('home');
   window.scrollTo({top:0, behavior:'smooth'});
+}
+
+/* ---------------- mailing list ----------------
+   Posted as text/plain deliberately: that makes it a "simple" cross-origin request, so
+   the browser skips the preflight check an Apps Script web app cannot answer. */
+const SUB_ENDPOINT = '';   // paste the web app /exec URL here
+const SUB_OPENED = Date.now();
+
+function submitSignup(ev){
+  ev.preventDefault();
+  const email = document.getElementById('subEmail').value.trim();
+  const msg = document.getElementById('subMsg');
+  const btn = document.getElementById('subBtn');
+  const say = (t,cls)=>{ msg.textContent=t; msg.className='signup-msg '+(cls||''); };
+
+  if(!email || !/^[^@\s]+@[^@\s.]+\.[^@\s]{2,}$/.test(email)){
+    say('Please enter a valid email address.','bad'); return false;
+  }
+  if(!SUB_ENDPOINT){
+    say('Signup is not switched on yet. Email admin@hoodfjordlive.com and we will add you.','bad');
+    return false;
+  }
+
+  btn.disabled = true; say('Signing you up\u2026');
+  fetch(SUB_ENDPOINT, {
+    method:'POST',
+    headers:{'Content-Type':'text/plain;charset=utf-8'},
+    body: JSON.stringify({
+      email: email,
+      honeypot: document.getElementById('subWebsite').value,
+      elapsed: Date.now() - SUB_OPENED,
+      source: 'homepage'
+    })
+  })
+  .then(r=>r.json())
+  .then(res=>{
+    btn.disabled = false;
+    say(res.message || 'Thanks \u2014 check your email.', res.ok ? 'ok' : 'bad');
+    if(res.ok) document.getElementById('subForm').reset();
+  })
+  .catch(()=>{
+    btn.disabled = false;
+    /* Never leave someone staring at a spinner. Give them a way through. */
+    say('Could not reach the signup service. Email admin@hoodfjordlive.com and we will add you.','bad');
+  });
+  return false;
 }
 
 function setTown(t){

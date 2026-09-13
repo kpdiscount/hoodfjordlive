@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-13 10:15",
+ "generated": "2026-09-13 10:32",
  "source": "Tidewater master sheet",
  "events": [
   {
@@ -1191,6 +1191,18 @@
    "notes": ""
   },
   {
+   "id": "evt_432ea65ff755",
+   "date": "2026-09-18",
+   "start": "18:00",
+   "end": "21:00",
+   "aid": "mearakat-fallen-robin",
+   "artist": "MearaKat - Fallen Robin",
+   "vid": "union-square-deli",
+   "venue": "Union Square Deli",
+   "city": "Union",
+   "notes": ""
+  },
+  {
    "id": "evt_d92e7ef91664",
    "date": "2026-09-19",
    "start": "14:00",
@@ -1431,6 +1443,18 @@
    "notes": ""
   },
   {
+   "id": "evt_bf7873cc192f",
+   "date": "2026-10-01",
+   "start": "18:00",
+   "end": "21:00",
+   "aid": "nikko",
+   "artist": "Nikko",
+   "vid": "taylor-station-restaurant-and-lounge",
+   "venue": "Taylor Station Restaurant & Lounge",
+   "city": "Shelton",
+   "notes": ""
+  },
+  {
    "id": "evt_4c43e08d24b1",
    "date": "2026-10-05",
    "start": "18:00",
@@ -1476,6 +1500,18 @@
    "vid": "the-bistro-at-lakeland-village",
    "venue": "The Bistro at Lakeland Village",
    "city": "Allyn",
+   "notes": ""
+  },
+  {
+   "id": "evt_13ea1a97abf7",
+   "date": "2026-10-08",
+   "start": "18:00",
+   "end": "21:00",
+   "aid": "liquid-horse",
+   "artist": "Liquid Horse",
+   "vid": "taylor-station-restaurant-and-lounge",
+   "venue": "Taylor Station Restaurant & Lounge",
+   "city": "Shelton",
    "notes": ""
   },
   {
@@ -2801,6 +2837,57 @@
    "spotify": "",
    "other": "",
    "conf": "Added by admin",
+   "photo": "",
+   "isEvent": false
+  },
+  {
+   "id": "mearakat-fallen-robin",
+   "name": "MearaKat - Fallen Robin",
+   "genre": "",
+   "home": "",
+   "desc": "",
+   "website": "",
+   "facebook": "",
+   "instagram": "",
+   "tiktok": "",
+   "youtube": "",
+   "spotify": "",
+   "other": "",
+   "conf": "Unverified",
+   "photo": "",
+   "isEvent": false
+  },
+  {
+   "id": "nikko",
+   "name": "Nikko",
+   "genre": "",
+   "home": "",
+   "desc": "",
+   "website": "",
+   "facebook": "",
+   "instagram": "",
+   "tiktok": "",
+   "youtube": "",
+   "spotify": "",
+   "other": "",
+   "conf": "Unverified",
+   "photo": "",
+   "isEvent": false
+  },
+  {
+   "id": "liquid-horse",
+   "name": "Liquid Horse",
+   "genre": "",
+   "home": "",
+   "desc": "",
+   "website": "",
+   "facebook": "",
+   "instagram": "",
+   "tiktok": "",
+   "youtube": "",
+   "spotify": "",
+   "other": "",
+   "conf": "Unverified",
    "photo": "",
    "isEvent": false
   }

@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-14 11:27",
+ "generated": "2026-09-15 14:39",
  "source": "Tidewater master sheet",
  "events": [
   {
@@ -1167,18 +1167,6 @@
    "notes": ""
   },
   {
-   "id": "evt_7090d744aa49",
-   "date": "2026-09-18",
-   "start": "18:00",
-   "end": "20:00",
-   "aid": "chris-eakes",
-   "artist": "Chris Eakes",
-   "vid": "hood-canale",
-   "venue": "Hood Canalé",
-   "city": "Union",
-   "notes": ""
-  },
-  {
    "id": "evt_b70e27fb92e8",
    "date": "2026-09-18",
    "start": "18:00",
@@ -1194,11 +1182,23 @@
    "id": "evt_432ea65ff755",
    "date": "2026-09-18",
    "start": "18:00",
-   "end": "20:00",
+   "end": "21:00",
    "aid": "mearakat-fallen-robin",
    "artist": "MearaKat - Fallen Robin",
    "vid": "union-square-deli",
    "venue": "Union Square Deli",
+   "city": "Union",
+   "notes": ""
+  },
+  {
+   "id": "evt_7090d744aa49",
+   "date": "2026-09-18",
+   "start": "19:00",
+   "end": "21:00",
+   "aid": "chris-eakes",
+   "artist": "Chris Eakes",
+   "vid": "hood-canale",
+   "venue": "Hood Canalé",
    "city": "Union",
    "notes": ""
   },

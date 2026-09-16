@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-16 08:08",
+ "generated": "2026-09-16 08:18",
  "source": "Tidewater master sheet",
  "events": [
   {
@@ -1633,18 +1633,6 @@
    "venue": "El Sarape (Shelton)",
    "city": "Shelton",
    "notes": "Shelton"
-  },
-  {
-   "id": "evt_168eb93b61ff",
-   "date": "2026-10-24",
-   "start": "",
-   "end": "",
-   "aid": "open-mic",
-   "artist": "Open Mic",
-   "vid": "",
-   "venue": "Venue not listed",
-   "city": "",
-   "notes": "Venue not listed in source"
   },
   {
    "id": "evt_0e992b06e55a",

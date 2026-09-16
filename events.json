@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-16 07:47",
+ "generated": "2026-09-16 08:00",
  "source": "Tidewater master sheet",
  "events": [
   {
@@ -1575,6 +1575,18 @@
    "notes": ""
   },
   {
+   "id": "evt_a3b8c68b6361",
+   "date": "2026-10-17",
+   "start": "18:00",
+   "end": "20:00",
+   "aid": "pastures-green",
+   "artist": "Pastures Green",
+   "vid": "alderbrook-golf-and-yacht-club",
+   "venue": "Alderbrook Golf & Yacht Club",
+   "city": "Union",
+   "notes": ""
+  },
+  {
    "id": "evt_500ee93ab52b",
    "date": "2026-10-19",
    "start": "18:00",
@@ -1695,12 +1707,36 @@
    "notes": ""
   },
   {
+   "id": "evt_93ee3a2c00d0",
+   "date": "2026-10-30",
+   "start": "18:00",
+   "end": "20:00",
+   "aid": "jill-and-the-jacks",
+   "artist": "Jill and the Jacks",
+   "vid": "alderbrook-golf-and-yacht-club",
+   "venue": "Alderbrook Golf & Yacht Club",
+   "city": "Union",
+   "notes": ""
+  },
+  {
    "id": "evt_68c98ac45935",
    "date": "2026-11-13",
    "start": "18:00",
    "end": "20:00",
    "aid": "chris-eakes",
    "artist": "Chris Eakes",
+   "vid": "alderbrook-golf-and-yacht-club",
+   "venue": "Alderbrook Golf & Yacht Club",
+   "city": "Union",
+   "notes": ""
+  },
+  {
+   "id": "evt_5ee9c2227bc2",
+   "date": "2026-11-21",
+   "start": "18:00",
+   "end": "20:00",
+   "aid": "joey-dean",
+   "artist": "Joey Dean",
    "vid": "alderbrook-golf-and-yacht-club",
    "venue": "Alderbrook Golf & Yacht Club",
    "city": "Union",
@@ -2930,6 +2966,57 @@
   {
    "id": "the-beckaroos",
    "name": "The Beckaroos",
+   "genre": "",
+   "home": "",
+   "desc": "",
+   "website": "",
+   "facebook": "",
+   "instagram": "",
+   "tiktok": "",
+   "youtube": "",
+   "spotify": "",
+   "other": "",
+   "conf": "Unverified",
+   "photo": "",
+   "isEvent": false
+  },
+  {
+   "id": "pastures-green",
+   "name": "Pastures Green",
+   "genre": "",
+   "home": "",
+   "desc": "",
+   "website": "",
+   "facebook": "",
+   "instagram": "",
+   "tiktok": "",
+   "youtube": "",
+   "spotify": "",
+   "other": "",
+   "conf": "Unverified",
+   "photo": "",
+   "isEvent": false
+  },
+  {
+   "id": "jill-and-the-jacks",
+   "name": "Jill and the Jacks",
+   "genre": "",
+   "home": "",
+   "desc": "",
+   "website": "",
+   "facebook": "",
+   "instagram": "",
+   "tiktok": "",
+   "youtube": "",
+   "spotify": "",
+   "other": "",
+   "conf": "Unverified",
+   "photo": "",
+   "isEvent": false
+  },
+  {
+   "id": "joey-dean",
+   "name": "Joey Dean",
    "genre": "",
    "home": "",
    "desc": "",

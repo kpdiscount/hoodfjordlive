@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-16 09:55",
+ "generated": "2026-09-16 13:52",
  "source": "Tidewater master sheet",
  "events": [
   {
@@ -1191,6 +1191,18 @@
    "notes": ""
   },
   {
+   "id": "evt_10408440627c",
+   "date": "2026-09-18",
+   "start": "18:00",
+   "end": "21:00",
+   "aid": "scott-lesman-duo",
+   "artist": "Scott Lesman Duo",
+   "vid": "taylor-station-restaurant-and-lounge",
+   "venue": "Taylor Station Restaurant & Lounge",
+   "city": "Shelton",
+   "notes": ""
+  },
+  {
    "id": "evt_7090d744aa49",
    "date": "2026-09-18",
    "start": "19:00",
@@ -1225,6 +1237,18 @@
    "venue": "Hood Canalé",
    "city": "Union",
    "notes": "Part of Oktoberfest"
+  },
+  {
+   "id": "evt_2b7ee0c6fea0",
+   "date": "2026-09-19",
+   "start": "18:00",
+   "end": "21:00",
+   "aid": "dan-walker",
+   "artist": "Dan Walker",
+   "vid": "taylor-station-restaurant-and-lounge",
+   "venue": "Taylor Station Restaurant & Lounge",
+   "city": "Shelton",
+   "notes": ""
   },
   {
    "id": "evt_5bca4545dd37",
@@ -1369,6 +1393,18 @@
    "venue": "Hood Canalé",
    "city": "Union",
    "notes": "Part of Wine Crush; All Day"
+  },
+  {
+   "id": "evt_e354845f8282",
+   "date": "2026-09-26",
+   "start": "18:00",
+   "end": "21:00",
+   "aid": "maid-marion",
+   "artist": "Maid Marion",
+   "vid": "taylor-station-restaurant-and-lounge",
+   "venue": "Taylor Station Restaurant & Lounge",
+   "city": "Shelton",
+   "notes": ""
   },
   {
    "id": "evt_bf8f515e84c0",
@@ -3034,6 +3070,23 @@
   {
    "id": "joel-gibson-jr",
    "name": "Joel Gibson Jr.",
+   "genre": "",
+   "home": "",
+   "desc": "",
+   "website": "",
+   "facebook": "",
+   "instagram": "",
+   "tiktok": "",
+   "youtube": "",
+   "spotify": "",
+   "other": "",
+   "conf": "Unverified",
+   "photo": "",
+   "isEvent": false
+  },
+  {
+   "id": "dan-walker",
+   "name": "Dan Walker",
    "genre": "",
    "home": "",
    "desc": "",

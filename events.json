@@ -1719,6 +1719,18 @@
    "notes": ""
   },
   {
+   "id": "evt_100489257424",
+   "date": "2026-11-06",
+   "start": "18:00",
+   "end": "20:00",
+   "aid": "joel-gibson-jr",
+   "artist": "Joel Gibson Jr.",
+   "vid": "alderbrook-golf-and-yacht-club",
+   "venue": "Alderbrook Golf & Yacht Club",
+   "city": "Union",
+   "notes": ""
+  },
+  {
    "id": "evt_68c98ac45935",
    "date": "2026-11-13",
    "start": "18:00",
@@ -3017,6 +3029,23 @@
   {
    "id": "joey-dean",
    "name": "Joey Dean",
+   "genre": "",
+   "home": "",
+   "desc": "",
+   "website": "",
+   "facebook": "",
+   "instagram": "",
+   "tiktok": "",
+   "youtube": "",
+   "spotify": "",
+   "other": "",
+   "conf": "Unverified",
+   "photo": "",
+   "isEvent": false
+  },
+  {
+   "id": "joel-gibson-jr",
+   "name": "Joel Gibson Jr.",
    "genre": "",
    "home": "",
    "desc": "",

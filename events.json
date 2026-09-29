@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-25 12:08",
+ "generated": "2026-09-29 15:14",
  "source": "Tidewater master sheet",
  "events": [
   {
@@ -1491,6 +1491,30 @@
    "notes": ""
   },
   {
+   "id": "evt_3d1ee7cad364",
+   "date": "2026-10-02",
+   "start": "17:00",
+   "end": "19:00",
+   "aid": "champagne-sunday",
+   "artist": "Champagne Sunday",
+   "vid": "hood-canale",
+   "venue": "Hood Canalé",
+   "city": "Union",
+   "notes": ""
+  },
+  {
+   "id": "evt_298107a1f7df",
+   "date": "2026-10-03",
+   "start": "18:00",
+   "end": "20:00",
+   "aid": "lakin-saucedo",
+   "artist": "Lakin Saucedo",
+   "vid": "hood-canale",
+   "venue": "Hood Canalé",
+   "city": "Union",
+   "notes": ""
+  },
+  {
    "id": "evt_30859748bc8c",
    "date": "2026-10-04",
    "start": "14:00",
@@ -1499,6 +1523,18 @@
    "artist": "Open Mic",
    "vid": "union-square-deli",
    "venue": "Union Square Deli",
+   "city": "Union",
+   "notes": ""
+  },
+  {
+   "id": "evt_8c913f7ddefa",
+   "date": "2026-10-04",
+   "start": "16:30",
+   "end": "18:30",
+   "aid": "robert-poole",
+   "artist": "Robert Poole",
+   "vid": "hood-canale",
+   "venue": "Hood Canalé",
    "city": "Union",
    "notes": ""
   },
@@ -1575,6 +1611,18 @@
    "notes": ""
   },
   {
+   "id": "evt_6a8a9e00851f",
+   "date": "2026-10-09",
+   "start": "17:00",
+   "end": "20:00",
+   "aid": "the-lady-drinks-whiskey",
+   "artist": "The Lady Drinks Whiskey",
+   "vid": "hood-canale",
+   "venue": "Hood Canalé",
+   "city": "Union",
+   "notes": ""
+  },
+  {
    "id": "evt_69388cd2f3d8",
    "date": "2026-10-09",
    "start": "18:00",
@@ -1595,6 +1643,30 @@
    "artist": "The Beckaroos",
    "vid": "alderbrook-golf-and-yacht-club",
    "venue": "Alderbrook Golf & Yacht Club",
+   "city": "Union",
+   "notes": ""
+  },
+  {
+   "id": "evt_41edb55843a6",
+   "date": "2026-10-10",
+   "start": "18:00",
+   "end": "20:00",
+   "aid": "bandits-of-the-animal-kingdom",
+   "artist": "Bandits of the Animal Kingdom",
+   "vid": "hood-canale",
+   "venue": "Hood Canalé",
+   "city": "Union",
+   "notes": ""
+  },
+  {
+   "id": "evt_3e149181eb9e",
+   "date": "2026-10-11",
+   "start": "16:30",
+   "end": "18:30",
+   "aid": "daniel-walker",
+   "artist": "Daniel Walker",
+   "vid": "hood-canale",
+   "venue": "Hood Canalé",
    "city": "Union",
    "notes": ""
   },
@@ -1635,6 +1707,18 @@
    "notes": ""
   },
   {
+   "id": "evt_0173df72ce3d",
+   "date": "2026-10-16",
+   "start": "",
+   "end": "",
+   "aid": "closed-for-private-party",
+   "artist": "Closed for Private Party",
+   "vid": "hood-canale",
+   "venue": "Hood Canalé",
+   "city": "Union",
+   "notes": ""
+  },
+  {
    "id": "evt_96c6642c6e62",
    "date": "2026-10-16",
    "start": "18:00",
@@ -1659,6 +1743,18 @@
    "notes": ""
   },
   {
+   "id": "evt_ccbf76830c6b",
+   "date": "2026-10-17",
+   "start": "18:00",
+   "end": "20:00",
+   "aid": "cordurroy-fox",
+   "artist": "Cordurroy Fox",
+   "vid": "hood-canale",
+   "venue": "Hood Canalé",
+   "city": "Union",
+   "notes": ""
+  },
+  {
    "id": "evt_1f38acf7baa7",
    "date": "2026-10-18",
    "start": "14:00",
@@ -1667,6 +1763,18 @@
    "artist": "Open Mic",
    "vid": "union-square-deli",
    "venue": "Union Square Deli",
+   "city": "Union",
+   "notes": ""
+  },
+  {
+   "id": "evt_32f0e3302416",
+   "date": "2026-10-18",
+   "start": "16:30",
+   "end": "18:30",
+   "aid": "kyle-thompson",
+   "artist": "Kyle Thompson",
+   "vid": "hood-canale",
+   "venue": "Hood Canalé",
    "city": "Union",
    "notes": ""
   },
@@ -1707,6 +1815,18 @@
    "notes": ""
   },
   {
+   "id": "evt_282ae3f461f6",
+   "date": "2026-10-23",
+   "start": "17:00",
+   "end": "19:00",
+   "aid": "isaac-lornitzo",
+   "artist": "Isaac Lornitzo",
+   "vid": "hood-canale",
+   "venue": "Hood Canalé",
+   "city": "Union",
+   "notes": ""
+  },
+  {
    "id": "evt_ccf9ec8fc35c",
    "date": "2026-10-23",
    "start": "18:00",
@@ -1727,6 +1847,30 @@
    "artist": "Angelina Adams",
    "vid": "alderbrook-golf-and-yacht-club",
    "venue": "Alderbrook Golf & Yacht Club",
+   "city": "Union",
+   "notes": ""
+  },
+  {
+   "id": "evt_5513545af9dd",
+   "date": "2026-10-24",
+   "start": "18:00",
+   "end": "20:00",
+   "aid": "ryan-foskett",
+   "artist": "Ryan Foskett",
+   "vid": "hood-canale",
+   "venue": "Hood Canalé",
+   "city": "Union",
+   "notes": ""
+  },
+  {
+   "id": "evt_a22b10584dde",
+   "date": "2026-10-25",
+   "start": "16:30",
+   "end": "18:30",
+   "aid": "hilary-scott",
+   "artist": "Hilary Scott",
+   "vid": "hood-canale",
+   "venue": "Hood Canalé",
    "city": "Union",
    "notes": ""
   },
@@ -1779,6 +1923,18 @@
    "notes": ""
   },
   {
+   "id": "evt_d4d7b4c0710a",
+   "date": "2026-10-30",
+   "start": "17:00",
+   "end": "19:00",
+   "aid": "beckaroos",
+   "artist": "Beckaroos",
+   "vid": "hood-canale",
+   "venue": "Hood Canalé",
+   "city": "Union",
+   "notes": ""
+  },
+  {
    "id": "evt_93ee3a2c00d0",
    "date": "2026-10-30",
    "start": "18:00",
@@ -1803,6 +1959,18 @@
    "notes": "Shelton"
   },
   {
+   "id": "evt_770d9a42ec38",
+   "date": "2026-10-31",
+   "start": "18:00",
+   "end": "21:00",
+   "aid": "suped-up-fjord-halloween-party",
+   "artist": "Suped Up Fjord - Halloween Party",
+   "vid": "hood-canale",
+   "venue": "Hood Canalé",
+   "city": "Union",
+   "notes": ""
+  },
+  {
    "id": "evt_a400da38d120",
    "date": "2026-10-31",
    "start": "19:00",
@@ -1813,6 +1981,18 @@
    "venue": "El Sarape (Shelton)",
    "city": "Shelton",
    "notes": "Shelton"
+  },
+  {
+   "id": "evt_54b7fd517e18",
+   "date": "2026-11-01",
+   "start": "14:00",
+   "end": "17:00",
+   "aid": "open-mic",
+   "artist": "Open Mic",
+   "vid": "union-square-deli",
+   "venue": "Union Square Deli",
+   "city": "Union",
+   "notes": ""
   },
   {
    "id": "evt_a86e6a1a72f6",
@@ -1933,6 +2113,18 @@
    "venue": "El Sarape (Shelton)",
    "city": "Shelton",
    "notes": "Shelton"
+  },
+  {
+   "id": "evt_0f1e74f82bd1",
+   "date": "2026-11-15",
+   "start": "14:00",
+   "end": "17:00",
+   "aid": "open-mic",
+   "artist": "Open Mic",
+   "vid": "union-square-deli",
+   "venue": "Union Square Deli",
+   "city": "Union",
+   "notes": ""
   },
   {
    "id": "evt_afcacb0e736d",
@@ -2067,6 +2259,18 @@
    "notes": ""
   },
   {
+   "id": "evt_fa90a28b8144",
+   "date": "2026-12-06",
+   "start": "14:00",
+   "end": "17:00",
+   "aid": "open-mic",
+   "artist": "Open Mic",
+   "vid": "union-square-deli",
+   "venue": "Union Square Deli",
+   "city": "Union",
+   "notes": ""
+  },
+  {
    "id": "evt_d511df8c5a41",
    "date": "2026-12-07",
    "start": "18:00",
@@ -2139,6 +2343,18 @@
    "notes": "Shelton"
   },
   {
+   "id": "evt_8112ac8ef2ff",
+   "date": "2026-12-20",
+   "start": "14:00",
+   "end": "17:00",
+   "aid": "open-mic",
+   "artist": "Open Mic",
+   "vid": "union-square-deli",
+   "venue": "Union Square Deli",
+   "city": "Union",
+   "notes": ""
+  },
+  {
    "id": "evt_bc7ebeb2f8e1",
    "date": "2026-12-21",
    "start": "18:00",
@@ -2185,6 +2401,18 @@
    "venue": "2 Margaritas Restaurant (Union)",
    "city": "Union",
    "notes": "Union"
+  },
+  {
+   "id": "evt_0d1078aae287",
+   "date": "2026-12-31",
+   "start": "",
+   "end": "",
+   "aid": "five-guys-and-a-flute-nye-party",
+   "artist": "Five Guys and a Flute - NYE Party",
+   "vid": "hood-canale",
+   "venue": "Hood Canalé",
+   "city": "Union",
+   "notes": "TBD"
   },
   {
    "id": "evt_ce2a7952adee",
@@ -3592,6 +3820,176 @@
   {
    "id": "ryan-yates",
    "name": "Ryan Yates",
+   "genre": "",
+   "home": "",
+   "desc": "",
+   "website": "",
+   "facebook": "",
+   "instagram": "",
+   "tiktok": "",
+   "youtube": "",
+   "spotify": "",
+   "other": "",
+   "conf": "Unverified",
+   "photo": "",
+   "isEvent": false
+  },
+  {
+   "id": "champagne-sunday",
+   "name": "Champagne Sunday",
+   "genre": "",
+   "home": "",
+   "desc": "",
+   "website": "",
+   "facebook": "",
+   "instagram": "",
+   "tiktok": "",
+   "youtube": "",
+   "spotify": "",
+   "other": "",
+   "conf": "Unverified",
+   "photo": "",
+   "isEvent": false
+  },
+  {
+   "id": "lakin-saucedo",
+   "name": "Lakin Saucedo",
+   "genre": "",
+   "home": "",
+   "desc": "",
+   "website": "",
+   "facebook": "",
+   "instagram": "",
+   "tiktok": "",
+   "youtube": "",
+   "spotify": "",
+   "other": "",
+   "conf": "Unverified",
+   "photo": "",
+   "isEvent": false
+  },
+  {
+   "id": "robert-poole",
+   "name": "Robert Poole",
+   "genre": "",
+   "home": "",
+   "desc": "",
+   "website": "",
+   "facebook": "",
+   "instagram": "",
+   "tiktok": "",
+   "youtube": "",
+   "spotify": "",
+   "other": "",
+   "conf": "Unverified",
+   "photo": "",
+   "isEvent": false
+  },
+  {
+   "id": "bandits-of-the-animal-kingdom",
+   "name": "Bandits of the Animal Kingdom",
+   "genre": "",
+   "home": "",
+   "desc": "",
+   "website": "",
+   "facebook": "",
+   "instagram": "",
+   "tiktok": "",
+   "youtube": "",
+   "spotify": "",
+   "other": "",
+   "conf": "Unverified",
+   "photo": "",
+   "isEvent": false
+  },
+  {
+   "id": "closed-for-private-party",
+   "name": "Closed for Private Party",
+   "genre": "",
+   "home": "",
+   "desc": "",
+   "website": "",
+   "facebook": "",
+   "instagram": "",
+   "tiktok": "",
+   "youtube": "",
+   "spotify": "",
+   "other": "",
+   "conf": "Unverified",
+   "photo": "",
+   "isEvent": false
+  },
+  {
+   "id": "cordurroy-fox",
+   "name": "Cordurroy Fox",
+   "genre": "",
+   "home": "",
+   "desc": "",
+   "website": "",
+   "facebook": "",
+   "instagram": "",
+   "tiktok": "",
+   "youtube": "",
+   "spotify": "",
+   "other": "",
+   "conf": "Unverified",
+   "photo": "",
+   "isEvent": false
+  },
+  {
+   "id": "ryan-foskett",
+   "name": "Ryan Foskett",
+   "genre": "",
+   "home": "",
+   "desc": "",
+   "website": "",
+   "facebook": "",
+   "instagram": "",
+   "tiktok": "",
+   "youtube": "",
+   "spotify": "",
+   "other": "",
+   "conf": "Unverified",
+   "photo": "",
+   "isEvent": false
+  },
+  {
+   "id": "hilary-scott",
+   "name": "Hilary Scott",
+   "genre": "",
+   "home": "",
+   "desc": "",
+   "website": "",
+   "facebook": "",
+   "instagram": "",
+   "tiktok": "",
+   "youtube": "",
+   "spotify": "",
+   "other": "",
+   "conf": "Unverified",
+   "photo": "",
+   "isEvent": false
+  },
+  {
+   "id": "suped-up-fjord-halloween-party",
+   "name": "Suped Up Fjord - Halloween Party",
+   "genre": "",
+   "home": "",
+   "desc": "",
+   "website": "",
+   "facebook": "",
+   "instagram": "",
+   "tiktok": "",
+   "youtube": "",
+   "spotify": "",
+   "other": "",
+   "conf": "Unverified",
+   "photo": "",
+   "isEvent": false
+  },
+  {
+   "id": "five-guys-and-a-flute-nye-party",
+   "name": "Five Guys and a Flute - NYE Party",
    "genre": "",
    "home": "",
    "desc": "",

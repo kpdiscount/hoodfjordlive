@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-30 18:23",
+ "generated": "2026-10-01 10:39",
  "source": "Tidewater master sheet",
  "events": [
   {
@@ -1476,18 +1476,6 @@
    "vid": "hood-canale",
    "venue": "Hood Canalé",
    "city": "Union",
-   "notes": ""
-  },
-  {
-   "id": "evt_bf7873cc192f",
-   "date": "2026-10-01",
-   "start": "18:00",
-   "end": "21:00",
-   "aid": "nikko",
-   "artist": "Nikko",
-   "vid": "taylor-station-restaurant-and-lounge",
-   "venue": "Taylor Station Restaurant & Lounge",
-   "city": "Shelton",
    "notes": ""
   },
   {
@@ -3923,23 +3911,6 @@
   {
    "id": "mearakat-fallen-robin",
    "name": "MearaKat - Fallen Robin",
-   "genre": "",
-   "home": "",
-   "desc": "",
-   "website": "",
-   "facebook": "",
-   "instagram": "",
-   "tiktok": "",
-   "youtube": "",
-   "spotify": "",
-   "other": "",
-   "conf": "Unverified",
-   "photo": "",
-   "isEvent": false
-  },
-  {
-   "id": "nikko",
-   "name": "Nikko",
    "genre": "",
    "home": "",
    "desc": "",

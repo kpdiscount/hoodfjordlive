@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-02 11:03",
+ "generated": "2026-10-02 11:07",
  "source": "Tidewater master sheet",
  "events": [
   {
@@ -4048,7 +4048,7 @@
    "spotify": "https://open.spotify.com/artist/3QWTQoVCOi93Ei2f7KdwVD",
    "other": "",
    "conf": "Unverified",
-   "photo": "",
+   "photo": "/img/artist/joel-gibson-jr.jpg",
    "isEvent": false
   },
   {
@@ -4439,7 +4439,7 @@
    "spotify": "",
    "other": "",
    "conf": "Unverified",
-   "photo": "",
+   "photo": "img/artist/the-brothers-rowe.jpg",
    "isEvent": false
   },
   {

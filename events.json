@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-02 15:02",
+ "generated": "2026-10-06 07:36",
  "source": "Tidewater master sheet",
  "events": [
   {
@@ -1827,6 +1827,18 @@
    "notes": "Shelton"
   },
   {
+   "id": "evt_845a1826dd52",
+   "date": "2026-10-09",
+   "start": "18:00",
+   "end": "20:00",
+   "aid": "tom-and-aileen-wilson",
+   "artist": "Tom & Aileen Wilson",
+   "vid": "union-square-deli",
+   "venue": "Union Square Deli",
+   "city": "Union",
+   "notes": ""
+  },
+  {
    "id": "evt_2dfe53f4613f",
    "date": "2026-10-09",
    "start": "20:00",
@@ -1995,6 +2007,18 @@
    "notes": ""
   },
   {
+   "id": "evt_83f7cbcbbd5d",
+   "date": "2026-10-17",
+   "start": "15:00",
+   "end": "16:00",
+   "aid": "zach-hyneman",
+   "artist": "Zach Hyneman",
+   "vid": "endless-sound-cellars",
+   "venue": "Endless Sound Cellars",
+   "city": "",
+   "notes": ""
+  },
+  {
    "id": "evt_a3b8c68b6361",
    "date": "2026-10-17",
    "start": "18:00",
@@ -2016,6 +2040,30 @@
    "vid": "hood-canale",
    "venue": "Hood Canalé",
    "city": "Union",
+   "notes": ""
+  },
+  {
+   "id": "evt_83f7cbcbbd5d",
+   "date": "2026-10-17",
+   "start": "18:00",
+   "end": "19:00",
+   "aid": "zach-hyneman",
+   "artist": "Zach Hyneman",
+   "vid": "endless-sound-cellars",
+   "venue": "Endless Sound Cellars",
+   "city": "",
+   "notes": ""
+  },
+  {
+   "id": "evt_83f7cbcbbd5d",
+   "date": "2026-10-17",
+   "start": "21:00",
+   "end": "22:00",
+   "aid": "zach-hyneman",
+   "artist": "Zach Hyneman",
+   "vid": "endless-sound-cellars",
+   "venue": "Endless Sound Cellars",
+   "city": "",
    "notes": ""
   },
   {
@@ -4633,6 +4681,23 @@
    "conf": "Unverified",
    "photo": "",
    "isEvent": false
+  },
+  {
+   "id": "tom-and-aileen-wilson",
+   "name": "Tom & Aileen Wilson",
+   "genre": "",
+   "home": "",
+   "desc": "",
+   "website": "",
+   "facebook": "",
+   "instagram": "",
+   "tiktok": "",
+   "youtube": "",
+   "spotify": "",
+   "other": "",
+   "conf": "Unverified",
+   "photo": "",
+   "isEvent": false
   }
  ],
  "venues": [
@@ -4984,7 +5049,7 @@
    "state": "WA",
    "zip": "98376",
    "phone": "(206) 719-3726",
-   "website": "",
+   "website": "https://www.quilcenelantern.com/",
    "facebook": "",
    "instagram": "",
    "type": "Farm event venue, concert space and cabins",
@@ -5001,7 +5066,7 @@
    "state": "",
    "zip": "",
    "phone": "",
-   "website": "",
+   "website": "https://oysterfest.org/",
    "facebook": "",
    "instagram": "",
    "type": "",
@@ -5018,7 +5083,7 @@
    "state": "",
    "zip": "",
    "phone": "",
-   "website": "",
+   "website": "https://oysterfest.org/",
    "facebook": "",
    "instagram": "",
    "type": "",
@@ -5030,6 +5095,23 @@
   {
    "id": "alderbrook-resort-and-spa-lounge",
    "name": "Alderbrook Resort & Spa Lounge",
+   "address": "",
+   "city": "",
+   "state": "",
+   "zip": "",
+   "phone": "",
+   "website": "https://www.alderbrookresort.com/culinary/the-restaurant",
+   "facebook": "",
+   "instagram": "",
+   "type": "",
+   "lat": "",
+   "lng": "",
+   "about": "",
+   "conf": "Unverified"
+  },
+  {
+   "id": "endless-sound-cellars",
+   "name": "Endless Sound Cellars",
    "address": "",
    "city": "",
    "state": "",

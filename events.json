@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-06 07:36",
+ "generated": "2026-10-08 09:10",
  "source": "Tidewater master sheet",
  "events": [
   {
@@ -2797,18 +2797,6 @@
    "venue": "Hood Canalé",
    "city": "Union",
    "notes": ""
-  },
-  {
-   "id": "evt_dd768fb7d29e",
-   "date": "2027-10-03",
-   "start": "22:00",
-   "end": "23:00",
-   "aid": "kevin-pugh",
-   "artist": "Kevin Pugh",
-   "vid": "",
-   "venue": "Venue not listed",
-   "city": "",
-   "notes": "Union; Test New Artist"
   }
  ],
  "artists": [
@@ -4224,23 +4212,6 @@
    "isEvent": false
   },
   {
-   "id": "kevin-pugh",
-   "name": "Kevin Pugh",
-   "genre": "",
-   "home": "",
-   "desc": "",
-   "website": "",
-   "facebook": "",
-   "instagram": "",
-   "tiktok": "",
-   "youtube": "",
-   "spotify": "",
-   "other": "",
-   "conf": "Added by admin",
-   "photo": "",
-   "isEvent": false
-  },
-  {
    "id": "mearakat-fallen-robin",
    "name": "MearaKat - Fallen Robin",
    "genre": "",
@@ -4271,7 +4242,7 @@
    "spotify": "",
    "other": "",
    "conf": "Unverified",
-   "photo": "",
+   "photo": "/img/artist/liquid-horse.jpg",
    "isEvent": false
   },
   {

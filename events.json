@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-09 14:07",
+ "generated": "2026-10-09 14:09",
  "source": "Tidewater master sheet",
  "events": [
   {
@@ -2045,8 +2045,8 @@
   {
    "id": "evt_83f7cbcbbd5d",
    "date": "2026-10-17",
-   "start": "18:00",
-   "end": "19:00",
+   "start": "20:58",
+   "end": "22:00",
    "aid": "zach-hyneman",
    "artist": "Zach Hyneman",
    "vid": "endless-sound-cellars",

@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-09 14:00",
+ "generated": "2026-10-09 14:07",
  "source": "Tidewater master sheet",
  "events": [
   {
@@ -2007,6 +2007,18 @@
    "notes": ""
   },
   {
+   "id": "evt_83f7cbcbbd5d",
+   "date": "2026-10-17",
+   "start": "15:00",
+   "end": "16:00",
+   "aid": "zach-hyneman",
+   "artist": "Zach Hyneman",
+   "vid": "endless-sound-cellars",
+   "venue": "Endless Sound Cellars",
+   "city": "",
+   "notes": ""
+  },
+  {
    "id": "evt_a3b8c68b6361",
    "date": "2026-10-17",
    "start": "18:00",
@@ -2028,6 +2040,18 @@
    "vid": "hood-canale",
    "venue": "Hood Canalé",
    "city": "Union",
+   "notes": ""
+  },
+  {
+   "id": "evt_83f7cbcbbd5d",
+   "date": "2026-10-17",
+   "start": "18:00",
+   "end": "19:00",
+   "aid": "zach-hyneman",
+   "artist": "Zach Hyneman",
+   "vid": "endless-sound-cellars",
+   "venue": "Endless Sound Cellars",
+   "city": "",
    "notes": ""
   },
   {
@@ -5048,6 +5072,23 @@
    "zip": "",
    "phone": "",
    "website": "https://www.alderbrookresort.com/culinary/the-restaurant",
+   "facebook": "",
+   "instagram": "",
+   "type": "",
+   "lat": "",
+   "lng": "",
+   "about": "",
+   "conf": "Unverified"
+  },
+  {
+   "id": "endless-sound-cellars",
+   "name": "Endless Sound Cellars",
+   "address": "",
+   "city": "",
+   "state": "",
+   "zip": "",
+   "phone": "",
+   "website": "",
    "facebook": "",
    "instagram": "",
    "type": "",

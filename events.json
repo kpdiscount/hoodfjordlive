@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-10 12:02",
+ "generated": "2026-10-10 12:06",
  "source": "Tidewater master sheet",
  "events": [
   {
@@ -2040,6 +2040,18 @@
    "vid": "hood-canale",
    "venue": "Hood Canalé",
    "city": "Union",
+   "notes": ""
+  },
+  {
+   "id": "evt_83f7cbcbbd5d",
+   "date": "2026-10-17",
+   "start": "18:00",
+   "end": "19:00",
+   "aid": "zach-hyneman",
+   "artist": "Zach Hyneman",
+   "vid": "endless-sound-cellars",
+   "venue": "Endless Sound Cellars",
+   "city": "",
    "notes": ""
   },
   {

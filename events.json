@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-19 07:15",
+ "generated": "2026-10-21 08:09",
  "source": "Tidewater master sheet",
  "events": [
   {
@@ -2211,6 +2211,18 @@
    "notes": ""
   },
   {
+   "id": "evt_541bad13f2ab",
+   "date": "2026-10-24",
+   "start": "18:00",
+   "end": "21:00",
+   "aid": "scott-lesman-duo",
+   "artist": "Scott Lesman Duo",
+   "vid": "lake-nahwatzel-resort-and-restaurant",
+   "venue": "Lake Nahwatzel Resort and Restaurant",
+   "city": "Shelton",
+   "notes": ""
+  },
+  {
    "id": "evt_beb21c502c4e",
    "date": "2026-10-24",
    "start": "20:00",
@@ -2221,6 +2233,18 @@
    "venue": "Venue not listed",
    "city": "",
    "notes": "Venue not listed in source"
+  },
+  {
+   "id": "evt_19b39048eeeb",
+   "date": "2026-10-24",
+   "start": "20:00",
+   "end": "23:00",
+   "aid": "yotes",
+   "artist": "Yotes",
+   "vid": "taylor-station-restaurant-and-lounge",
+   "venue": "Taylor Station Restaurant & Lounge",
+   "city": "Shelton",
+   "notes": ""
   },
   {
    "id": "evt_a22b10584dde",

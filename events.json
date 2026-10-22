@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-22 13:08",
+ "generated": "2026-10-22 13:10",
  "source": "Tidewater master sheet",
  "events": [
   {
@@ -2221,18 +2221,6 @@
    "venue": "Lake Nahwatzel Resort and Restaurant",
    "city": "Shelton",
    "notes": ""
-  },
-  {
-   "id": "evt_beb21c502c4e",
-   "date": "2026-10-24",
-   "start": "20:00",
-   "end": "23:00",
-   "aid": "yotes",
-   "artist": "Yotes",
-   "vid": "",
-   "venue": "Venue not listed",
-   "city": "",
-   "notes": "Venue not listed in source"
   },
   {
    "id": "evt_19b39048eeeb",

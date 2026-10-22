@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-21 08:09",
+ "generated": "2026-10-22 08:16",
  "source": "Tidewater master sheet",
  "events": [
   {
@@ -2175,6 +2175,18 @@
    "notes": ""
   },
   {
+   "id": "evt_f036d3355da1",
+   "date": "2026-10-23",
+   "start": "18:00",
+   "end": "21:00",
+   "aid": "chris-and-michael-eakes",
+   "artist": "Chris and Michael Eakes",
+   "vid": "lake-nahwatzel-resort-and-restaurant",
+   "venue": "Lake Nahwatzel Resort and Restaurant",
+   "city": "Shelton",
+   "notes": ""
+  },
+  {
    "id": "evt_d92d98c67a36",
    "date": "2026-10-23",
    "start": "20:00",
@@ -2364,6 +2376,18 @@
    "vid": "taylor-station-restaurant-and-lounge",
    "venue": "Taylor Station Restaurant & Lounge",
    "city": "Shelton",
+   "notes": ""
+  },
+  {
+   "id": "evt_e736e5ae8fc2",
+   "date": "2026-10-31",
+   "start": "17:00",
+   "end": "21:00",
+   "aid": "dj-eskro-halloween-costume-party",
+   "artist": "DJ Eskro - Halloween Costume Party",
+   "vid": "alderbrook-golf-and-yacht-club",
+   "venue": "Alderbrook Golf & Yacht Club",
+   "city": "Union",
    "notes": ""
   },
   {
@@ -2581,6 +2605,18 @@
    "venue": "El Sarape (Shelton)",
    "city": "Shelton",
    "notes": "Shelton"
+  },
+  {
+   "id": "evt_631cf347a719",
+   "date": "2026-11-20",
+   "start": "18:00",
+   "end": "21:00",
+   "aid": "chris-eakes-and-michael-eakes",
+   "artist": "Chris Eakes and Michael Eakes",
+   "vid": "lake-nahwatzel-resort-and-restaurant",
+   "venue": "Lake Nahwatzel Resort and Restaurant",
+   "city": "Shelton",
+   "notes": ""
   },
   {
    "id": "evt_5ee9c2227bc2",
@@ -4715,6 +4751,57 @@
    "spotify": "",
    "other": "",
    "conf": "UNRESEARCHED",
+   "photo": "",
+   "isEvent": false
+  },
+  {
+   "id": "dj-eskro-halloween-costume-party",
+   "name": "DJ Eskro - Halloween Costume Party",
+   "genre": "",
+   "home": "",
+   "desc": "",
+   "website": "",
+   "facebook": "",
+   "instagram": "",
+   "tiktok": "",
+   "youtube": "",
+   "spotify": "",
+   "other": "",
+   "conf": "Unverified",
+   "photo": "",
+   "isEvent": false
+  },
+  {
+   "id": "chris-and-michael-eakes",
+   "name": "Chris and Michael Eakes",
+   "genre": "",
+   "home": "",
+   "desc": "",
+   "website": "",
+   "facebook": "",
+   "instagram": "",
+   "tiktok": "",
+   "youtube": "",
+   "spotify": "",
+   "other": "",
+   "conf": "Unverified",
+   "photo": "",
+   "isEvent": false
+  },
+  {
+   "id": "chris-eakes-and-michael-eakes",
+   "name": "Chris Eakes and Michael Eakes",
+   "genre": "",
+   "home": "",
+   "desc": "",
+   "website": "",
+   "facebook": "",
+   "instagram": "",
+   "tiktok": "",
+   "youtube": "",
+   "spotify": "",
+   "other": "",
+   "conf": "Unverified",
    "photo": "",
    "isEvent": false
   }

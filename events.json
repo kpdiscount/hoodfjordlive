@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-26 08:19",
+ "generated": "2026-10-26 11:17",
  "source": "Tidewater master sheet",
  "events": [
   {
@@ -2487,6 +2487,18 @@
    "notes": ""
   },
   {
+   "id": "evt_86b56da2c9b0",
+   "date": "2026-11-06",
+   "start": "17:00",
+   "end": "19:00",
+   "aid": "ethan-tucker",
+   "artist": "Ethan Tucker",
+   "vid": "hood-canale",
+   "venue": "Hood Canalé",
+   "city": "Union",
+   "notes": ""
+  },
+  {
    "id": "evt_100489257424",
    "date": "2026-11-06",
    "start": "18:00",
@@ -2509,6 +2521,30 @@
    "venue": "El Sarape (Shelton)",
    "city": "Shelton",
    "notes": "Shelton"
+  },
+  {
+   "id": "evt_2815a6db1f31",
+   "date": "2026-11-07",
+   "start": "19:00",
+   "end": "21:00",
+   "aid": "scott-lesman-duo",
+   "artist": "Scott Lesman Duo",
+   "vid": "hood-canale",
+   "venue": "Hood Canalé",
+   "city": "Union",
+   "notes": ""
+  },
+  {
+   "id": "evt_2e11f8ff06b8",
+   "date": "2026-11-08",
+   "start": "16:30",
+   "end": "18:30",
+   "aid": "aileen-and-tom-wilson",
+   "artist": "Aileen & Tom Wilson",
+   "vid": "hood-canale",
+   "venue": "Hood Canalé",
+   "city": "Union",
+   "notes": ""
   },
   {
    "id": "evt_af214ba9f1b9",
@@ -2541,6 +2577,18 @@
    "end": "21:00",
    "aid": "open-mic",
    "artist": "Open Mic",
+   "vid": "hood-canale",
+   "venue": "Hood Canalé",
+   "city": "Union",
+   "notes": ""
+  },
+  {
+   "id": "evt_c37e4a57a1ee",
+   "date": "2026-11-13",
+   "start": "17:00",
+   "end": "19:00",
+   "aid": "seth-unger",
+   "artist": "Seth Unger",
    "vid": "hood-canale",
    "venue": "Hood Canalé",
    "city": "Union",
@@ -2583,6 +2631,18 @@
    "notes": ""
   },
   {
+   "id": "evt_58103110d2e9",
+   "date": "2026-11-14",
+   "start": "19:00",
+   "end": "21:00",
+   "aid": "josh-meeks",
+   "artist": "Josh Meeks",
+   "vid": "hood-canale",
+   "venue": "Hood Canalé",
+   "city": "Union",
+   "notes": ""
+  },
+  {
    "id": "evt_0f1e74f82bd1",
    "date": "2026-11-15",
    "start": "14:00",
@@ -2591,6 +2651,18 @@
    "artist": "Open Mic",
    "vid": "union-square-deli",
    "venue": "Union Square Deli",
+   "city": "Union",
+   "notes": ""
+  },
+  {
+   "id": "evt_f505148189c9",
+   "date": "2026-11-15",
+   "start": "16:30",
+   "end": "18:30",
+   "aid": "clinton-dogger-mullens",
+   "artist": "Clinton Dogger Mullens",
+   "vid": "hood-canale",
+   "venue": "Hood Canalé",
    "city": "Union",
    "notes": ""
   },
@@ -2631,16 +2703,16 @@
    "notes": ""
   },
   {
-   "id": "evt_13dd008f572b",
+   "id": "evt_31613ed7c974",
    "date": "2026-11-20",
-   "start": "18:00",
-   "end": "21:00",
-   "aid": "bartels",
-   "artist": "Bartels",
-   "vid": "el-sarape-shelton",
-   "venue": "El Sarape (Shelton)",
-   "city": "Shelton",
-   "notes": "Shelton"
+   "start": "17:00",
+   "end": "19:00",
+   "aid": "anna-robinson",
+   "artist": "Anna Robinson",
+   "vid": "hood-canale",
+   "venue": "Hood Canalé",
+   "city": "Union",
+   "notes": ""
   },
   {
    "id": "evt_631cf347a719",
@@ -2675,6 +2747,30 @@
    "artist": "Joey Dean",
    "vid": "alderbrook-golf-and-yacht-club",
    "venue": "Alderbrook Golf & Yacht Club",
+   "city": "Union",
+   "notes": ""
+  },
+  {
+   "id": "evt_9a875a4a2742",
+   "date": "2026-11-21",
+   "start": "19:00",
+   "end": "21:00",
+   "aid": "dean-reginio",
+   "artist": "Dean Reginio",
+   "vid": "hood-canale",
+   "venue": "Hood Canalé",
+   "city": "Union",
+   "notes": ""
+  },
+  {
+   "id": "evt_f414023c5f3e",
+   "date": "2026-11-22",
+   "start": "16:30",
+   "end": "18:30",
+   "aid": "jack-hughes",
+   "artist": "Jack Hughes",
+   "vid": "hood-canale",
+   "venue": "Hood Canalé",
    "city": "Union",
    "notes": ""
   },
@@ -2715,18 +2811,6 @@
    "notes": ""
   },
   {
-   "id": "evt_7f0c2f4e0000",
-   "date": "2026-11-26",
-   "start": "18:00",
-   "end": "21:00",
-   "aid": "open-mic",
-   "artist": "Open Mic",
-   "vid": "hood-canale",
-   "venue": "Hood Canalé",
-   "city": "Union",
-   "notes": ""
-  },
-  {
    "id": "evt_845d43f6d23a",
    "date": "2026-11-27",
    "start": "18:00",
@@ -2737,6 +2821,42 @@
    "venue": "El Sarape (Shelton)",
    "city": "Shelton",
    "notes": "Shelton"
+  },
+  {
+   "id": "evt_a1814c4db513",
+   "date": "2026-11-27",
+   "start": "18:00",
+   "end": "21:00",
+   "aid": "open-mic",
+   "artist": "Open Mic",
+   "vid": "hood-canale",
+   "venue": "Hood Canalé",
+   "city": "Union",
+   "notes": ""
+  },
+  {
+   "id": "evt_c681a96060b9",
+   "date": "2026-11-28",
+   "start": "19:00",
+   "end": "21:00",
+   "aid": "champagne-sunday",
+   "artist": "Champagne Sunday",
+   "vid": "hood-canale",
+   "venue": "Hood Canalé",
+   "city": "Union",
+   "notes": ""
+  },
+  {
+   "id": "evt_e46fae3b5134",
+   "date": "2026-11-29",
+   "start": "16:30",
+   "end": "18:30",
+   "aid": "norman-baker",
+   "artist": "Norman Baker",
+   "vid": "hood-canale",
+   "venue": "Hood Canalé",
+   "city": "Union",
+   "notes": ""
   },
   {
    "id": "evt_10195e78f5c8",
@@ -3150,23 +3270,6 @@
    "other": "",
    "conf": "Unverified",
    "photo": "/img/artist/bandits-of-the-animal-kingdom.jpg",
-   "isEvent": false
-  },
-  {
-   "id": "bartels",
-   "name": "Bartels",
-   "genre": "",
-   "home": "",
-   "desc": "",
-   "website": "",
-   "facebook": "",
-   "instagram": "",
-   "tiktok": "",
-   "youtube": "",
-   "spotify": "",
-   "other": "",
-   "conf": "Unverified",
-   "photo": "",
    "isEvent": false
   },
   {
@@ -4974,6 +5077,91 @@
   {
    "id": "cody-bartels",
    "name": "Cody Bartels",
+   "genre": "",
+   "home": "",
+   "desc": "",
+   "website": "",
+   "facebook": "",
+   "instagram": "",
+   "tiktok": "",
+   "youtube": "",
+   "spotify": "",
+   "other": "",
+   "conf": "Unverified",
+   "photo": "",
+   "isEvent": false
+  },
+  {
+   "id": "ethan-tucker",
+   "name": "Ethan Tucker",
+   "genre": "",
+   "home": "",
+   "desc": "",
+   "website": "",
+   "facebook": "",
+   "instagram": "",
+   "tiktok": "",
+   "youtube": "",
+   "spotify": "",
+   "other": "",
+   "conf": "Unverified",
+   "photo": "",
+   "isEvent": false
+  },
+  {
+   "id": "aileen-and-tom-wilson",
+   "name": "Aileen & Tom Wilson",
+   "genre": "",
+   "home": "",
+   "desc": "",
+   "website": "",
+   "facebook": "",
+   "instagram": "",
+   "tiktok": "",
+   "youtube": "",
+   "spotify": "",
+   "other": "",
+   "conf": "Unverified",
+   "photo": "",
+   "isEvent": false
+  },
+  {
+   "id": "clinton-dogger-mullens",
+   "name": "Clinton Dogger Mullens",
+   "genre": "",
+   "home": "",
+   "desc": "",
+   "website": "",
+   "facebook": "",
+   "instagram": "",
+   "tiktok": "",
+   "youtube": "",
+   "spotify": "",
+   "other": "",
+   "conf": "Unverified",
+   "photo": "",
+   "isEvent": false
+  },
+  {
+   "id": "dean-reginio",
+   "name": "Dean Reginio",
+   "genre": "",
+   "home": "",
+   "desc": "",
+   "website": "",
+   "facebook": "",
+   "instagram": "",
+   "tiktok": "",
+   "youtube": "",
+   "spotify": "",
+   "other": "",
+   "conf": "Unverified",
+   "photo": "",
+   "isEvent": false
+  },
+  {
+   "id": "jack-hughes",
+   "name": "Jack Hughes",
    "genre": "",
    "home": "",
    "desc": "",

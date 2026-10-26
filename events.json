@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-26 07:51",
+ "generated": "2026-10-26 08:19",
  "source": "Tidewater master sheet",
  "events": [
   {
@@ -2571,6 +2571,18 @@
    "notes": "Shelton"
   },
   {
+   "id": "evt_36e9a0ec8275",
+   "date": "2026-11-14",
+   "start": "18:00",
+   "end": "21:00",
+   "aid": "morgan-pirtle-w-alvin-cobb-jr",
+   "artist": "Morgan Pirtle w/ Alvin Cobb Jr.",
+   "vid": "patches-hoodsport",
+   "venue": "Patches",
+   "city": "Hoodsport",
+   "notes": ""
+  },
+  {
    "id": "evt_0f1e74f82bd1",
    "date": "2026-11-15",
    "start": "14:00",
@@ -2641,6 +2653,18 @@
    "venue": "Lake Nahwatzel Resort and Restaurant",
    "city": "Shelton",
    "notes": ""
+  },
+  {
+   "id": "evt_1c298ba30cfa",
+   "date": "2026-11-20",
+   "start": "18:00",
+   "end": "21:00",
+   "aid": "cody-bartels",
+   "artist": "Cody Bartels",
+   "vid": "el-sarape-shelton",
+   "venue": "El Sarape (Shelton)",
+   "city": "Shelton",
+   "notes": "Shelton"
   },
   {
    "id": "evt_5ee9c2227bc2",
@@ -4916,6 +4940,40 @@
   {
    "id": "chris-eakes-and-michael-eakes",
    "name": "Chris Eakes and Michael Eakes",
+   "genre": "",
+   "home": "",
+   "desc": "",
+   "website": "",
+   "facebook": "",
+   "instagram": "",
+   "tiktok": "",
+   "youtube": "",
+   "spotify": "",
+   "other": "",
+   "conf": "Unverified",
+   "photo": "",
+   "isEvent": false
+  },
+  {
+   "id": "morgan-pirtle-w-alvin-cobb-jr",
+   "name": "Morgan Pirtle w/ Alvin Cobb Jr.",
+   "genre": "",
+   "home": "",
+   "desc": "",
+   "website": "",
+   "facebook": "",
+   "instagram": "",
+   "tiktok": "",
+   "youtube": "",
+   "spotify": "",
+   "other": "",
+   "conf": "Unverified",
+   "photo": "",
+   "isEvent": false
+  },
+  {
+   "id": "cody-bartels",
+   "name": "Cody Bartels",
    "genre": "",
    "home": "",
    "desc": "",

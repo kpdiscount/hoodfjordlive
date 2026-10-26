@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-26 07:46",
+ "generated": "2026-10-26 07:51",
  "source": "Tidewater master sheet",
  "events": [
   {
@@ -2393,7 +2393,7 @@
   {
    "id": "evt_7431c7764913",
    "date": "2026-10-31",
-   "start": "21:00",
+   "start": "20:00",
    "end": "23:00",
    "aid": "fallen-robin",
    "artist": "Fallen Robin",
@@ -2451,6 +2451,18 @@
    "notes": ""
   },
   {
+   "id": "evt_b84aa9ab1a17",
+   "date": "2026-11-04",
+   "start": "18:00",
+   "end": "21:00",
+   "aid": "open-mic",
+   "artist": "Open Mic",
+   "vid": "taylor-station-restaurant-and-lounge",
+   "venue": "Taylor Station Restaurant & Lounge",
+   "city": "Shelton",
+   "notes": ""
+  },
+  {
    "id": "evt_3d886ddfdae5",
    "date": "2026-11-05",
    "start": "18:00",
@@ -2460,6 +2472,18 @@
    "vid": "hood-canale",
    "venue": "Hood Canalé",
    "city": "Union",
+   "notes": ""
+  },
+  {
+   "id": "evt_919e82767b5f",
+   "date": "2026-11-05",
+   "start": "20:00",
+   "end": "22:00",
+   "aid": "randy-linder",
+   "artist": "Randy Linder",
+   "vid": "taylor-station-restaurant-and-lounge",
+   "venue": "Taylor Station Restaurant & Lounge",
+   "city": "Shelton",
    "notes": ""
   },
   {
@@ -2475,16 +2499,16 @@
    "notes": ""
   },
   {
-   "id": "evt_844fb26e55d7",
+   "id": "evt_aa8b8b558caf",
    "date": "2026-11-06",
    "start": "18:00",
    "end": "21:00",
-   "aid": "nikko-and-the-night-shift",
-   "artist": "Nikko and The Night Shift",
+   "aid": "nikko-from-nikko-and-the-night-shift",
+   "artist": "Nikko from Nikko and the Night Shift",
    "vid": "el-sarape-shelton",
    "venue": "El Sarape (Shelton)",
    "city": "Shelton",
-   "notes": "Solo performance; Shelton"
+   "notes": "Shelton"
   },
   {
    "id": "evt_af214ba9f1b9",
@@ -2497,6 +2521,18 @@
    "venue": "2 Margaritas Restaurant (Union)",
    "city": "Union",
    "notes": "Union"
+  },
+  {
+   "id": "evt_74ef8a4abfc9",
+   "date": "2026-11-11",
+   "start": "18:00",
+   "end": "21:00",
+   "aid": "open-mic",
+   "artist": "Open Mic",
+   "vid": "taylor-station-restaurant-and-lounge",
+   "venue": "Taylor Station Restaurant & Lounge",
+   "city": "Shelton",
+   "notes": ""
   },
   {
    "id": "evt_5523f899b44d",
@@ -2557,6 +2593,18 @@
    "venue": "2 Margaritas Restaurant (Union)",
    "city": "Union",
    "notes": "Union"
+  },
+  {
+   "id": "evt_ab0af6cec8cd",
+   "date": "2026-11-18",
+   "start": "18:00",
+   "end": "21:00",
+   "aid": "open-mic",
+   "artist": "Open Mic",
+   "vid": "taylor-station-restaurant-and-lounge",
+   "venue": "Taylor Station Restaurant & Lounge",
+   "city": "Shelton",
+   "notes": ""
   },
   {
    "id": "evt_b33966b9826f",
@@ -2631,6 +2679,18 @@
    "notes": "Shelton"
   },
   {
+   "id": "evt_f3d5a2da1856",
+   "date": "2026-11-25",
+   "start": "18:00",
+   "end": "21:00",
+   "aid": "open-mic",
+   "artist": "Open Mic",
+   "vid": "taylor-station-restaurant-and-lounge",
+   "venue": "Taylor Station Restaurant & Lounge",
+   "city": "Shelton",
+   "notes": ""
+  },
+  {
    "id": "evt_7f0c2f4e0000",
    "date": "2026-11-26",
    "start": "18:00",
@@ -2679,6 +2739,30 @@
    "notes": "Shelton"
   },
   {
+   "id": "evt_55653c258b11",
+   "date": "2026-12-02",
+   "start": "18:00",
+   "end": "21:00",
+   "aid": "open-mic",
+   "artist": "Open Mic",
+   "vid": "taylor-station-restaurant-and-lounge",
+   "venue": "Taylor Station Restaurant & Lounge",
+   "city": "Shelton",
+   "notes": ""
+  },
+  {
+   "id": "evt_60ad9b5f0da9",
+   "date": "2026-12-02",
+   "start": "18:00",
+   "end": "21:00",
+   "aid": "open-mic",
+   "artist": "Open Mic",
+   "vid": "the-bistro-at-lakeland-village",
+   "venue": "The Bistro at Lakeland Village",
+   "city": "Allyn",
+   "notes": ""
+  },
+  {
    "id": "evt_f24b4e3270b0",
    "date": "2026-12-03",
    "start": "18:00",
@@ -2715,6 +2799,18 @@
    "notes": "Union"
   },
   {
+   "id": "evt_b388a3e9fc5e",
+   "date": "2026-12-09",
+   "start": "18:00",
+   "end": "21:00",
+   "aid": "open-mic",
+   "artist": "Open Mic",
+   "vid": "taylor-station-restaurant-and-lounge",
+   "venue": "Taylor Station Restaurant & Lounge",
+   "city": "Shelton",
+   "notes": ""
+  },
+  {
    "id": "evt_76a2bfc67d8c",
    "date": "2026-12-10",
    "start": "18:00",
@@ -2737,6 +2833,18 @@
    "venue": "2 Margaritas Restaurant (Union)",
    "city": "Union",
    "notes": "Union"
+  },
+  {
+   "id": "evt_4beca42165be",
+   "date": "2026-12-16",
+   "start": "18:00",
+   "end": "21:00",
+   "aid": "open-mic",
+   "artist": "Open Mic",
+   "vid": "taylor-station-restaurant-and-lounge",
+   "venue": "Taylor Station Restaurant & Lounge",
+   "city": "Shelton",
+   "notes": ""
   },
   {
    "id": "evt_761b50a877f5",
@@ -2811,6 +2919,18 @@
    "notes": "Shelton"
   },
   {
+   "id": "evt_891b5602b7fd",
+   "date": "2026-12-23",
+   "start": "18:00",
+   "end": "21:00",
+   "aid": "open-mic",
+   "artist": "Open Mic",
+   "vid": "taylor-station-restaurant-and-lounge",
+   "venue": "Taylor Station Restaurant & Lounge",
+   "city": "Shelton",
+   "notes": ""
+  },
+  {
    "id": "evt_982eee26fe58",
    "date": "2026-12-24",
    "start": "18:00",
@@ -2833,6 +2953,18 @@
    "venue": "2 Margaritas Restaurant (Union)",
    "city": "Union",
    "notes": "Union"
+  },
+  {
+   "id": "evt_4cc5129ac055",
+   "date": "2026-12-30",
+   "start": "18:00",
+   "end": "21:00",
+   "aid": "open-mic",
+   "artist": "Open Mic",
+   "vid": "taylor-station-restaurant-and-lounge",
+   "venue": "Taylor Station Restaurant & Lounge",
+   "city": "Shelton",
+   "notes": ""
   },
   {
    "id": "evt_0d1078aae287",
@@ -3997,6 +4129,23 @@
    "other": "",
    "conf": "UNRESEARCHED",
    "photo": "/img/artist/nikko-and-the-night-shift.jpg",
+   "isEvent": false
+  },
+  {
+   "id": "nikko-from-nikko-and-the-night-shift",
+   "name": "Nikko from Nikko and the Night Shift",
+   "genre": "",
+   "home": "",
+   "desc": "",
+   "website": "",
+   "facebook": "",
+   "instagram": "",
+   "tiktok": "",
+   "youtube": "",
+   "spotify": "",
+   "other": "",
+   "conf": "Unverified",
+   "photo": "",
    "isEvent": false
   },
   {

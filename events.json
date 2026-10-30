@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-29 20:08",
+ "generated": "2026-10-30 12:45",
  "source": "Tidewater master sheet",
  "events": [
   {
@@ -2343,6 +2343,18 @@
    "notes": ""
   },
   {
+   "id": "evt_864be9445a02",
+   "date": "2026-10-30",
+   "start": "18:00",
+   "end": "21:00",
+   "aid": "the-randy-band",
+   "artist": "The Randy Band",
+   "vid": "lake-nahwatzel-resort-and-restaurant",
+   "venue": "Lake Nahwatzel Resort and Restaurant",
+   "city": "Shelton",
+   "notes": ""
+  },
+  {
    "id": "evt_a11d149f94a2",
    "date": "2026-10-30",
    "start": "20:00",
@@ -2663,6 +2675,18 @@
    "artist": "Scott Lesman Duo",
    "vid": "taylor-station-restaurant-and-lounge",
    "venue": "Taylor Station Restaurant & Lounge",
+   "city": "Shelton",
+   "notes": ""
+  },
+  {
+   "id": "evt_1c829b2d9d5e",
+   "date": "2026-11-14",
+   "start": "18:00",
+   "end": "21:00",
+   "aid": "allison-hanlon",
+   "artist": "Allison Hanlon",
+   "vid": "lake-nahwatzel-resort-and-restaurant",
+   "venue": "Lake Nahwatzel Resort and Restaurant",
    "city": "Shelton",
    "notes": ""
   },
@@ -5275,6 +5299,23 @@
   {
    "id": "billy-shew",
    "name": "Billy Shew",
+   "genre": "",
+   "home": "",
+   "desc": "",
+   "website": "",
+   "facebook": "",
+   "instagram": "",
+   "tiktok": "",
+   "youtube": "",
+   "spotify": "",
+   "other": "",
+   "conf": "Unverified",
+   "photo": "",
+   "isEvent": false
+  },
+  {
+   "id": "the-randy-band",
+   "name": "The Randy Band",
    "genre": "",
    "home": "",
    "desc": "",

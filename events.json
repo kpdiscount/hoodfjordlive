@@ -1,5 +1,5 @@
 {
- "generated": "2026-10-30 12:45",
+ "generated": "2026-11-02 07:51",
  "source": "Tidewater master sheet",
  "events": [
   {
@@ -3147,6 +3147,18 @@
    "notes": "Shelton"
   },
   {
+   "id": "evt_0b37cad95be6",
+   "date": "2026-12-19",
+   "start": "19:00",
+   "end": "21:00",
+   "aid": "fallen-robin",
+   "artist": "Fallen Robin",
+   "vid": "tipsy-blackbird-wine-bar",
+   "venue": "Tipsy Blackbird Wine Bar",
+   "city": "",
+   "notes": ""
+  },
+  {
    "id": "evt_8112ac8ef2ff",
    "date": "2026-12-20",
    "start": "14:00",
@@ -5743,6 +5755,23 @@
   {
    "id": "endless-sound-cellars",
    "name": "Endless Sound Cellars",
+   "address": "",
+   "city": "",
+   "state": "",
+   "zip": "",
+   "phone": "",
+   "website": "",
+   "facebook": "",
+   "instagram": "",
+   "type": "",
+   "lat": "",
+   "lng": "",
+   "about": "",
+   "conf": "Unverified"
+  },
+  {
+   "id": "tipsy-blackbird-wine-bar",
+   "name": "Tipsy Blackbird Wine Bar",
    "address": "",
    "city": "",
    "state": "",

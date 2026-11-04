@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-02 18:44",
+ "generated": "2026-11-03 18:44",
  "source": "Tidewater master sheet",
  "events": [
   {
@@ -2559,6 +2559,18 @@
    "notes": "Shelton"
   },
   {
+   "id": "evt_39d3df21f889",
+   "date": "2026-11-06",
+   "start": "18:00",
+   "end": "20:00",
+   "aid": "oma-and-greg",
+   "artist": "Oma & Greg",
+   "vid": "union-square-deli",
+   "venue": "Union Square Deli",
+   "city": "Union",
+   "notes": ""
+  },
+  {
    "id": "evt_2815a6db1f31",
    "date": "2026-11-07",
    "start": "19:00",
@@ -3035,6 +3047,18 @@
    "artist": "Open Mic",
    "vid": "hood-canale",
    "venue": "Hood Canalé",
+   "city": "Union",
+   "notes": ""
+  },
+  {
+   "id": "evt_1e23e8517854",
+   "date": "2026-12-05",
+   "start": "17:00",
+   "end": "18:00",
+   "aid": "rob-hill",
+   "artist": "Rob Hill",
+   "vid": "sacred-waters-center-for-restoration-and-retreat",
+   "venue": "Sacred Waters Center for Restoration and Retreat",
    "city": "Union",
    "notes": ""
   },
@@ -5328,6 +5352,23 @@
   {
    "id": "the-randy-band",
    "name": "The Randy Band",
+   "genre": "",
+   "home": "",
+   "desc": "",
+   "website": "",
+   "facebook": "",
+   "instagram": "",
+   "tiktok": "",
+   "youtube": "",
+   "spotify": "",
+   "other": "",
+   "conf": "Unverified",
+   "photo": "",
+   "isEvent": false
+  },
+  {
+   "id": "oma-and-greg",
+   "name": "Oma & Greg",
    "genre": "",
    "home": "",
    "desc": "",

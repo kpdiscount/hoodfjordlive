@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-04 13:52",
+ "generated": "2026-11-05 11:11",
  "source": "Tidewater master sheet",
  "events": [
   {
@@ -2559,18 +2559,6 @@
    "notes": "Shelton"
   },
   {
-   "id": "evt_39d3df21f889",
-   "date": "2026-11-06",
-   "start": "18:00",
-   "end": "20:00",
-   "aid": "oma-and-greg",
-   "artist": "Oma & Greg",
-   "vid": "union-square-deli",
-   "venue": "Union Square Deli",
-   "city": "Union",
-   "notes": ""
-  },
-  {
    "id": "evt_2815a6db1f31",
    "date": "2026-11-07",
    "start": "19:00",
@@ -2677,6 +2665,18 @@
    "venue": "El Sarape (Shelton)",
    "city": "Shelton",
    "notes": "Shelton"
+  },
+  {
+   "id": "evt_56f894d52e5b",
+   "date": "2026-11-13",
+   "start": "18:00",
+   "end": "20:00",
+   "aid": "beckaroos",
+   "artist": "Beckaroos",
+   "vid": "union-square-deli",
+   "venue": "Union Square Deli",
+   "city": "Union",
+   "notes": ""
   },
   {
    "id": "evt_65c0733d0179",
@@ -2823,6 +2823,18 @@
    "notes": "Shelton"
   },
   {
+   "id": "evt_e6c668a3a9cc",
+   "date": "2026-11-20",
+   "start": "18:00",
+   "end": "20:00",
+   "aid": "lisa-ramsauer",
+   "artist": "Lisa Ramsauer",
+   "vid": "union-square-deli",
+   "venue": "Union Square Deli",
+   "city": "Union",
+   "notes": ""
+  },
+  {
    "id": "evt_9f6675bdf0dc",
    "date": "2026-11-20",
    "start": "20:00",
@@ -2939,6 +2951,18 @@
    "artist": "Open Mic",
    "vid": "hood-canale",
    "venue": "Hood Canalé",
+   "city": "Union",
+   "notes": ""
+  },
+  {
+   "id": "evt_e19976a9929a",
+   "date": "2026-11-27",
+   "start": "18:00",
+   "end": "20:00",
+   "aid": "the-mistaken",
+   "artist": "The Mistaken",
+   "vid": "union-square-deli",
+   "venue": "Union Square Deli",
    "city": "Union",
    "notes": ""
   },
@@ -5367,8 +5391,8 @@
    "isEvent": false
   },
   {
-   "id": "oma-and-greg",
-   "name": "Oma & Greg",
+   "id": "lisa-ramsauer",
+   "name": "Lisa Ramsauer",
    "genre": "",
    "home": "",
    "desc": "",

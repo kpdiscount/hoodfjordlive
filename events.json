@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-05 11:11",
+ "generated": "2026-11-05 11:15",
  "source": "Tidewater master sheet",
  "events": [
   {
@@ -2557,6 +2557,18 @@
    "venue": "El Sarape (Shelton)",
    "city": "Shelton",
    "notes": "Shelton"
+  },
+  {
+   "id": "evt_7de5435eb10c",
+   "date": "2026-11-06",
+   "start": "18:00",
+   "end": "20:00",
+   "aid": "oma-corrine-and-greg",
+   "artist": "Oma , Corrine and Greg",
+   "vid": "union-square-deli",
+   "venue": "Union Square Deli",
+   "city": "Union",
+   "notes": ""
   },
   {
    "id": "evt_2815a6db1f31",
@@ -5376,6 +5388,23 @@
   {
    "id": "the-randy-band",
    "name": "The Randy Band",
+   "genre": "",
+   "home": "",
+   "desc": "",
+   "website": "",
+   "facebook": "",
+   "instagram": "",
+   "tiktok": "",
+   "youtube": "",
+   "spotify": "",
+   "other": "",
+   "conf": "Unverified",
+   "photo": "",
+   "isEvent": false
+  },
+  {
+   "id": "oma-corrine-and-greg",
+   "name": "Oma , Corrine and Greg",
    "genre": "",
    "home": "",
    "desc": "",

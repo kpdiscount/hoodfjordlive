@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-07 11:28",
+ "generated": "2026-11-13 19:30",
  "source": "Tidewater master sheet",
  "events": [
   {
@@ -3231,6 +3231,18 @@
    "notes": ""
   },
   {
+   "id": "evt_5d26f7a6f6c6",
+   "date": "2026-12-04",
+   "start": "18:00",
+   "end": "21:00",
+   "aid": "dakota-poorman",
+   "artist": "Dakota Poorman",
+   "vid": "el-sarape-shelton",
+   "venue": "El Sarape (Shelton)",
+   "city": "Shelton",
+   "notes": "Shelton"
+  },
+  {
    "id": "evt_1e23e8517854",
    "date": "2026-12-05",
    "start": "17:00",
@@ -3289,6 +3301,18 @@
    "venue": "Hood Canalé",
    "city": "Union",
    "notes": ""
+  },
+  {
+   "id": "evt_06e15d3bb7ab",
+   "date": "2026-12-11",
+   "start": "",
+   "end": "",
+   "aid": "allie-hanlon",
+   "artist": "Allie Hanlon",
+   "vid": "el-sarape-shelton",
+   "venue": "El Sarape (Shelton)",
+   "city": "Shelton",
+   "notes": "Shelton"
   },
   {
    "id": "evt_363949191e5f",
@@ -3468,6 +3492,30 @@
    "vid": "hood-canale",
    "venue": "Hood Canalé",
    "city": "Union",
+   "notes": ""
+  },
+  {
+   "id": "evt_7b7715865664",
+   "date": "2027-01-15",
+   "start": "18:00",
+   "end": "21:00",
+   "aid": "katie-wade",
+   "artist": "Katie Wade",
+   "vid": "el-sarape-shelton",
+   "venue": "El Sarape (Shelton)",
+   "city": "Shelton",
+   "notes": "Shelton"
+  },
+  {
+   "id": "evt_208e0eeb8cfb",
+   "date": "2027-01-22",
+   "start": "18:00",
+   "end": "21:00",
+   "aid": "dakota-poorman",
+   "artist": "Dakota Poorman",
+   "vid": "elsarape",
+   "venue": "elsarape",
+   "city": "",
    "notes": ""
   }
  ],
@@ -5664,6 +5712,40 @@
    "conf": "Unverified",
    "photo": "",
    "isEvent": false
+  },
+  {
+   "id": "dakota-poorman",
+   "name": "Dakota Poorman",
+   "genre": "",
+   "home": "",
+   "desc": "",
+   "website": "",
+   "facebook": "",
+   "instagram": "",
+   "tiktok": "",
+   "youtube": "",
+   "spotify": "",
+   "other": "",
+   "conf": "Unverified",
+   "photo": "",
+   "isEvent": false
+  },
+  {
+   "id": "allie-hanlon",
+   "name": "Allie Hanlon",
+   "genre": "",
+   "home": "",
+   "desc": "",
+   "website": "",
+   "facebook": "",
+   "instagram": "",
+   "tiktok": "",
+   "youtube": "",
+   "spotify": "",
+   "other": "",
+   "conf": "Unverified",
+   "photo": "",
+   "isEvent": false
   }
  ],
  "venues": [
@@ -6112,6 +6194,23 @@
   {
    "id": "prosperity-grange-hall",
    "name": "Prosperity Grange Hall",
+   "address": "",
+   "city": "",
+   "state": "",
+   "zip": "",
+   "phone": "",
+   "website": "",
+   "facebook": "",
+   "instagram": "",
+   "type": "",
+   "lat": "",
+   "lng": "",
+   "about": "",
+   "conf": "Unverified"
+  },
+  {
+   "id": "elsarape",
+   "name": "elsarape",
    "address": "",
    "city": "",
    "state": "",

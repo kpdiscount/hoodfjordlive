@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-13 19:30",
+ "generated": "2026-11-14 10:50",
  "source": "Tidewater master sheet",
  "events": [
   {
@@ -3551,7 +3551,7 @@
    "spotify": "",
    "other": "",
    "conf": "UNRESEARCHED",
-   "photo": "",
+   "photo": "/img/artist/allison-hanlon.jpg",
    "isEvent": false
   },
   {
@@ -4112,7 +4112,7 @@
    "spotify": "https://open.spotify.com/artist/6aHS1ijoQqNunPy8K2zzAp",
    "other": "https://www.bandsintown.com/a/13233161-forest-ray",
    "conf": "High",
-   "photo": "",
+   "photo": "/img/artist/forest-ray.jpg",
    "isEvent": false
   },
   {
@@ -4367,7 +4367,7 @@
    "spotify": "",
    "other": "",
    "conf": "Low",
-   "photo": "",
+   "photo": "/img/artist/josh-meeks.jpg",
    "isEvent": false
   },
   {

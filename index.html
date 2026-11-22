@@ -8,7 +8,7 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<meta name="theme-color" content="#0c2620">
+<meta name="theme-color" content="#071a15">
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -976,6 +976,57 @@ html body .cell.sel .pip{background:#fff!important}
 @media (prefers-reduced-motion:reduce){
   .hero-snowfall i{animation:none;top:auto}
   .hero-snowfall i:nth-child(3n){top:18%}.hero-snowfall i:nth-child(3n+1){top:46%}.hero-snowfall i:nth-child(3n+2){top:74%}}
+/* ===== HOLIDAY — PALETTE D: spruce greens with gold edges and labels ===== */
+:root,:root[data-theme="dark"]{--d-page:#0a1a16;--d-panel:#132e27;--d-card:#1c4036;--d-border:#9c7c3c;
+  --d-top:#c9a24a;--d-text:#f8f2e4;--d-muted:#cbd2c6;--d-gold:#e8c46a;--d-gold-lt:#efcf7e}
+html,body{background:var(--d-page)!important;color:var(--d-text)!important}
+.mast,.mobile-menu,.tabs,.foot{background:#06120f!important}
+.locationbar{background:#0b1f1a!important}
+.home-grid{background:transparent!important}
+.home-grid>.feature-section,.home-grid>.upcoming-section,.footer-wide,.feature-section,.upcoming-section{
+  background:var(--d-panel)!important;border:1px solid var(--d-border)!important;border-top:6px solid var(--d-top)!important;color:var(--d-text)!important}
+.kicker,.linkbtn{color:var(--d-gold)!important}
+.feature-section h2,.upcoming-section h2,#tonightHead,.section-head h2{color:var(--d-text)!important}
+.section-head p,#tonightSub,.empty{color:var(--d-muted)!important}
+html body .dayhead,html body .dayhead *{color:var(--d-text)!important;border-color:var(--d-border)!important}
+html body .dayhead.wknd span:last-child,html body .wknd .tag{color:var(--d-gold)!important}
+.daygroup,.daygroup *{border-color:#2c5146}
+html body #tonightBody .card,html body #weekendBody .card,html body #upcomingBody .row,html body .card,html body .row,.card,.row{
+  background:var(--d-card)!important;color:var(--d-text)!important;border:1px solid var(--d-border)!important}
+.card .act,.row .act,.row .when b,.row .when strong{color:var(--d-text)!important}
+.card .meta,.row .meta,.row .when{color:var(--d-muted)!important}
+html body .card-time,html body .row .time,html body .stop.past .card-time,html body #tonightBody .card-time{color:var(--d-gold-lt)!important}
+.card a,.row a,.meta a{color:var(--d-text)!important}
+.signup{background:var(--d-panel)!important;border-top:6px solid var(--d-top)!important}
+.signup .kicker{color:var(--d-gold)!important}
+.signup button,#subBtn{background:var(--d-gold)!important;color:#1b1f1c!important}
+.foot .contact,.foot a{color:var(--d-gold)!important}
+/* Calendar */
+#cal{background:var(--d-panel)!important;padding:24px 22px 28px!important;margin-top:18px!important;border:1px solid var(--d-border)!important;border-top:6px solid var(--d-top)!important;color:var(--d-text)!important}
+#monthLabel{color:var(--d-text)!important}
+.fnote,.dow span{color:var(--d-muted)!important}
+.clear{color:var(--d-gold)!important}
+.segwrap{background:var(--d-card)!important;border-color:var(--d-gold)!important}
+.segwrap button{color:var(--d-text)!important}
+.segwrap button[aria-selected="true"]{background:var(--d-gold)!important;color:#1b1f1c!important}
+.filters select{background:var(--d-card)!important;color:var(--d-text)!important;border-color:var(--d-border)!important}
+.mnav button{background:var(--d-card)!important;color:var(--d-text)!important;border-color:var(--d-gold)!important}
+.cell{color:#8fa39a!important}
+html body .cell.has{background:var(--d-card)!important;border-color:#2c5146!important;color:var(--d-text)!important}
+html body .cell.today{border:2px solid var(--d-gold)!important}
+html body .cell.sel{background:var(--d-gold)!important;border-color:var(--d-gold)!important;color:#1b1f1c!important}
+.cell .pip{background:var(--d-gold)!important}
+html body .cell.sel .pip{background:#1b1f1c!important}
+#dayDetail,#listView{color:var(--d-text)!important}
+/* Pop-up */
+.sheet{background:var(--d-panel)!important;color:var(--d-text)!important;border-top-color:var(--d-top)!important}
+.sheet h2,.desc{color:var(--d-text)!important}
+.sheet .kind,.sheet .subhead{color:var(--d-gold)!important}
+.sheet .close{background:var(--d-card)!important;color:var(--d-text)!important;border-color:var(--d-gold)!important}
+.sub,.gap{color:var(--d-muted)!important}
+.gap{background:var(--d-card)!important;border-left-color:var(--d-gold)!important}
+.links a{background:transparent!important;color:var(--d-text)!important;border-color:var(--d-gold)!important}
+.links a.key{background:var(--d-gold)!important;border-color:var(--d-gold)!important;color:#1b1f1c!important}
 </style>
 </head>
 <body>

@@ -1049,15 +1049,24 @@ html body .sheet .dayhead .wtag{color:var(--rd-gold)!important}
 
 /* ---- phones ---- */
 @media(max-width:760px){
-  .rd-hero-in{padding:34px 16px 26px;gap:22px}
+  /* The photo becomes an uncovered band at the top, so the water and mountains show;
+     the headline and tonight's card sit below it. */
+  .rd-hero{background:var(--rd-bg)}
+  .rd-hero::before{display:none}
+  .rd-hero-bg{position:relative;display:block;width:100%;height:auto;aspect-ratio:960/432;object-position:center;z-index:0}
+  .rd-hero .hero-snowfall{bottom:auto;height:45vw}
+  .rd-hero-in{padding:20px 16px 26px;gap:18px}
+  .rd-hero h1{font-size:clamp(40px,11vw,52px);text-shadow:none}
   .rd-hero-sub{font-size:19px}
-  .rd-tcard{grid-template-columns:1fr}
-  .rd-tcard .rd-tile,.rd-tcard>img{height:190px;min-height:0}
-  .rd-tcard .rd-tile{font-size:56px;padding:14px 16px}
-  .rd-tcard.small{grid-template-columns:84px minmax(0,1fr)}
-  .rd-tcard.small .rd-tile,.rd-tcard.small>img{height:100%;min-height:84px;font-size:30px;padding:6px 8px}
-  .rd-tcard:not(.small) .rd-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
-  .rd-tcard:not(.small) .rd-actions .rd-share{grid-column:1/-1}
+  /* Compact show cards: a small square photo, so the card no longer hides the view */
+  .rd-tcard,.rd-tcard.small{grid-template-columns:88px minmax(0,1fr);box-shadow:none}
+  .rd-tcard .rd-tile,.rd-tcard>img,.rd-tcard.small .rd-tile,.rd-tcard.small>img{width:88px;height:88px;min-height:0;font-size:30px;padding:6px 8px}
+  .rd-tcard>img{padding:0}
+  .rd-tcard-body,.rd-tcard.small .rd-tcard-body{padding:12px 14px}
+  .rd-tcard h3,.rd-tcard.small h3{font-size:26px}
+  .rd-tcard .rd-where{font-size:16px}
+  .rd-tcard .rd-actions{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;padding:0 12px 12px}
+  .rd-tcard .rd-actions .rd-btn{padding:10px 6px;font-size:14px;min-height:44px}
   .rd-poster{padding:26px 18px 22px}
   .rd-poster-when{text-align:left}
   .rd-poster-actions .rd-link{margin-left:0}
@@ -1076,6 +1085,14 @@ html body .sheet .dayhead .wtag{color:var(--rd-gold)!important}
   .rd-signup{padding:26px 18px;margin:0 -16px}
   .rd-signup h2{font-size:27px}
 }
+/* The action buttons now sit under the whole card (full width on phones, beside the
+   text on wider screens). */
+@media(min-width:761px){.rd-tcard:not(.small){grid-template-rows:1fr auto}
+  .rd-tcard:not(.small)>img,.rd-tcard:not(.small)>.rd-tile{grid-row:1/3}
+  .rd-tcard:not(.small)>.rd-actions{grid-column:2;padding:0 24px 20px;margin:0}}
+
+.rd-sm{display:none}
+@media(max-width:760px){.rd-tcard .rd-lg{display:none}.rd-tcard .rd-sm{display:inline}}
 </style>
 </head>
 <body>
@@ -1465,7 +1482,7 @@ function rdActions(e, opts){
   const cls = o.light ? 'rd-btn-line' : 'rd-btn-ghost';
   let out = '';
   if(dir) out += `<a class="rd-btn ${o.light?'rd-btn-red':cls}" href="${esc(dir)}" target="_blank" rel="noopener">Directions</a>`;
-  if(cal) out += `<a class="rd-btn ${cls}" href="${esc(cal)}" target="_blank" rel="noopener">${o.short?'+ Calendar':'Add to calendar'}</a>`;
+  if(cal) out += `<a class="rd-btn ${cls}" href="${esc(cal)}" target="_blank" rel="noopener">${o.short?'+ Calendar':'<span class="rd-lg">Add to calendar</span><span class="rd-sm">+ Calendar</span>'}</a>`;
   if(o.share) out += `<button type="button" class="rd-btn ${cls} rd-share" onclick="rdShareShow(this,'${esc(e.id)}')">Share</button>`;
   return out ? `<div class="rd-actions">${out}</div>` : '';
 }
@@ -1592,8 +1609,8 @@ function renderHome(){
           <p class="rd-status${over?' past':''}">${label} · ${esc(span(e))}</p>
           <h3><button onclick="openArtist('${e.aid}')">${esc(e.artist)}</button></h3>
           <p class="rd-where">${rdWhere(e)}</p>
-          ${small ? '' : rdActions(e, {light:true, share:true})}
         </div>
+        ${small ? '' : rdActions(e, {light:true, share:true})}
       </article>`;
     }).join('') + (tonight.length > 3
       ? `<p class="rd-more">And ${tonight.length-3} more tonight. <button onclick="go('cal')">See them all →</button></p>` : '');

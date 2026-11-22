@@ -1037,6 +1037,16 @@ main.rd .foot{margin-top:56px}
 html body .sheet .dayhead,html body .sheet .dayhead *{color:var(--rd-cream)!important;border-color:var(--rd-cream)!important}
 html body .sheet .dayhead .wtag{color:var(--rd-gold)!important}
 
+/* Medium screens: stack the map above its list, and keep the header menu on screen
+   (the menu already ran off the right edge between about 900 and 1100px). */
+@media(max-width:1000px){.rd-map-grid{grid-template-columns:minmax(0,560px);gap:28px}}
+@media(min-width:900px) and (max-width:1180px){
+  .mast{grid-template-columns:auto 1fr auto!important}
+  .brand-tag{display:none!important}
+  .desktop-nav{gap:6px!important;justify-content:flex-end}
+  .desktop-nav button,.desktop-nav a{font-size:14px!important;padding:10px 8px!important}
+}
+
 /* ---- phones ---- */
 @media(max-width:760px){
   .rd-hero-in{padding:34px 16px 26px;gap:22px}

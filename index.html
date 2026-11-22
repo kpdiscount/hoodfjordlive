@@ -3,13 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Hood Fjord Live — Live Music around the Hood Canal</title>
+<title>Hood Fjord Live — Tonight on Hood Canal</title>
 <meta name="description" content="Who's playing tonight around Union, Shelton and Belfair.">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="theme-color" content="#081d19">
 <meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
 <link rel="manifest" href="/site.webmanifest">
 <script>
 // Set before first paint: applying the theme in the main script instead would show a
@@ -874,6 +877,195 @@ html,body{background:#071713!important}
 .hero-content{position:relative;z-index:2}
 @media (prefers-reduced-motion:reduce){.hero-snowfall i{animation:none;top:auto}
   .hero-snowfall i:nth-child(3n){top:18%}.hero-snowfall i:nth-child(3n+1){top:46%}.hero-snowfall i:nth-child(3n+2){top:74%}}
+
+/* =====================================================================
+   REDESIGN (preview): A · tonight first, B · weekend lineup poster,
+   C · around-the-canal map, flat lists. Holiday colours come from the
+   Christmas layer above; --rd-accent is the one colour to swap after
+   the season (e.g. back to #c85f34).
+   ===================================================================== */
+:root{--rd-bg:#0c1613;--rd-panel:#13241e;--rd-cream:#f6f1e7;--rd-ink:#15201c;--rd-muted:#a9b5ae;
+  --rd-line:rgba(255,255,255,.12);--rd-gold:#e2b85f;--rd-accent:#b8232f;--rd-accent-dk:#9c1d27;
+  --rd-serif:Fraunces,Georgia,"Times New Roman",serif;--rd-sans:"Source Sans 3",Arial,Helvetica,sans-serif;
+  --rd-poster:Anton,Impact,"Arial Narrow",sans-serif}
+html,body{background:var(--rd-bg)!important}
+main.rd{font-family:var(--rd-sans);color:var(--rd-cream)}
+main.rd h1,main.rd h2,main.rd h3{margin:0}
+.rd-wrap{max-width:1240px;margin:0 auto;padding:0 4px}
+.rd-kicker{margin:0;font:700 14px/1.2 var(--rd-sans);letter-spacing:.12em;text-transform:uppercase;color:var(--rd-gold)}
+.rd-h2{font:700 clamp(36px,5vw,52px)/1.05 var(--rd-serif);letter-spacing:-.02em;color:var(--rd-cream)}
+.rd-lede{margin:8px 0 0;font-size:19px;color:var(--rd-muted)}
+.rd-link{background:none;border:0;padding:10px 0;font:700 17px var(--rd-sans);color:var(--rd-gold);cursor:pointer;text-decoration:none}
+.rd-link:hover{color:#f0cf86}
+.rd-btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 18px;
+  font:700 16px var(--rd-sans);text-decoration:none;cursor:pointer;border:2px solid transparent}
+.rd-btn-red{background:var(--rd-accent);color:#fff!important;border-color:var(--rd-accent)}
+.rd-btn-red:hover{background:var(--rd-accent-dk);border-color:var(--rd-accent-dk)}
+.rd-btn-line{background:transparent;color:var(--rd-ink)!important;border-color:var(--rd-ink)}
+.rd-btn-ghost{background:transparent;color:var(--rd-cream)!important;border:1px solid rgba(255,255,255,.32)}
+.rd-btn-ghost:hover{border-color:var(--rd-cream)}
+
+/* ---- A · hero with tonight's shows ---- */
+.rd-hero{position:relative;overflow:hidden;isolation:isolate;margin:0 -20px}
+@media(min-width:900px){.rd-hero{margin:0 -40px}}
+.rd-hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 55%;z-index:-2}
+.rd-hero::before{content:"";position:absolute;inset:0;background:rgba(8,16,13,.72);z-index:-1}
+.rd-hero-in{position:relative;z-index:2;max-width:1240px;margin:0 auto;padding:64px 24px 56px;
+  display:flex;flex-wrap:wrap;gap:40px;align-items:flex-end}
+.rd-hero-copy{flex:1 1 380px;min-width:0}
+.rd-hero h1{margin-top:12px;font:700 clamp(46px,7vw,78px)/.98 var(--rd-serif);letter-spacing:-.03em;color:#fff;
+  text-shadow:0 2px 14px rgba(0,0,0,.35)}
+.rd-hero-sub{margin:18px 0 0;font-size:21px;line-height:1.45;color:#dfe6e1;max-width:470px}
+.rd-tonight{flex:1 1 520px;min-width:0;display:flex;flex-direction:column;gap:14px}
+.rd-tcard{background:var(--rd-cream);color:var(--rd-ink);display:grid;grid-template-columns:168px minmax(0,1fr);
+  box-shadow:0 20px 60px rgba(0,0,0,.45)}
+.rd-tcard.small{grid-template-columns:96px minmax(0,1fr)}
+.rd-tcard .rd-tile,.rd-tcard>img{width:100%;height:100%;min-height:200px;object-fit:cover}
+.rd-tcard.small .rd-tile,.rd-tcard.small>img{min-height:96px}
+.rd-tcard-body{padding:20px 24px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.rd-tcard.small .rd-tcard-body{padding:14px 18px}
+.rd-status{display:inline-flex;align-items:center;gap:8px;margin:0;font:700 13px/1.2 var(--rd-sans);
+  letter-spacing:.1em;text-transform:uppercase;color:var(--rd-accent)}
+.rd-status::before{content:"";width:9px;height:9px;border-radius:50%;background:currentColor}
+.rd-status.past{color:#6b746f}
+.rd-tcard h3{font:700 clamp(30px,3.4vw,42px)/1 var(--rd-serif);letter-spacing:-.02em}
+.rd-tcard.small h3{font-size:26px}
+.rd-tcard h3 button,.rd-name{background:none;border:0;padding:0;font:inherit;color:inherit;text-align:left;cursor:pointer}
+.rd-tcard h3 button:hover,.rd-name:hover{text-decoration:underline;text-underline-offset:4px}
+.rd-where{margin:0;font-size:18px;color:#4f5a54}
+.rd-where button,.rd-venue{background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer;
+  text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+.rd-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:12px}
+.rd-more{margin:0;font-size:17px;color:#dfe6e1}
+.rd-more button{background:none;border:0;padding:8px 0;font:700 17px var(--rd-sans);color:var(--rd-gold);cursor:pointer}
+.rd-quiet{background:rgba(246,241,231,.08);border:1px solid rgba(255,255,255,.22);padding:22px 24px;color:#fff}
+.rd-quiet p{margin:0;font-size:19px;line-height:1.45}
+.rd-quiet .rd-actions{padding-top:14px}
+
+/* Artist tiles: photo, or a coloured tile by town */
+.rd-tile{display:flex;align-items:flex-end;padding:8px 10px;box-sizing:border-box;
+  font:700 34px/1 var(--rd-serif);background:#1d5a45;color:#fff;overflow:hidden}
+.rd-tile.t-union{background:var(--rd-gold);color:var(--rd-ink)}
+.rd-tile.t-shelton{background:var(--rd-accent);color:#fff}
+.rd-tile.t-belfair{background:#2e6a7c;color:#fff}
+.rd-tile.t-allyn{background:#6d4c8a;color:#fff}
+
+/* ---- B · weekend lineup poster ---- */
+#weekendSection{margin-top:44px}
+.rd-poster{position:relative;overflow:hidden;isolation:isolate;background:var(--rd-panel);border:2px solid var(--rd-gold);padding:48px 48px 40px}
+.rd-waves{position:absolute;inset:0;width:100%;height:100%;z-index:-1}
+.rd-poster-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:18px;
+  border-bottom:2px solid var(--rd-gold);padding-bottom:22px}
+.rd-presents{margin:0;font:700 15px/1.2 var(--rd-sans);letter-spacing:.22em;text-transform:uppercase;color:var(--rd-gold)}
+#rdPosterHead{margin-top:10px;font:400 clamp(34px,9.4vw,108px)/.92 var(--rd-poster);text-transform:uppercase;letter-spacing:.01em;color:var(--rd-cream)}
+.rd-poster-when{text-align:left}
+.rd-poster-dates{margin:0;font:400 clamp(34px,4.4vw,56px)/1 var(--rd-poster);color:#d8343f}
+.rd-poster-count{margin:8px 0 0;font-size:18px;color:#cfd8d2}
+.rd-poster-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:36px;margin-top:30px}
+.rd-day-tag{display:inline-block;margin:0 0 12px;background:var(--rd-accent);color:#fff;font:400 24px/1.2 var(--rd-poster);
+  letter-spacing:.06em;padding:4px 14px;text-transform:uppercase}
+.rd-pshow{padding:12px 0;border-bottom:1px solid rgba(226,184,95,.3)}
+.rd-pshow .rd-name{display:block;font:400 clamp(26px,2.6vw,34px)/1.04 var(--rd-poster);text-transform:uppercase;color:var(--rd-cream)}
+.rd-pmeta{margin:6px 0 0;font-size:17px;color:#cfd8d2}
+.rd-pmeta strong{color:var(--rd-gold)}
+.rd-pmeta .rd-venue{color:#cfd8d2}
+.rd-pempty{margin:4px 0 0;font-size:17px;color:var(--rd-muted)}
+.rd-poster-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:32px}
+.rd-poster-actions .rd-link{margin-left:auto}
+
+/* ---- C · map ---- */
+.rd-map-sec{margin-top:64px}
+.rd-map-grid{display:grid;grid-template-columns:minmax(0,560px) minmax(0,1fr);gap:48px;margin-top:28px;align-items:start}
+.rd-map{position:relative;width:100%;aspect-ratio:600/760;background:var(--rd-panel);border:1px solid var(--rd-line)}
+.rd-map-art{position:absolute;inset:0;width:100%;height:100%}
+.rd-pin{position:absolute;transform:translate(-50%,-50%);display:flex;align-items:center;gap:8px;
+  padding:6px 12px 6px 6px;min-height:44px;border:2px solid rgba(255,255,255,.3);background:var(--rd-bg);
+  color:var(--rd-cream);font:700 16px var(--rd-sans);cursor:pointer;white-space:nowrap}
+.rd-pin.has{border-color:var(--rd-gold)}
+.rd-pin[aria-pressed="true"]{background:var(--rd-cream);border-color:var(--rd-cream);color:var(--rd-ink)}
+.rd-pin .n{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  background:#4a5a53;color:#fff;font-size:15px}
+.rd-pin.has .n{background:var(--rd-accent)}
+.rd-map-note{position:absolute;left:14px;bottom:8px;margin:0;font-size:13px;color:#8fa39a}
+.rd-map-list .rd-mhead{display:flex;align-items:baseline;justify-content:space-between;gap:12px;
+  border-bottom:2px solid var(--rd-cream);padding-bottom:10px}
+.rd-map-list h3{font:700 40px/1.05 var(--rd-serif)}
+.rd-map-list .rd-count{font-weight:700;font-size:18px;color:var(--rd-gold)}
+.rd-mrow{display:grid;grid-template-columns:120px minmax(0,1fr) auto;gap:18px;align-items:center;padding:16px 0;border-bottom:1px solid var(--rd-line)}
+.rd-mrow .d{font:700 14px/1.3 var(--rd-sans);letter-spacing:.08em;text-transform:uppercase;color:var(--rd-gold)}
+.rd-mrow .rd-name{font:600 25px/1.1 var(--rd-serif);color:var(--rd-cream)}
+.rd-mrow .v{margin:3px 0 0;font-size:17px;color:var(--rd-muted)}
+.rd-mrow .v .rd-venue{color:var(--rd-muted)}
+.rd-mrow .t{margin:0;font-weight:700;font-size:18px}
+.rd-mempty{margin:20px 0 0;font-size:19px;color:var(--rd-muted)}
+
+/* ---- flat list ---- */
+html body #upcomingBody{display:block!important}
+#upcomingSection{margin-top:64px}
+.rd-sechead{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:12px}
+.rd-day{margin-top:30px}
+.rd-day h3{padding-bottom:10px;border-bottom:2px solid var(--rd-cream);font:700 15px/1.2 var(--rd-sans);
+  letter-spacing:.12em;text-transform:uppercase;color:var(--rd-gold)}
+.rd-row{display:grid;grid-template-columns:84px minmax(0,1fr) 150px auto;gap:22px;align-items:center;
+  padding:16px 0;border-bottom:1px solid var(--rd-line)}
+.rd-row .rd-tile,.rd-row>img{width:84px;height:84px;object-fit:cover}
+.rd-row .rd-tile{font-size:32px}
+.rd-row .rd-name{font:600 28px/1.1 var(--rd-serif);color:var(--rd-cream)}
+.rd-row .v{margin:4px 0 0;font-size:18px;color:var(--rd-muted)}
+.rd-row .v .rd-venue{color:var(--rd-muted)}
+.rd-row .t{margin:0;font-weight:700;font-size:19px;color:var(--rd-gold)}
+.rd-row .rd-actions{margin:0;padding:0;justify-content:flex-end}
+.rd-row .rd-btn{min-height:44px;padding:9px 14px;font-size:15px}
+.rd-empty{margin:20px 0 0;font-size:19px;color:var(--rd-muted)}
+
+/* ---- sign-up ---- */
+#signup.rd-wrap{margin-top:64px}
+.rd-signup{background:var(--rd-accent);padding:34px 36px;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
+.rd-signup-copy{flex:1 1 360px}
+.rd-signup h2{font:700 32px/1.1 var(--rd-serif);color:#fff}
+.rd-signup p{margin:8px 0 0;font-size:18px;color:#fff}
+.rd-signup form{flex:1 1 420px;display:flex;flex-direction:column;gap:6px}
+.rd-signup label{font-weight:700;font-size:15px;color:#fff}
+.rd-signup .signup-row{display:flex;flex-wrap:wrap;gap:10px}
+.rd-signup input[type=email]{flex:1 1 240px;font:inherit;font-size:18px;padding:14px;border:0!important;min-height:52px;box-sizing:border-box;
+  background:#fff!important;color:var(--rd-ink)!important}
+.rd-signup #subBtn{background:var(--rd-bg)!important;color:#fff!important;border:0;font:700 18px var(--rd-sans);padding:14px 22px;min-height:52px;cursor:pointer;border-radius:0}
+.rd-signup .signup-msg{color:#fff!important;margin:4px 0 0}
+main.rd .foot{margin-top:56px}
+
+/* Day headings inside the artist and venue pop-ups */
+html body .sheet .dayhead,html body .sheet .dayhead *{color:var(--rd-cream)!important;border-color:var(--rd-cream)!important}
+html body .sheet .dayhead .wtag{color:var(--rd-gold)!important}
+
+/* ---- phones ---- */
+@media(max-width:760px){
+  .rd-hero-in{padding:34px 16px 26px;gap:22px}
+  .rd-hero-sub{font-size:19px}
+  .rd-tcard{grid-template-columns:1fr}
+  .rd-tcard .rd-tile,.rd-tcard>img{height:190px;min-height:0}
+  .rd-tcard .rd-tile{font-size:56px;padding:14px 16px}
+  .rd-tcard.small{grid-template-columns:84px minmax(0,1fr)}
+  .rd-tcard.small .rd-tile,.rd-tcard.small>img{height:100%;min-height:84px;font-size:30px;padding:6px 8px}
+  .rd-tcard:not(.small) .rd-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+  .rd-tcard:not(.small) .rd-actions .rd-share{grid-column:1/-1}
+  .rd-poster{padding:26px 18px 22px}
+  .rd-poster-when{text-align:left}
+  .rd-poster-actions .rd-link{margin-left:0}
+  .rd-map-grid{grid-template-columns:1fr;gap:24px}
+  .rd-pin{font-size:15px;padding:4px 10px 4px 4px;min-height:44px}
+  .rd-pin .n{width:24px;height:24px;font-size:14px}
+  .rd-mrow{grid-template-columns:minmax(0,1fr) auto;gap:4px 14px}
+  .rd-mrow .d{grid-column:1/-1}
+  .rd-row{grid-template-columns:68px minmax(0,1fr);gap:14px}
+  .rd-row .rd-tile,.rd-row>img{width:68px;height:68px}
+  .rd-row .rd-tile{font-size:27px;padding:6px 8px}
+  .rd-row .rd-name{font-size:23px}
+  .rd-row .v{font-size:16px}
+  .rd-row .t{grid-column:2;font-size:16px;margin-top:-6px}
+  .rd-row .rd-actions{grid-column:2;justify-content:flex-start;margin-top:-4px}
+  .rd-signup{padding:26px 18px;margin:0 -16px}
+  .rd-signup h2{font-size:27px}
+}
 </style>
 </head>
 <body>
@@ -905,62 +1097,93 @@ html,body{background:#071713!important}
     <a href="/about/">Artists &amp; Venues</a>
   </nav>
 
-  <main id="home">
-    <section class="hero hero-photo" style="margin-top:0">
-      <img class="hero-bg" src="/images/hood-canal-hero.jpg?v=50" alt="Hood Canal at sunset" fetchpriority="high">
+  <main id="home" class="rd">
+    <!-- A · Tonight first -->
+    <section class="rd-hero" id="tonightSection" aria-labelledby="rdTonightHead">
+      <img class="rd-hero-bg" src="/images/hood-canal-hero.jpg?v=50" alt="" fetchpriority="high">
       <div class="hero-snowfall" aria-hidden="true"><i style="left:15.1%;width:3.1px;height:3.1px;opacity:0.76;--dx:-54px;animation-duration:11.1s;animation-delay:-12.8s"></i><i style="left:21.5%;width:5.2px;height:5.2px;opacity:0.53;--dx:24px;animation-duration:12.9s;animation-delay:-12.1s"></i><i style="left:56.5%;width:2.2px;height:2.2px;opacity:0.88;--dx:-56px;animation-duration:17.0s;animation-delay:-1.1s"></i><i style="left:55.7%;width:2.8px;height:2.8px;opacity:0.55;--dx:29px;animation-duration:16.5s;animation-delay:-12.6s"></i><i style="left:68.2%;width:4.0px;height:4.0px;opacity:0.54;--dx:-43px;animation-duration:11.2s;animation-delay:-15.7s"></i><i style="left:61.9%;width:4.0px;height:4.0px;opacity:0.7;--dx:40px;animation-duration:15.6s;animation-delay:-20.3s"></i><i style="left:24.8%;width:3.3px;height:3.3px;opacity:0.57;--dx:-25px;animation-duration:16.9s;animation-delay:-11.6s"></i><i style="left:72.9%;width:5.1px;height:5.1px;opacity:0.62;--dx:-27px;animation-duration:16.1s;animation-delay:-3.6s"></i><i style="left:93.3%;width:3.2px;height:3.2px;opacity:0.67;--dx:-55px;animation-duration:16.9s;animation-delay:-19.3s"></i><i style="left:69.5%;width:3.1px;height:3.1px;opacity:0.74;--dx:24px;animation-duration:20.1s;animation-delay:-20.8s"></i><i style="left:66.4%;width:3.7px;height:3.7px;opacity:0.52;--dx:56px;animation-duration:21.9s;animation-delay:-18.1s"></i><i style="left:38.6%;width:3.0px;height:3.0px;opacity:0.77;--dx:-49px;animation-duration:14.3s;animation-delay:-13.4s"></i><i style="left:21.8%;width:3.7px;height:3.7px;opacity:0.61;--dx:-45px;animation-duration:14.7s;animation-delay:-19.2s"></i><i style="left:44.9%;width:2.3px;height:2.3px;opacity:0.72;--dx:-47px;animation-duration:20.4s;animation-delay:-6.1s"></i><i style="left:35.9%;width:3.5px;height:3.5px;opacity:0.85;--dx:-29px;animation-duration:11.0s;animation-delay:-3.3s"></i><i style="left:1.2%;width:4.3px;height:4.3px;opacity:0.83;--dx:-36px;animation-duration:13.4s;animation-delay:-3.2s"></i><i style="left:61.0%;width:3.9px;height:3.9px;opacity:0.63;--dx:-52px;animation-duration:21.4s;animation-delay:-14.4s"></i><i style="left:45.7%;width:4.6px;height:4.6px;opacity:0.85;--dx:45px;animation-duration:14.8s;animation-delay:-2.3s"></i><i style="left:6.2%;width:4.2px;height:4.2px;opacity:0.53;--dx:-48px;animation-duration:11.9s;animation-delay:-7.5s"></i><i style="left:0.0%;width:2.2px;height:2.2px;opacity:0.56;--dx:-43px;animation-duration:17.4s;animation-delay:-1.5s"></i><i style="left:37.6%;width:2.7px;height:2.7px;opacity:0.75;--dx:58px;animation-duration:14.4s;animation-delay:-2.7s"></i><i style="left:99.3%;width:5.0px;height:5.0px;opacity:0.69;--dx:39px;animation-duration:11.0s;animation-delay:-2.2s"></i><i style="left:26.5%;width:3.2px;height:3.2px;opacity:0.83;--dx:-53px;animation-duration:10.3s;animation-delay:-20.9s"></i><i style="left:14.7%;width:3.8px;height:3.8px;opacity:0.72;--dx:-53px;animation-duration:13.6s;animation-delay:-14.1s"></i><i style="left:84.5%;width:2.3px;height:2.3px;opacity:0.71;--dx:-42px;animation-duration:19.3s;animation-delay:-11.7s"></i><i style="left:33.0%;width:4.7px;height:4.7px;opacity:0.59;--dx:-35px;animation-duration:19.8s;animation-delay:-16.3s"></i><i style="left:51.8%;width:2.8px;height:2.8px;opacity:0.64;--dx:-21px;animation-duration:19.5s;animation-delay:-10.4s"></i><i style="left:60.5%;width:2.7px;height:2.7px;opacity:0.64;--dx:43px;animation-duration:11.0s;animation-delay:-2.2s"></i><i style="left:33.8%;width:3.6px;height:3.6px;opacity:0.69;--dx:-50px;animation-duration:20.9s;animation-delay:-7.6s"></i><i style="left:83.5%;width:4.3px;height:4.3px;opacity:0.55;--dx:32px;animation-duration:15.7s;animation-delay:-3.9s"></i><i style="left:33.3%;width:4.8px;height:4.8px;opacity:0.82;--dx:49px;animation-duration:14.8s;animation-delay:-20.8s"></i><i style="left:17.0%;width:4.5px;height:4.5px;opacity:0.55;--dx:-57px;animation-duration:20.9s;animation-delay:-17.7s"></i><i style="left:82.7%;width:2.5px;height:2.5px;opacity:0.89;--dx:29px;animation-duration:16.6s;animation-delay:-2.9s"></i><i style="left:97.1%;width:2.0px;height:2.0px;opacity:0.76;--dx:-47px;animation-duration:21.8s;animation-delay:-4.3s"></i><i style="left:2.8%;width:5.1px;height:5.1px;opacity:0.59;--dx:-57px;animation-duration:13.9s;animation-delay:-12.0s"></i><i style="left:6.1%;width:4.9px;height:4.9px;opacity:0.8;--dx:57px;animation-duration:19.8s;animation-delay:-11.4s"></i><i style="left:87.8%;width:4.9px;height:4.9px;opacity:0.55;--dx:-53px;animation-duration:16.1s;animation-delay:-19.2s"></i><i style="left:60.9%;width:4.7px;height:4.7px;opacity:0.81;--dx:-31px;animation-duration:11.7s;animation-delay:-13.6s"></i><i style="left:6.2%;width:2.4px;height:2.4px;opacity:0.77;--dx:26px;animation-duration:20.6s;animation-delay:-1.3s"></i><i style="left:4.2%;width:2.7px;height:2.7px;opacity:0.54;--dx:55px;animation-duration:10.3s;animation-delay:-19.7s"></i><i style="left:32.6%;width:2.2px;height:2.2px;opacity:0.89;--dx:-37px;animation-duration:15.4s;animation-delay:-11.7s"></i><i style="left:94.2%;width:3.7px;height:3.7px;opacity:0.78;--dx:55px;animation-duration:20.7s;animation-delay:-4.5s"></i><i style="left:41.7%;width:3.6px;height:3.6px;opacity:0.66;--dx:24px;animation-duration:18.1s;animation-delay:-9.4s"></i><i style="left:30.3%;width:2.7px;height:2.7px;opacity:0.55;--dx:-43px;animation-duration:11.7s;animation-delay:-19.4s"></i><i style="left:22.0%;width:5.4px;height:5.4px;opacity:0.88;--dx:51px;animation-duration:12.0s;animation-delay:-14.7s"></i><i style="left:70.6%;width:2.8px;height:2.8px;opacity:0.9;--dx:41px;animation-duration:15.1s;animation-delay:-7.8s"></i><i style="left:36.6%;width:2.3px;height:2.3px;opacity:0.64;--dx:48px;animation-duration:18.4s;animation-delay:-8.5s"></i><i style="left:29.5%;width:3.8px;height:3.8px;opacity:0.88;--dx:-34px;animation-duration:21.7s;animation-delay:-2.3s"></i></div>
-      <div class="hero-content">
-        <p class="hero-season">Holiday season on Hood Canal</p>
-        <h1><span class="hero-line">Who's playing</span><span class="hero-line">around the <em>Hood?</em></span></h1>
-        <span class="hero-rule" aria-hidden="true"></span>
-        <p class="hero-copy">Live music, local rooms and holiday plans around Hood Canal. Gather the family, find a show.</p>
-        <div class="quick-actions" aria-label="Quick navigation">
-          <button onclick="document.getElementById('tonightSection').scrollIntoView({behavior:'smooth'})"><span class="cta-icon">▣</span>Tonight</button>
-          <button id="ctaWeekend" onclick="document.getElementById('weekendSection').scrollIntoView({behavior:'smooth'})"><span class="cta-icon">▣</span>This Weekend</button>
-          <button onclick="go('cal')"><span class="cta-icon">▦</span>Full Calendar</button>
+      <div class="rd-hero-in">
+        <div class="rd-hero-copy">
+          <p class="rd-kicker" id="rdToday"></p>
+          <h1 id="rdTonightHead">Tonight on Hood Canal</h1>
+          <p class="rd-hero-sub" id="rdTonightSub"></p>
+        </div>
+        <div class="rd-tonight" id="tonightBody"></div>
+      </div>
+    </section>
+
+    <!-- B · Weekend lineup poster -->
+    <section class="rd-wrap" id="weekendSection" aria-labelledby="rdPosterHead">
+      <div class="rd-poster">
+        <svg class="rd-waves" aria-hidden="true" viewBox="0 0 1200 900" preserveAspectRatio="none">
+          <g fill="none" stroke="#e2b85f" stroke-opacity=".11" stroke-width="2">
+            <path d="M-20 120C200 60 380 200 620 140S1000 40 1220 130"/><path d="M-20 190C200 130 380 270 620 210S1000 110 1220 200"/>
+            <path d="M-20 260C200 200 380 340 620 280S1000 180 1220 270"/><path d="M-20 420C240 360 420 520 660 450S1020 330 1220 430"/>
+            <path d="M-20 490C240 430 420 590 660 520S1020 400 1220 500"/><path d="M-20 660C180 600 400 740 640 680S980 580 1220 670"/>
+            <path d="M-20 730C180 670 400 810 640 750S980 650 1220 740"/><path d="M-20 800C180 740 400 880 640 820S980 720 1220 810"/>
+          </g>
+        </svg>
+        <div class="rd-poster-head">
+          <div>
+            <p class="rd-presents">Hood Fjord Live presents</p>
+            <h2 id="rdPosterHead">This weekend</h2>
+          </div>
+          <div class="rd-poster-when">
+            <p class="rd-poster-dates" id="rdPosterDates"></p>
+            <p class="rd-poster-count" id="rdPosterCount"></p>
+          </div>
+        </div>
+        <div class="rd-poster-cols" id="weekendBody"></div>
+        <div class="rd-poster-actions">
+          <button type="button" class="rd-btn rd-btn-red" id="rdShareLineup" onclick="rdShareLineup(this)">Share this lineup</button>
+          <button type="button" class="rd-link" onclick="go('cal')">Full calendar →</button>
         </div>
       </div>
     </section>
-    <div class="support-strip"><span class="support-note">♪</span><span>Happy holidays from Hood Fjord Live — local music makes the season</span><a href="/about/">Learn more ›</a></div>
 
-    <div class="home-grid">
-      <section class="feature-section" id="tonightSection">
-        <div class="kicker">Tonight</div>
-        <h2 id="tonightHead"></h2>
-        <p id="tonightSub"></p>
-        <div id="tonightBody"></div>
-      </section>
-
-      <section class="upcoming-section" id="weekendSection">
-        <div class="section-head">
-          <div><div class="kicker">Plan ahead</div><h2>This Weekend</h2></div>
+    <!-- C · Around the canal -->
+    <section class="rd-wrap rd-map-sec" id="mapSection" aria-labelledby="rdMapHead">
+      <p class="rd-kicker">Next two weeks</p>
+      <h2 class="rd-h2" id="rdMapHead">Around the canal</h2>
+      <p class="rd-lede">Pick a town to see who’s playing there.</p>
+      <div class="rd-map-grid">
+        <div class="rd-map">
+          <svg class="rd-map-art" aria-hidden="true" viewBox="0 0 600 760" preserveAspectRatio="none">
+            <g fill="none" stroke="#e2b85f" stroke-opacity=".08" stroke-width="1.5">
+              <path d="M0 140C150 100 300 180 600 120"/><path d="M0 300C160 250 320 340 600 270"/><path d="M0 680C150 640 320 720 600 650"/>
+            </g>
+            <path d="M262 0C248 130 216 260 206 380C200 450 232 505 304 508C378 511 428 482 492 455" fill="none" stroke="#2e6a7c" stroke-width="24" stroke-linecap="round"/>
+            <path d="M206 640C240 610 262 590 300 586" fill="none" stroke="#2e6a7c" stroke-width="16" stroke-linecap="round"/>
+            <path d="M560 760C552 700 548 650 540 610" fill="none" stroke="#2e6a7c" stroke-width="16" stroke-linecap="round"/>
+          </svg>
+          <div id="rdPins"></div>
+          <p class="rd-map-note">Simplified map, not to scale</p>
         </div>
-        <div id="weekendBody"></div>
-        <button class="linkbtn" onclick="go('cal')">Open the full calendar →</button>
-      </section>
-    </div>
+        <div class="rd-map-list" id="rdMapList" aria-live="polite"></div>
+      </div>
+    </section>
 
-    <section class="feature-section footer-wide" style="border-right:0;padding-right:0">
-      <div class="section-head">
-        <div><div class="kicker">Coming up</div><h2>More Live Music</h2></div>
-        <p>Upcoming listings in date order. Use the full calendar to filter by artist, venue or town.</p>
+    <!-- Flat list: what comes after -->
+    <section class="rd-wrap" id="upcomingSection" aria-labelledby="rdUpHead">
+      <div class="rd-sechead">
+        <h2 class="rd-h2" id="rdUpHead">Coming up</h2>
+        <button type="button" class="rd-link" onclick="go('cal')">Open the full calendar →</button>
       </div>
       <div id="upcomingBody"></div>
     </section>
 
-    <section class="signup" id="signup">
-      <div class="signup-in">
-        <div class="kicker">Every Thursday</div>
-        <h2>The weekend lineup, by email</h2>
-        <p>One email a week with who is playing around the canal. Nothing else, and you
-           can stop any time.</p>
+    <section class="rd-wrap" id="signup">
+      <div class="rd-signup">
+        <div class="rd-signup-copy">
+          <h2>Get the weekend lineup every Thursday</h2>
+          <p>One email a week with who is playing around the canal. Nothing else, and you can stop any time.</p>
+        </div>
         <form id="subForm" onsubmit="return submitSignup(event)" novalidate>
+          <label for="subEmail">Email address</label>
           <div class="signup-row">
-            <input id="subEmail" type="email" inputmode="email" autocomplete="email"
-                   placeholder="you@example.com" aria-label="Your email address" required>
+            <input id="subEmail" type="email" inputmode="email" autocomplete="email" placeholder="you@example.com" required>
             <button type="submit" id="subBtn">Sign me up</button>
           </div>
-          <!-- Hidden from people, irresistible to bots. -->
           <div class="signup-hp" aria-hidden="true">
             <label for="subWebsite">Website</label>
             <input id="subWebsite" type="text" tabindex="-1" autocomplete="off">
@@ -1190,71 +1413,231 @@ function setTown(t){
   if(s && s.scrollIntoView) s.scrollIntoView({behavior:'smooth',block:'start'});
 }
 
+/* ---------------- home (redesign) ----------------
+   A · tonight first, B · weekend lineup poster, C · around-the-canal map, then a flat
+   list. Everything renders from the same feed as the calendar, so the town bar, the
+   artist and venue pop-ups and the background refresh all keep working unchanged. */
+const RD_TOWN_CLASS = t => 't-' + String(t||'').toLowerCase().replace(/[^a-z]/g,'');
+function rdVisual(e, cls){
+  const a = aById && aById[e.aid];
+  const photo = a && (a.photo || a.image || a.photo_url);
+  const tile = `<span class="rd-tile ${RD_TOWN_CLASS(e.city)}${cls?' '+cls:''}" aria-hidden="true">${esc(initials(e.artist))}</span>`;
+  if(!photo) return tile;
+  const alt = esc(e.artist);
+  return `<img src="${esc(photo)}" alt="${alt}" loading="lazy" onerror="this.outerHTML=this.dataset.fb" data-fb="${esc(tile)}">`;
+}
+function rdDirections(e){
+  const v = vById[e.vid];
+  if(!v) return '';
+  const addr = [v.address, [v.city, v.state, v.zip].filter(Boolean).join(' ')].filter(Boolean).join(', ');
+  return 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(v.name + (addr ? ', ' + addr : ''));
+}
+function rdCalendar(e){
+  if(!e.start) return '';
+  const day = e.date.replace(/-/g,'');
+  const st = e.start.replace(':','') + '00';
+  let endDay = day, en = (e.end || '').replace(':','') + '00';
+  if(!e.end){
+    const h = (Number(e.start.split(':')[0]) + 2) % 24;
+    en = String(h).padStart(2,'0') + e.start.split(':')[1] + '00';
+  }
+  if(en <= st) endDay = key(addDays(d(e.date), 1)).replace(/-/g,'');
+  const v = vById[e.vid];
+  const p = new URLSearchParams({action:'TEMPLATE', text:`${e.artist} at ${e.venue}`,
+    dates:`${day}T${st}/${endDay}T${en}`, ctz:'America/Los_Angeles',
+    location: v ? [v.name, v.address, v.city].filter(Boolean).join(', ') : e.venue,
+    details:'Found on Hood Fjord Live — https://hoodfjordlive.com'});
+  return 'https://calendar.google.com/calendar/render?' + p.toString();
+}
+function rdActions(e, opts){
+  const o = opts || {};
+  const dir = rdDirections(e), cal = rdCalendar(e);
+  const cls = o.light ? 'rd-btn-line' : 'rd-btn-ghost';
+  let out = '';
+  if(dir) out += `<a class="rd-btn ${o.light?'rd-btn-red':cls}" href="${esc(dir)}" target="_blank" rel="noopener">Directions</a>`;
+  if(cal) out += `<a class="rd-btn ${cls}" href="${esc(cal)}" target="_blank" rel="noopener">${o.short?'+ Calendar':'Add to calendar'}</a>`;
+  if(o.share) out += `<button type="button" class="rd-btn ${cls} rd-share" onclick="rdShareShow(this,'${esc(e.id)}')">Share</button>`;
+  return out ? `<div class="rd-actions">${out}</div>` : '';
+}
+function rdWhere(e){
+  const venue = e.vid ? `<button class="rd-venue" onclick="openVenue('${e.vid}')">${esc(e.venue)}</button>` : esc(e.venue);
+  return venue + (e.city ? ` · ${esc(e.city)}` : '');
+}
+function rdDayName(iso){
+  const dd = d(iso), tomorrow = key(addDays(TODAY,1));
+  const lead = iso===TKEY ? 'Tonight · ' : iso===tomorrow ? 'Tomorrow · ' : '';
+  return `${lead}${DOWL[dd.getDay()]}, ${MON[dd.getMonth()]} ${dd.getDate()}`;
+}
+function rdToast(btn, text){
+  const was = btn.textContent; btn.textContent = text;
+  setTimeout(()=>{ btn.textContent = was; }, 2200);
+}
+function rdShare(btn, title, text){
+  const url = location.origin + '/';
+  if(navigator.share){ navigator.share({title, text, url}).catch(()=>{}); return; }
+  const all = text + '\n' + url;
+  if(navigator.clipboard){ navigator.clipboard.writeText(all).then(()=>rdToast(btn,'Copied — paste it anywhere'), ()=>{}); }
+}
+function rdShareShow(btn, id){
+  const e = EV.find(x=>x.id===id); if(!e) return;
+  const dd = d(e.date);
+  rdShare(btn, `${e.artist} at ${e.venue}`,
+    `${e.artist} at ${e.venue}${e.city?', '+e.city:''} — ${DOWL[dd.getDay()]} ${MONS[dd.getMonth()]} ${dd.getDate()}, ${span(e)}`);
+}
+let RD_POSTER = [];
+function rdShareLineup(btn){
+  const lines = RD_POSTER.map(x=>`${x.label}: ` + (x.shows.length ? x.shows.map(e=>`${e.artist} (${e.venue}, ${span(e)})`).join('; ') : 'nothing listed yet'));
+  rdShare(btn, document.getElementById('rdPosterHead').textContent, lines.join('\n'));
+}
+
+function rdFridayOf(iso){ const x=d(iso); const back=(x.getDay()+2)%7; return key(addDays(x,-back)); }
+/* Thanksgiving is the fourth Thursday in November; its weekend gets its own name. */
+function rdWeekendName(fridayIso, isThis){
+  const f = d(fridayIso);
+  if(f.getMonth()===10){
+    const first = new Date(f.getFullYear(),10,1);
+    const thu = 1 + ((4 - first.getDay() + 7) % 7) + 21;
+    if(f.getDate() === thu + 1) return 'Thanksgiving weekend';
+  }
+  return isThis ? 'This weekend' : 'Next weekend';
+}
+
+/* The poster is this weekend while any of it is still ahead; on a Sunday it moves on
+   to the coming weekend instead of disappearing, so the page always has a lineup. */
+function rdPosterDates(){
+  const ahead = nextWeekendDates().filter(dt => dt > TKEY);
+  if(ahead.length) return {dates: ahead, isThis: true};
+  const out = [];
+  for(let i=1; i<=7 && out.length<3; i++){
+    const x = addDays(TODAY, i);
+    if([5,6,0].includes(x.getDay())) out.push(key(x));
+  }
+  return {dates: out, isThis: false};
+}
+
+const RD_SPOTS = { Quilcene:[262,46], Lilliwaup:[222,236], Hoodsport:[206,334], Union:[300,470],
+  Belfair:[500,412], Shelton:[250,644], Allyn:[520,582], Olympia:[340,730] };
+let RD_MAPTOWN = null, RD_MAP_USER = false;
+function rdRenderMap(){
+  const end = key(addDays(TODAY, 13));
+  const win = sorted.filter(e => e.date >= TKEY && e.date <= end);
+  const counts = {};
+  win.forEach(e => { if(e.city) counts[e.city] = (counts[e.city]||0) + 1; });
+  const towns = Object.keys(RD_SPOTS).filter(t => counts[t] || ['Union','Shelton','Belfair','Hoodsport','Allyn'].includes(t));
+  if(!RD_MAP_USER || !towns.includes(RD_MAPTOWN)){
+    RD_MAPTOWN = towns.slice().sort((a,b)=>(counts[b]||0)-(counts[a]||0))[0] || 'Union';
+  }
+  document.getElementById('rdPins').innerHTML = towns.map(t=>{
+    const [x,y] = RD_SPOTS[t], n = counts[t]||0;
+    return `<button type="button" class="rd-pin${n?' has':''}" style="left:${(x/6).toFixed(2)}%;top:${(y/7.6).toFixed(2)}%"
+      aria-pressed="${t===RD_MAPTOWN}" onclick="rdPickTown('${esc(t)}')"
+      aria-label="${esc(t)}, ${n} show${n===1?'':'s'} in the next two weeks"><span class="n" aria-hidden="true">${n}</span>${esc(t)}</button>`;
+  }).join('');
+  const list = win.filter(e => e.city === RD_MAPTOWN);
+  const head = `<div class="rd-mhead"><h3>${esc(RD_MAPTOWN)}</h3><span class="rd-count">${list.length} show${list.length===1?'':'s'}</span></div>`;
+  const rows = list.length ? list.slice(0,8).map(e=>{
+    const dd = d(e.date);
+    return `<div class="rd-mrow">
+      <span class="d">${e.date===TKEY?'Tonight':DOW[dd.getDay()]+' '+MONS[dd.getMonth()]+' '+dd.getDate()}</span>
+      <div><button class="rd-name" onclick="openArtist('${e.aid}')">${esc(e.artist)}</button>
+        <p class="v">${e.vid?`<button class="rd-venue" onclick="openVenue('${e.vid}')">${esc(e.venue)}</button>`:esc(e.venue)}</p></div>
+      <p class="t">${esc(span(e))}</p></div>`;
+  }).join('') + (list.length>8 ? `<p class="rd-mempty">And ${list.length-8} more in the full calendar.</p>` : '')
+    : `<p class="rd-mempty">Nothing listed in ${esc(RD_MAPTOWN)} in the next two weeks. Try another town, or open the full calendar.</p>`;
+  document.getElementById('rdMapList').innerHTML = head + rows;
+}
+function rdPickTown(t){ RD_MAPTOWN = t; RD_MAP_USER = true; rdRenderMap(); }
+
 function renderHome(){
-  document.getElementById('todayStamp').innerHTML =
-    `${DOWL[TODAY.getDay()]}<br>${MONS[TODAY.getMonth()]} ${TODAY.getDate()}, ${TODAY.getFullYear()}`;
+  const ts = document.getElementById('todayStamp');
+  if(ts) ts.innerHTML = `${DOWL[TODAY.getDay()]}<br>${MONS[TODAY.getMonth()]} ${TODAY.getDate()}, ${TODAY.getFullYear()}`;
+  document.getElementById('rdToday').textContent =
+    `${DOWL[TODAY.getDay()]}, ${MON[TODAY.getMonth()]} ${TODAY.getDate()}`;
 
+  /* A · tonight */
+  const where = TOWN ? `in ${TOWN}` : 'on Hood Canal';
+  document.getElementById('rdTonightHead').textContent = `Tonight ${where}`;
   const tonight = sorted.filter(e=>e.date===TKEY && inTown(e));
-  const head = document.getElementById('tonightHead');
-  const sub  = document.getElementById('tonightSub');
+  const nowMin = new Date().getHours()*60 + new Date().getMinutes();
+  const mins = t => t ? Number(t.split(':')[0])*60 + Number(t.split(':')[1]) : null;
+  const poster = rdPosterDates();
+  const wkCount = sorted.filter(e => poster.dates.includes(e.date) && inTown(e)).length;
+  const wkNameRaw = poster.dates.length ? rdWeekendName(rdFridayOf(poster.dates[0]), poster.isThis) : 'this weekend';
+  const wkName = wkNameRaw, wkLower = /^(This|Next) weekend$/.test(wkNameRaw) ? wkNameRaw.toLowerCase() : wkNameRaw;
+  const sub = document.getElementById('rdTonightSub');
   const body = document.getElementById('tonightBody');
-
   if(tonight.length){
-    const towns = [...new Set(tonight.map(e=>e.city).filter(Boolean))];
-    head.textContent = `${tonight.length} show${tonight.length===1?'':'s'} tonight`;
-    sub.textContent = towns.length ? `Playing in ${towns.join(', ')}.` : 'Playing around Mason County.';
-    const nowMin = new Date().getHours()*60 + new Date().getMinutes();
-    body.innerHTML = '<div class="rail">' + tonight.map(e=>{
-      const endMin = e.end ? Number(e.end.split(':')[0])*60 + Number(e.end.split(':')[1]) : 1440;
-      const startMin = e.start ? Number(e.start.split(':')[0])*60 + Number(e.start.split(':')[1]) : 0;
-      const over = endMin < nowMin;
-      const live = !over && startMin <= nowMin;
-      const soon = !over && !live && startMin - nowMin <= 120;
-      const tag = live ? '<span class="tag">On now</span>'
-                : soon ? '<span class="tag">Starts soon</span>'
-                : (!e.vid ? '<span class="tag">Venue not listed</span>' : '');
-      return `<div class="stop${over?' past':''}">${eventCard(e, tag)}</div>`;
-    }).join('') + '</div>';
+    sub.textContent = `${tonight.length===1?'One show':tonight.length+' shows'} tonight` +
+      (wkCount ? `. ${wkCount} ${[5,6,0].includes(TODAY.getDay())&&poster.isThis?'more ':''}${/weekend$/.test(wkNameRaw)&&!/^(This|Next)/.test(wkNameRaw)?'over '+wkLower:wkLower}.` : '.');
+    const show = tonight.slice(0, 3);
+    body.innerHTML = show.map((e,i)=>{
+      const s = mins(e.start), en = mins(e.end) ?? 1440;
+      const over = en <= nowMin, live = !over && s !== null && s <= nowMin;
+      const soon = !over && !live && s !== null && s - nowMin <= 120;
+      const label = over ? 'Earlier tonight' : live ? 'On now' : soon ? 'Starts soon' : 'Tonight';
+      const small = i > 0;
+      return `<article class="rd-tcard${small?' small':''}">
+        ${rdVisual(e)}
+        <div class="rd-tcard-body">
+          <p class="rd-status${over?' past':''}">${label} · ${esc(span(e))}</p>
+          <h3><button onclick="openArtist('${e.aid}')">${esc(e.artist)}</button></h3>
+          <p class="rd-where">${rdWhere(e)}</p>
+          ${small ? '' : rdActions(e, {light:true, share:true})}
+        </div>
+      </article>`;
+    }).join('') + (tonight.length > 3
+      ? `<p class="rd-more">And ${tonight.length-3} more tonight. <button onclick="go('cal')">See them all →</button></p>` : '');
   } else {
-    head.textContent = 'No shows listed tonight';
-    sub.textContent = 'Nothing in the calendar for tonight.';
-    const next = sorted.find(e=>e.date>TKEY);
+    sub.textContent = wkCount ? `Nothing listed tonight. ${wkCount} show${wkCount===1?'':'s'} over ${wkLower}.` : 'Nothing listed tonight.';
+    const next = sorted.find(e=>e.date>TKEY && inTown(e));
     body.innerHTML = next
-      ? `<div class="empty">Next up is <b>${esc(next.artist)}</b> on ${DOWL[d(next.date).getDay()]}, ${MONS[d(next.date).getMonth()]} ${d(next.date).getDate()} at ${esc(next.venue)}.</div>`
-      : `<div class="empty">The calendar has run out. <b>New listings are added from venue schedules.</b></div>`;
+      ? `<div class="rd-quiet"><p>Next up: <b>${esc(next.artist)}</b> ${next.date===key(addDays(TODAY,1))?'tomorrow':'on '+esc(DOWL[d(next.date).getDay()]+', '+MONS[d(next.date).getMonth()]+' '+d(next.date).getDate())} at ${esc(next.venue)}${next.city?', '+esc(next.city):''}, ${esc(span(next))}.</p>
+          <div class="rd-actions"><button type="button" class="rd-btn rd-btn-red" onclick="openArtist('${next.aid}')">See the show</button>
+          <button type="button" class="rd-btn rd-btn-ghost" onclick="go('cal')">Full calendar</button></div></div>`
+      : `<div class="rd-quiet"><p>The calendar has run out for now. New listings are added from venue schedules.</p></div>`;
   }
 
-  /* Today's shows are already the first thing on the page, so repeating them under
-     "This Weekend" just pads the homepage. The full weekend, today included, is still
-     on the calendar. */
-  const wkDates = nextWeekendDates();
-  const wkAhead = wkDates.filter(dt => dt > TKEY);
-  const wk = sorted.filter(e => wkAhead.includes(e.date) && inTown(e));
-
+  /* B · weekend lineup poster */
   const wkSection = document.getElementById('weekendSection');
-  if(!wkAhead.length){
-    /* Sunday, or a Saturday with nothing left after today: nothing of the weekend is
-       still to come, so the heading would describe an empty idea. Hide it rather than
-       print "no shows", which reads as though the weekend were quiet. */
-    if(wkSection) wkSection.style.display = 'none';
-  } else {
-    if(wkSection) wkSection.style.display = '';
-    const h2 = wkSection && wkSection.querySelector('h2');
-    /* If today is part of the weekend, say so - otherwise leaving today out looks like
-       shows are missing. */
-    if(h2) h2.textContent = [5,6,0].includes(TODAY.getDay()) ? 'Rest of the weekend'
-                                                            : 'This Weekend';
-    document.getElementById('weekendBody').innerHTML = wk.length
-      ? weekendByDay(wk)
-      : `<div class="empty">${TOWN?`No weekend shows listed in <b>${esc(TOWN)}</b>. Tap <b>All areas</b> above.`:'No weekend shows are listed yet.'}</div>`;
+  if(!poster.dates.length){ wkSection.style.display='none'; }
+  else {
+    wkSection.style.display='';
+    document.getElementById('rdPosterHead').textContent = wkName;
+    const f = d(poster.dates[0]), l = d(poster.dates[poster.dates.length-1]);
+    document.getElementById('rdPosterDates').textContent =
+      `${MONS[f.getMonth()].toUpperCase()} ${f.getDate()}` + (poster.dates.length>1
+        ? `–${l.getMonth()!==f.getMonth()?MONS[l.getMonth()].toUpperCase()+' ':''}${l.getDate()}` : '');
+    const wk = sorted.filter(e => poster.dates.includes(e.date) && inTown(e));
+    const towns = [...new Set(wk.map(e=>e.city).filter(Boolean))];
+    document.getElementById('rdPosterCount').textContent = wk.length
+      ? `${wk.length} show${wk.length===1?'':'s'}${towns.length?' · '+towns.slice(0,3).join(', ')+(towns.length>3?' and more':''):''}`
+      : (TOWN ? `Nothing listed in ${TOWN} yet` : 'Nothing listed yet');
+    RD_POSTER = poster.dates.map(dt=>({label: DOWL[d(dt).getDay()], shows: wk.filter(e=>e.date===dt)}));
+    document.getElementById('weekendBody').innerHTML = RD_POSTER.map(col=>`<div>
+        <p class="rd-day-tag">${col.label}</p>
+        ${col.shows.length ? col.shows.map(e=>`<div class="rd-pshow">
+            <button class="rd-name" onclick="openArtist('${e.aid}')">${esc(e.artist)}</button>
+            <p class="rd-pmeta"><strong>${esc(span(e))}</strong> · ${rdWhere(e)}</p>
+          </div>`).join('') : `<p class="rd-pempty">Nothing listed yet.</p>`}
+      </div>`).join('');
   }
 
-  const afterWeekend = sorted.filter(e=>e.date>TKEY && !wkDates.includes(e.date) && inTown(e));
-  const nextDays = [...new Set(afterWeekend.map(e=>e.date))].slice(0,5);
-  const upcoming = afterWeekend.filter(e=>nextDays.includes(e.date));
-  document.getElementById('upcomingBody').innerHTML = upcoming.length
-    ? groupByDay(upcoming)
-    : `<div class="empty">${TOWN?`Nothing more listed in <b>${esc(TOWN)}</b>. Tap <b>All areas</b> above.`:'No additional dates listed yet.'}</div>`;
+  /* C · map */
+  rdRenderMap();
+
+  /* Flat list: the next five days with shows after tonight and the poster */
+  const after = sorted.filter(e => e.date > TKEY && !poster.dates.includes(e.date) && inTown(e));
+  const days = [...new Set(after.map(e=>e.date))].slice(0,5);
+  document.getElementById('upcomingBody').innerHTML = days.length
+    ? days.map(dt=>`<section class="rd-day"><h3>${esc(rdDayName(dt))}</h3>${after.filter(e=>e.date===dt).map(e=>`
+        <article class="rd-row">
+          ${rdVisual(e)}
+          <div style="min-width:0"><button class="rd-name" onclick="openArtist('${e.aid}')">${esc(e.artist)}</button>
+            <p class="v">${rdWhere(e)}</p></div>
+          <p class="t">${esc(span(e))}</p>
+          ${rdActions(e, {short:true})}
+        </article>`).join('')}</section>`).join('')
+    : `<p class="rd-empty">${TOWN?`Nothing more listed in ${esc(TOWN)}. Choose “All areas” above.`:'No more dates listed yet.'}</p>`;
 
   stampFooter(DB.generated);
 }

@@ -8,7 +8,7 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<meta name="theme-color" content="#0c2620">
+<meta name="theme-color" content="#071a15">
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -976,6 +976,54 @@ html body .cell.sel .pip{background:#fff!important}
 @media (prefers-reduced-motion:reduce){
   .hero-snowfall i{animation:none;top:auto}
   .hero-snowfall i:nth-child(3n){top:18%}.hero-snowfall i:nth-child(3n+1){top:46%}.hero-snowfall i:nth-child(3n+2){top:74%}}
+/* ===== HOLIDAY — PALETTE E: pine page, cranberry panels, cream cards, gold labels ===== */
+:root,:root[data-theme="dark"]{--e-page:#0c1f1a;--e-panel:#4a1419;--e-card:#fbf6ee;--e-border:#6e2a30;
+  --e-top:#2f6b56;--e-text:#fbf6ee;--e-muted:#e6c9c6;--e-gold:#f7d27a;--e-ink:#1b1f1c;--e-cmuted:#5e6862;--e-green:#14382b}
+html,body{background:var(--e-page)!important}
+.mast,.mobile-menu,.tabs,.foot{background:#071a15!important}
+.locationbar{background:#0b221c!important}
+.home-grid{background:transparent!important}
+/* Panels */
+.home-grid>.feature-section,.home-grid>.upcoming-section,.footer-wide,.feature-section,.upcoming-section{
+  background:var(--e-panel)!important;border:1px solid var(--e-border)!important;border-top:6px solid var(--e-top)!important;color:var(--e-text)!important}
+.kicker,.linkbtn{color:var(--e-gold)!important}
+.feature-section h2,.upcoming-section h2,#tonightHead,.section-head h2{color:var(--e-text)!important}
+.section-head p,#tonightSub,.empty{color:var(--e-muted)!important}
+html body .dayhead,html body .dayhead *{color:var(--e-text)!important;border-color:var(--e-text)!important}
+html body .dayhead.wknd span:last-child,html body .wknd .tag{color:var(--e-gold)!important}
+.daygroup,.daygroup *{border-color:var(--e-border)}
+/* Cream cards */
+html body #tonightBody .card,html body #weekendBody .card,html body #upcomingBody .row,html body .card,html body .row,.card,.row{
+  background:var(--e-card)!important;color:var(--e-ink)!important;border-color:var(--e-border)!important}
+.card .act,.row .act,.row .when b,.row .when strong{color:var(--e-ink)!important}
+.card .meta,.row .meta,.row .when{color:var(--e-cmuted)!important}
+html body .card-time,html body .row .time,html body .stop.past .card-time,html body #tonightBody .card-time{color:var(--e-green)!important}
+.card a,.row a,.meta a{color:var(--e-green)!important}
+/* Sign-up stays evergreen; banner stays bright cranberry */
+.signup{background:#14382b!important;border-top:6px solid var(--e-gold)!important}
+.signup .kicker{color:var(--e-gold)!important}
+.foot .contact,.foot a{color:var(--e-gold)!important}
+/* Calendar */
+#cal{background:var(--e-panel)!important;padding:24px 22px 28px!important;margin-top:18px!important;border-top:6px solid var(--e-top)!important;color:var(--e-text)!important}
+#monthLabel{color:var(--e-text)!important}
+.fnote,.dow span{color:var(--e-muted)!important}
+.clear{color:var(--e-gold)!important}
+.segwrap{background:var(--e-card)!important;border-color:var(--e-text)!important}
+.segwrap button{color:var(--e-green)!important}
+.segwrap button[aria-selected="true"]{background:var(--e-green)!important;color:#fff!important}
+.filters select{background:var(--e-card)!important;color:var(--e-ink)!important;border-color:var(--e-border)!important}
+.mnav button{background:var(--e-card)!important;color:var(--e-green)!important;border-color:var(--e-card)!important}
+.cell{color:var(--e-muted)!important}
+html body .cell.has{background:var(--e-card)!important;border-color:var(--e-border)!important;color:var(--e-ink)!important}
+html body .cell.today{border:2px solid var(--e-gold)!important}
+html body .cell.sel{background:var(--e-green)!important;border-color:var(--e-green)!important;color:#fff!important}
+.cell .pip{background:#a61e2a!important}
+html body .cell.sel .pip{background:#fff!important}
+#dayDetail,#listView{color:var(--e-text)!important}
+/* Artist / venue pop-up: cream with green and cranberry */
+.sheet{background:var(--e-card)!important;color:var(--e-ink)!important;border-top-color:var(--e-top)!important}
+.sheet h2{color:var(--e-green)!important}
+.sheet .kind,.sheet .subhead{color:#a61e2a!important}
 </style>
 </head>
 <body>

@@ -8,7 +8,7 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<meta name="theme-color" content="#0c2620">
+<meta name="theme-color" content="#071a15">
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -963,6 +963,54 @@ html body .cell.sel .pip{background:#fff!important}
 
 /* The closed pop-up peeked ~18px into view at the bottom of the screen. */
 .sheet:not(.on){visibility:hidden}
+/* ===== HOLIDAY — DARK VARIANT: deep evergreen page, snow text, cranberry accents ===== */
+:root,:root[data-theme="dark"]{
+  --paper:#0e2620;--surface:#163a30;--ink:#f6f1e9;--muted:#bccac2;--line:#2f5246;--soft:#1c4237;
+  --holly:#b3242f;--holly-dk:#931c26;--holly-lt:#f49a9c;--pine:#163a30;--pine-dk:#071a15;--snow:#0e2620;
+}
+html,body{background:#0e2620!important;color:#f6f1e9!important}
+.mast,.mobile-menu,.foot,.tabs{background:#071a15!important}
+.locationbar{background:#0b221c!important}
+.hero.hero-photo::before{background:rgba(7,26,21,.6)!important}
+.support-strip{background:var(--holly)!important}
+.home-grid>.feature-section,.home-grid>.upcoming-section,.footer-wide,.feature-section,.upcoming-section{
+  background:#123128!important;border-color:#2f5246!important;border-top-color:var(--holly)!important;color:#f6f1e9!important}
+.kicker,.kind,.subhead,.linkbtn,.clear{color:var(--holly-lt)!important}
+h2,#tonightHead,.section-head h2,#monthLabel{color:#f6f1e9!important}
+.section-head p,#tonightSub,.fnote,.empty,.dow span{color:#bccac2!important}
+html body #tonightBody .card,html body #weekendBody .card,html body #upcomingBody .row,html body .card,html body .row,.card,.row{
+  background:#163a30!important;color:#f6f1e9!important;border-color:#2f5246!important}
+.card .act,.row .act{color:#f6f1e9!important}
+.card .meta,.row .meta,.row .when{color:#bccac2!important}
+.card-time,.row .time{color:var(--holly-lt)!important}
+.row .when b,.row .when strong{color:#f6f1e9!important}
+.card a,.row a,.meta a{color:#dfe8e3!important}
+.daygroup,.daygroup *{border-color:#2f5246}
+.signup{background:#071a15!important;border-top:1px solid #2f5246!important}
+.foot .contact,.foot a{color:var(--holly-lt)!important}
+.segwrap{background:#163a30!important;border-color:#f6f1e9!important}
+.segwrap button{color:#f6f1e9!important}
+.segwrap button[aria-selected="true"]{background:var(--holly)!important;color:#fff!important}
+.filters select{background:#163a30!important;color:#f6f1e9!important;border-color:#2f5246!important}
+.mnav button{background:#163a30!important;color:#f6f1e9!important;border-color:#bccac2!important}
+.cell{color:#8fa39a!important}
+html body .cell.has{background:#163a30!important;border-color:#2f5246!important;color:#f6f1e9!important}
+html body .cell.today{border:2px solid var(--holly-lt)!important}
+html body .cell.sel{background:var(--holly)!important;border-color:var(--holly)!important;color:#fff!important}
+.cell .pip{background:var(--holly-lt)!important}
+#cal,#dayDetail,#listView{color:#f6f1e9!important}
+.sheet{background:#123128!important;color:#f6f1e9!important}
+.sheet h2{color:#f6f1e9!important}
+.sheet .close{background:#163a30!important;color:#f6f1e9!important;border-color:#f6f1e9!important}
+.sub,.gap{color:#bccac2!important}
+.gap{background:#163a30!important}
+.desc{color:#f6f1e9!important}
+.links a{background:transparent!important;color:#f6f1e9!important;border-color:#f6f1e9!important}
+.links a.key{background:var(--holly)!important;border-color:var(--holly)!important;color:#fff!important}
+html body .dayhead,html body .dayhead *{color:#f6f1e9!important;border-color:#f6f1e9!important}
+html body .dayhead .wk,html body .dayhead.wknd span:last-child,html body .wknd .tag{color:var(--holly-lt)!important}
+html body .card-time,html body .row .time{color:var(--holly-lt)!important}
+html body .stop.past .card-time,html body .stop .card-time,html body #tonightBody .card-time{color:var(--holly-lt)!important}
 </style>
 </head>
 <body>

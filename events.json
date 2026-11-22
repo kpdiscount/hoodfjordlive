@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-22 12:03",
+ "generated": "2026-11-22 15:29",
  "source": "Tidewater master sheet",
  "events": [
   {
@@ -3051,9 +3051,21 @@
    "notes": ""
   },
   {
-   "id": "evt_3b53fd7e758f",
+   "id": "evt_322a94cb2c1f",
    "date": "2026-11-23",
    "start": "18:00",
+   "end": "19:00",
+   "aid": "fallen-robin",
+   "artist": "Fallen Robin",
+   "vid": "2-margaritas-restaurant-union",
+   "venue": "2 Margaritas Restaurant (Union)",
+   "city": "Union",
+   "notes": "Union"
+  },
+  {
+   "id": "evt_3b53fd7e758f",
+   "date": "2026-11-23",
+   "start": "19:00",
    "end": "22:00",
    "aid": "open-mic",
    "artist": "Open Mic",
@@ -3517,6 +3529,18 @@
    "venue": "elsarape",
    "city": "",
    "notes": ""
+  },
+  {
+   "id": "evt_5079b946274d",
+   "date": "2027-01-26",
+   "start": "18:00",
+   "end": "21:00",
+   "aid": "curtis-roy-moore",
+   "artist": "Curtis Roy Moore",
+   "vid": "el-sarape-shelton",
+   "venue": "El Sarape (Shelton)",
+   "city": "Shelton",
+   "notes": "Shelton"
   }
  ],
  "artists": [

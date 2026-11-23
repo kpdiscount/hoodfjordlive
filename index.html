@@ -845,6 +845,15 @@ html,body{background:#071713!important}
 .signup-msg{margin:14px 0 0;font-size:15.5px;min-height:1.4em}
 .signup-msg.ok{color:var(--forest)}
 .signup-msg.bad{color:var(--orange)}
+
+/* YouTube thumbnails in the artist pop-up (click to play) */
+.yt-grid{display:grid;gap:12px;margin-top:10px}
+.yt-lite,.yt-frame{display:block;width:100%;aspect-ratio:16/9;border:0;border-radius:6px;overflow:hidden;background:#000}
+.yt-lite{position:relative;padding:0;cursor:pointer}
+.yt-lite img{width:100%;height:100%;object-fit:cover;display:block;opacity:.9;transition:opacity .15s}
+.yt-lite:hover img,.yt-lite:focus-visible img{opacity:1}
+.yt-play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.yt-lite:focus-visible{outline:3px solid #fff;outline-offset:2px}
 </style>
 </head>
 <body>
@@ -1457,6 +1466,37 @@ function showsFor(pred, emptyMsg){
   return groupByDay(up);
 }
 
+/* YouTube: the youtube field can hold several links (one per line). Videos show as
+   thumbnails that only load YouTube's player when pressed; a channel link stays a button. */
+function ytParse(str){
+  const videos = [], seen = {};
+  let channel = '';
+  String(str||'').split(/\s+/).filter(Boolean).forEach(u=>{
+    const m = u.match(/(?:[?&]v=|youtu\.be\/|\/shorts\/|\/live\/|\/embed\/)([\w-]{11})/);
+    if(m){ if(!seen[m[1]]){ seen[m[1]]=1; videos.push(m[1]); } return; }
+    if(!channel && /^https?:\/\/(www\.|m\.)?youtube\.com\//i.test(u)) channel = u;
+  });
+  return {videos, channel, first: channel || (videos[0] ? 'https://www.youtube.com/watch?v='+videos[0] : '')};
+}
+function ytBlock(yt, name){
+  if(!yt.videos.length) return '';
+  return `<div class="subhead">Watch</div><div class="yt-grid">` + yt.videos.slice(0,3).map(id=>
+    `<button type="button" class="yt-lite" onclick="ytPlay(this,'${id}')" aria-label="Play a video of ${esc(name)} on YouTube">
+      <img src="https://i.ytimg.com/vi/${id}/hqdefault.jpg" alt="" loading="lazy" onerror="this.style.visibility='hidden'">
+      <span class="yt-play" aria-hidden="true"><svg viewBox="0 0 68 48" width="68" height="48"><path d="M66.5 7.7c-.8-2.9-3.1-5.2-6-6C55.3.3 34 .3 34 .3s-21.3 0-26.5 1.4c-2.9.8-5.2 3.1-6 6C.1 13 .1 24 .1 24s0 11 1.4 16.3c.8 2.9 3.1 5.2 6 6C12.7 47.7 34 47.7 34 47.7s21.3 0 26.5-1.4c2.9-.8 5.2-3.1 6-6C67.9 35 67.9 24 67.9 24s0-11-1.4-16.3z" fill="#ff0000"/><path d="M45 24 27 14v20z" fill="#fff"/></svg></span>
+    </button>`).join('') + `</div>`;
+}
+function ytPlay(btn, id){
+  const f = document.createElement('iframe');
+  f.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0&playsinline=1';
+  f.title = btn.getAttribute('aria-label').replace(/^Play /,'');
+  f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+  f.allowFullscreen = true;
+  f.className = 'yt-frame';
+  btn.replaceWith(f);
+  f.focus();
+}
+
 function openArtist(id){
   const a = aById[id]; if(!a) return;
   const mine = e=>e.aid===id;
@@ -1466,11 +1506,13 @@ function openArtist(id){
   if(bits.length) head += `<div class="sub">${esc(bits.join('  ·  '))}</div>`;
   let body = a.photo ? `<img class="profile-photo" src="${esc(a.photo)}" alt="${esc(a.name)}" loading="lazy">` : '';
   body += a.desc ? `<div class="desc">${esc(a.desc)}</div>` : '';
+  const yt = ytParse(a.youtube);
   body += linkRow([
     {label:'Website',url:a.website,key:true},{label:'Facebook',url:a.facebook},
     {label:'Instagram',url:a.instagram},{label:'TikTok',url:a.tiktok},
-    {label:'YouTube',url:a.youtube},{label:'Spotify',url:a.spotify},{label:'More',url:a.other}]);
-  if(!isEv && !a.desc){
+    {label:'YouTube',url:yt.first},{label:'Spotify',url:a.spotify},{label:'More',url:a.other}]);
+  body += ytBlock(yt, a.name);
+  if(!isEv && !a.desc && !yt.videos.length){
     body += `<div class="gap"><b>We're still gathering details on this act.</b> No verified genre,
       description or links yet &mdash; we only publish links once we're confident they belong to the
       right performer. Know them? Tell the venue and we'll add it.</div>`;

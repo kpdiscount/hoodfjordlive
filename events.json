@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-24 19:12",
+ "generated": "2026-11-24 22:31",
  "source": "Tidewater master sheet",
  "events": [
   {
@@ -3603,6 +3603,18 @@
    "notes": ""
   },
   {
+   "id": "evt_f67fee89a539",
+   "date": "2026-12-06",
+   "start": "16:30",
+   "end": "18:30",
+   "aid": "mike-frazier-album-release-party",
+   "artist": "Mike Frazier - Album Release Party",
+   "vid": "hood-canale",
+   "venue": "Hood Canalé",
+   "city": "Union",
+   "notes": ""
+  },
+  {
    "id": "evt_f91fc4d81a87",
    "date": "2026-12-06",
    "start": "23:00",
@@ -3721,6 +3733,18 @@
    "venue": "2 Margaritas Restaurant (Union)",
    "city": "Union",
    "notes": "Union"
+  },
+  {
+   "id": "evt_c7b6eab08d4c",
+   "date": "2026-12-16",
+   "start": "16:00",
+   "end": "20:00",
+   "aid": "scott-lesman-brianne-holiday-art-sale",
+   "artist": "Scott Lesman - Brianne Holiday Art Sale",
+   "vid": "hood-canale",
+   "venue": "Hood Canalé",
+   "city": "Union",
+   "notes": ""
   },
   {
    "id": "evt_4beca42165be",
@@ -6869,6 +6893,40 @@
   {
    "id": "special-open-mic",
    "name": "Special Open Mic",
+   "genre": "",
+   "home": "",
+   "desc": "",
+   "website": "",
+   "facebook": "",
+   "instagram": "",
+   "tiktok": "",
+   "youtube": "",
+   "spotify": "",
+   "other": "",
+   "conf": "Unverified",
+   "photo": "",
+   "isEvent": false
+  },
+  {
+   "id": "mike-frazier-album-release-party",
+   "name": "Mike Frazier - Album Release Party",
+   "genre": "",
+   "home": "",
+   "desc": "",
+   "website": "",
+   "facebook": "",
+   "instagram": "",
+   "tiktok": "",
+   "youtube": "",
+   "spotify": "",
+   "other": "",
+   "conf": "Unverified",
+   "photo": "",
+   "isEvent": false
+  },
+  {
+   "id": "scott-lesman-brianne-holiday-art-sale",
+   "name": "Scott Lesman - Brianne Holiday Art Sale",
    "genre": "",
    "home": "",
    "desc": "",

@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-24 22:31",
+ "generated": "2026-11-25 08:30",
  "source": "Tidewater master sheet",
  "events": [
   {
@@ -3135,6 +3135,18 @@
    "notes": ""
   },
   {
+   "id": "evt_b12088720b7c",
+   "date": "2026-11-27",
+   "start": "18:00",
+   "end": "21:00",
+   "aid": "bryan-evans",
+   "artist": "Bryan Evans",
+   "vid": "lake-nahwatzel-resort-and-restaurant",
+   "venue": "Lake Nahwatzel Resort and Restaurant",
+   "city": "Shelton",
+   "notes": ""
+  },
+  {
    "id": "evt_77d45f3cd7b5",
    "date": "2026-11-27",
    "start": "20:00",
@@ -3143,6 +3155,18 @@
    "artist": "Billy Shew",
    "vid": "taylor-station-restaurant-and-lounge",
    "venue": "Taylor Station Restaurant & Lounge",
+   "city": "Shelton",
+   "notes": ""
+  },
+  {
+   "id": "evt_22bb732ebb7e",
+   "date": "2026-11-28",
+   "start": "18:00",
+   "end": "21:00",
+   "aid": "scott-lesman-duo",
+   "artist": "Scott Lesman Duo",
+   "vid": "lake-nahwatzel-resort-and-restaurant",
+   "venue": "Lake Nahwatzel Resort and Restaurant",
    "city": "Shelton",
    "notes": ""
   },
@@ -6927,6 +6951,23 @@
   {
    "id": "scott-lesman-brianne-holiday-art-sale",
    "name": "Scott Lesman - Brianne Holiday Art Sale",
+   "genre": "",
+   "home": "",
+   "desc": "",
+   "website": "",
+   "facebook": "",
+   "instagram": "",
+   "tiktok": "",
+   "youtube": "",
+   "spotify": "",
+   "other": "",
+   "conf": "Unverified",
+   "photo": "",
+   "isEvent": false
+  },
+  {
+   "id": "bryan-evans",
+   "name": "Bryan Evans",
    "genre": "",
    "home": "",
    "desc": "",

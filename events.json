@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-25 09:13",
+ "generated": "2026-11-27 11:29",
  "source": "Tidewater master sheet",
  "events": [
   {
@@ -3672,6 +3672,18 @@
    "vid": "taylor-station-restaurant-and-lounge",
    "venue": "Taylor Station Restaurant & Lounge",
    "city": "Shelton",
+   "notes": ""
+  },
+  {
+   "id": "evt_b98d0d133645",
+   "date": "2026-12-09",
+   "start": "18:00",
+   "end": "22:00",
+   "aid": "open-mic",
+   "artist": "Open Mic",
+   "vid": "robinhood-revival",
+   "venue": "RobinHood Revival",
+   "city": "",
    "notes": ""
   },
   {
@@ -7446,6 +7458,23 @@
   {
    "id": "www-youtube-com-chriseakesmusic",
    "name": "www.youtube.com/@ChrisEakesMusic",
+   "address": "",
+   "city": "",
+   "state": "",
+   "zip": "",
+   "phone": "",
+   "website": "",
+   "facebook": "",
+   "instagram": "",
+   "type": "",
+   "lat": "",
+   "lng": "",
+   "about": "",
+   "conf": "Unverified"
+  },
+  {
+   "id": "robinhood-revival",
+   "name": "RobinHood Revival",
    "address": "",
    "city": "",
    "state": "",

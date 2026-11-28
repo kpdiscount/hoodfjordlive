@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-27 11:29",
+ "generated": "2026-11-27 18:32",
  "source": "Tidewater master sheet",
  "events": [
   {
@@ -4441,7 +4441,7 @@
    "spotify": "",
    "other": "",
    "conf": "Provided by scheduler",
-   "photo": "",
+   "photo": "/img/artist/billy-shew.jpg",
    "isEvent": false
   },
   {
@@ -5971,7 +5971,7 @@
    "spotify": "",
    "other": "",
    "conf": "Provided by scheduler",
-   "photo": "",
+   "photo": "/img/artist/ryan-yates.jpg",
    "isEvent": false
   },
   {
@@ -6277,7 +6277,7 @@
    "spotify": "",
    "other": "",
    "conf": "Provided by scheduler",
-   "photo": "",
+   "photo": "/img/artist/the-mistaken.jpg",
    "isEvent": false
   },
   {
@@ -6991,7 +6991,7 @@
    "spotify": "https://open.spotify.com/artist/2cMvY5Z0sTb3HdQajCpnwH",
    "other": "",
    "conf": "Provided by scheduler",
-   "photo": "",
+   "photo": "/img/src/bryan-evans.jpg",
    "isEvent": false
   }
  ],

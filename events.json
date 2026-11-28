@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-27 18:36",
+ "generated": "2026-11-27 18:52",
  "source": "Tidewater master sheet",
  "events": [
   {
@@ -3356,7 +3356,7 @@
    "start": "15:00",
    "end": "16:00",
    "aid": "jennifer-shiply-operation-scrooge",
-   "artist": "Jennifer Shiply - Operation Scrooge",
+   "artist": "Jennifer Shipley - Operation Scrooge",
    "vid": "www-youtube-com-chriseakesmusic",
    "venue": "www.youtube.com/@ChrisEakesMusic",
    "city": "",
@@ -4254,7 +4254,7 @@
    "spotify": "",
    "other": "",
    "conf": "Provided by scheduler",
-   "photo": "",
+   "photo": "/img/artist/aaron-mcfaddon.jpg",
    "isEvent": false
   },
   {
@@ -4322,7 +4322,7 @@
    "spotify": "",
    "other": "",
    "conf": "Provided by scheduler",
-   "photo": "",
+   "photo": "/img/artist/amber-pizl.jpg",
    "isEvent": false
   },
   {
@@ -4356,7 +4356,7 @@
    "spotify": "",
    "other": "",
    "conf": "Provided by scheduler",
-   "photo": "",
+   "photo": "/img/artist/anna-robinson.jpg",
    "isEvent": false
   },
   {
@@ -4475,7 +4475,7 @@
    "spotify": "",
    "other": "",
    "conf": "Provided by scheduler",
-   "photo": "",
+   "photo": "/img/artist/casey-freedom.jpg",
    "isEvent": false
   },
   {
@@ -4662,7 +4662,7 @@
    "spotify": "",
    "other": "",
    "conf": "Provided by scheduler",
-   "photo": "",
+   "photo": "/img/artist/curtis-roy-moore.jpg",
    "isEvent": false
   },
   {
@@ -4696,7 +4696,7 @@
    "spotify": "",
    "other": "",
    "conf": "Provided by scheduler",
-   "photo": "",
+   "photo": "/img/artist/dan-walker.jpg",
    "isEvent": false
   },
   {
@@ -4747,7 +4747,7 @@
    "spotify": "",
    "other": "",
    "conf": "Provided by scheduler",
-   "photo": "",
+   "photo": "/img/artist/danica-roxanica.jpg",
    "isEvent": false
   },
   {
@@ -4900,7 +4900,7 @@
    "spotify": "",
    "other": "",
    "conf": "Provided by scheduler",
-   "photo": "",
+   "photo": "/img/artist/dumpster-joe.jpg",
    "isEvent": false
   },
   {
@@ -5172,7 +5172,7 @@
    "spotify": "",
    "other": "",
    "conf": "Provided by scheduler",
-   "photo": "",
+   "photo": "/img/artist/humor-and-heart-trio.jpg",
    "isEvent": false
   },
   {
@@ -5206,7 +5206,7 @@
    "spotify": "",
    "other": "",
    "conf": "Provided by scheduler",
-   "photo": "",
+   "photo": "/img/artist/isaac-lornitzo.jpg",
    "isEvent": false
   },
   {
@@ -5240,7 +5240,7 @@
    "spotify": "",
    "other": "",
    "conf": "Provided by scheduler",
-   "photo": "",
+   "photo": "/img/artist/jill-and-the-jacks.jpg",
    "isEvent": false
   },
   {
@@ -5257,7 +5257,7 @@
    "spotify": "",
    "other": "",
    "conf": "Provided by scheduler",
-   "photo": "",
+   "photo": "/img/artist/jim-basnight.jpg",
    "isEvent": false
   },
   {
@@ -5597,7 +5597,7 @@
    "spotify": "",
    "other": "",
    "conf": "Provided by scheduler",
-   "photo": "",
+   "photo": "/img/artist/mega-rays.jpg",
    "isEvent": false
   },
   {
@@ -5631,7 +5631,7 @@
    "spotify": "",
    "other": "",
    "conf": "Provided by scheduler",
-   "photo": "",
+   "photo": "/img/artist/monty-banks.jpg",
    "isEvent": false
   },
   {
@@ -6107,7 +6107,7 @@
    "spotify": "",
    "other": "",
    "conf": "High",
-   "photo": "",
+   "photo": "/img/artist/suped-up-fjord.jpg",
    "isEvent": false
   },
   {
@@ -6175,7 +6175,7 @@
    "spotify": "",
    "other": "",
    "conf": "Provided by scheduler",
-   "photo": "",
+   "photo": "/img/artist/tarik-bentlemsani.jpg",
    "isEvent": false
   },
   {
@@ -6345,7 +6345,7 @@
    "spotify": "",
    "other": "https://www.allmusic.com/artist/shoemaker-brothers-mn0001580445",
    "conf": "High",
-   "photo": "",
+   "photo": "/img/artist/the-shoemaker-brothers.jpg",
    "isEvent": false
   },
   {
@@ -6413,7 +6413,7 @@
    "spotify": "",
    "other": "",
    "conf": "Provided by scheduler",
-   "photo": "",
+   "photo": "/img/artist/union-city-council.jpg",
    "isEvent": false
   },
   {
@@ -6537,18 +6537,18 @@
   },
   {
    "id": "jennifer-shiply-operation-scrooge",
-   "name": "Jennifer Shiply - Operation Scrooge",
+   "name": "Jennifer Shipley - Operation Scrooge",
    "genre": "",
    "home": "",
-   "desc": "",
+   "desc": "Local Artist & Jewelry Maker: Based in Union, Washington, she creates wire-wrapped gemstone jewelry and shares her work under the handle @doodlepunkart. She has also been featured in the Shelton-Mason County Journal for her gemstone wire-wrapping",
    "website": "",
-   "facebook": "",
-   "instagram": "",
+   "facebook": "https://www.facebook.com/DoodlepunkArt",
+   "instagram": "https://www.instagram.com/doodlepunkart/",
    "tiktok": "",
    "youtube": "",
    "spotify": "",
-   "other": "",
-   "conf": "Unverified",
+   "other": "https://www.masoncounty.com/section/news/589",
+   "conf": "Provided by scheduler",
    "photo": "",
    "isEvent": false
   },
